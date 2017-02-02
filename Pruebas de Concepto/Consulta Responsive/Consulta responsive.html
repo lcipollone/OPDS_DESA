@@ -1,0 +1,306 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Registro de Profesionales</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="https://elvery.net/demo/responsive-tables/assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+		 
+		  <!-- Latest compiled and minified CSS -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+
+			<!-- Latest compiled and minified JavaScript -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+
+			<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
+			<link href="general.css" rel="stylesheet">
+	</head>
+	<body>
+		<!--<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>
+					  Organismo Provincial para el Desarrollo Sostenible
+					</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h4>
+						Buenos Aires
+						<small class="text-muted">Provincia</small>
+					</h4>
+				</div>
+			</div>
+		</div>-->
+		<div class="container-fluid">
+		<form name="frmBuscaProf" method="post" action="ConsultaWeb.php">
+			<h3 class="estilo-titulos-principales">BÚSQUEDA DE PROFESIONALES</h3>
+			<div class="form-group col-md-6">
+				<label class="FontNormal">Registro:</label>
+				<select class="form-control selectpicker" name="sltRegistro" data-live-search="true">
+  					<option data-tokens="" value="0">-- Seleccione Registro --</option>
+  					<option data-tokens="consultora evaluaci" value="3">Consultoras de Evaluación</option>
+  					<option data-tokens="aparato sometido presion presión apf" value="1" selected="">Profesionales de Aparatos Sometidos A Presión</option>
+  					<option data-tokens="evaluación evaluacion" value="2">Profesionales de Evaluación</option>
+  					<option data-tokens="tecnicos apf" value="13">Técnicos de Aparatos Sometidos a Presión</option>
+  				</select>
+			</div>
+			<div class="form-group col-md-6">
+				<label class="FontNormal">Nro Profesional:</label>
+				<input class="form-control" name="txtNroProf" type="text" onkeypress="solonumeros();" value="" size="8" maxlength="8">
+			</div>
+			<div class="form-group col-md-12">
+				<label class="FontNormal">Nro Documento:</label>
+				<input class="form-control col-md-3" name="txtDNIBusca" type="text" onkeypress="solonumeros();" value="" size="9" maxlength="9"> 
+			</div>
+			<div class="form-group col-md-6">
+				<label class="FontNormal">Apellidos:</label>
+				<input class="form-control" name="txtApellidoBusca" type="text" value="" size="37">
+			</div>
+			<div class="form-group col-md-6">
+				<label class="FontNormal">Nombre:</label>
+				<input class="form-control" name="txtNombre" type="text" value="" size="37">
+			</div>
+  			<div class="form-group col-md-6">
+				<label class="FontNormal">Título:</label>
+				<select name="sltTitulo" class="selectpicker form-control" data-live-search="true" title="Seleccione Título...">
+			    	<!--<option data-tokens="" value="nada">-- Seleccione Título --</option>-->
+			      	<option data-tokens="aboga" value="ABOGADA">ABOGADA</option>
+			      	<option data-tokens="aboga" value="Abogado">Abogado</option>
+			      	<option data-tokens="agrimensor" value="Agrimensor">Agrimensor</option>
+			      	<option data-tokens="a" value="Agrónomo">Agrónomo</option>
+			      	<option data-tokens="a" value="Analista de Sistemas">Analista de Sistemas</option><option data-tokens="a" value="ANALISTA ECOLOGICO">ANALISTA ECOLOGICO</option>
+			      	<option data-tokens="a" value="Analista Ecológico">Analista Ecológico</option><option data-tokens="a" value="Analista Ecológico y en  Contaminación">Analista Ecológico y en  Contaminación</option>
+			      	<option data-tokens="a" value="Analista en Ciencias Ambientales">Analista en Ciencias Ambientales</option>
+			      	<option data-tokens="a" value="Analista en Contaminación y Analista Ecológico">Analista en Contaminación y Analista Ecológico</option>
+			      	<option data-tokens="a" value="Antropologa">Antropologa</option><option data-tokens="a" value="Arquitecta">Arquitecta</option><option data-tokens="a" value="Arquitecto">Arquitecto</option>
+			      	<option data-tokens="a" value="Artillero y corredor Publico">Artillero y corredor Publico</option><option data-tokens="a" value="BIOLOGA">BIOLOGA</option>
+			      	<option data-tokens="a" value="Biologo">Biologo</option><option data-tokens="a" value="Bioquímico">Bioquímico</option>
+			      	<option data-tokens="a" value="con orientacion en botanica">con orientacion en botanica</option><option data-tokens="a" value="Contador">Contador</option>
+			      	<option data-tokens="a" value="Curso de Evaluacion de Impacto Ambiental y Proyect">Curso de Evaluacion de Impacto Ambiental y Proyect</option>
+			      	<option data-tokens="a" value="curso de psgrado en EIA">curso de psgrado en EIA</option>
+			      	<option data-tokens="a" value="CURSO DE PUESTA A TIERRA DE PLANTAS INDUSTRIALES">CURSO DE PUESTA A TIERRA DE PLANTAS INDUSTRIALES</option>
+			      	<option data-tokens="a" value="Curso EIA y Proyecto Urbano">Curso EIA y Proyecto Urbano</option><option data-tokens="a" value="Diseñador Industrial">Diseñador Industrial</option>
+			      	<option data-tokens="a" value="diseño en areas esteriles ">diseño en areas esteriles </option>
+			      	<option data-tokens="a" value="Doctor en Ciencias del Mar">Doctor en Ciencias del Mar</option>
+			      	<option data-tokens="a" value="Doctor en Ciencias Naturales">Doctor en Ciencias Naturales</option>
+			      	<option data-tokens="a" value="Doctor en Ciencias Veterinarias ">Doctor en Ciencias Veterinarias </option>
+			      	<option data-tokens="a" value="Doctorado en Ciencias Quimica">Doctorado en Ciencias Quimica</option><option data-tokens="a" value="DR EN QUIMICA">DR EN QUIMICA</option>
+			      	<option data-tokens="eco" value="Ecólogo">Ecólogo</option><option data-tokens="a" value="Esp en Hig Ambiental">Esp en Hig Ambiental</option>
+			      	<option data-tokens="higiene seguridad trabajo agrario" value="Esp. en Higiene y Seguridad en el Trabajo Agrario">Esp. en Higiene y Seguridad en el Trabajo Agrario</option>
+			      	<option data-tokens="higiene industria" value="ESP. HIGIENE Y SEG.LAB.INDUST. DE LA CONST.">ESP. HIGIENE Y SEG.LAB.INDUST. DE LA CONST.</option>
+			      	<option data-tokens="higiene" value="Esp. Seg. e Higiene">Esp. Seg. e Higiene</option><option data-tokens="a" value="Esp. Seg.e Higiene">Esp. Seg.e Higiene</option>
+			      	<option data-tokens="a" value="ESPCIALISTA EN PLANEAMIENTO P. Y AMB.">ESPCIALISTA EN PLANEAMIENTO P. Y AMB.</option>
+			      	<option data-tokens="a" value="Espec. en Hig y Seg en el Trab Agra">Espec. en Hig y Seg en el Trab Agra</option>
+			      	<option data-tokens="a" value="espec.en Gestion del Patrimonio y Turismo Sostenib">espec.en Gestion del Patrimonio y Turismo Sostenib</option>
+			      	<option data-tokens="a" value="Especialidad Hidraulica">Especialidad Hidraulica</option><option data-tokens="a" value="ESPECIALISTA  AMBIENTAL">ESPECIALISTA  AMBIENTAL</option>
+			      	<option data-tokens="a" value="especialista  en ambiente y patologia ambiental">especialista  en ambiente y patologia ambiental</option>
+			      	<option data-tokens="a" value="Especialista en Ciencias Químicas y Ambiente">Especialista en Ciencias Químicas y Ambiente</option>
+			      	<option data-tokens="Especialista en Derecho Ambiental" value="Especialista en Derecho Ambiental">Especialista en Derecho Ambiental</option>
+			      	<option data-tokens="a" value="Especialista en Diagnostico y EvaluaciÃ³n Ambienta">Especialista en Diagnostico y EvaluaciÃ³n Ambienta</option>
+			      	<option data-tokens="a" value="Especialista en Explotación de Yacimientos">Especialista en Explotación de Yacimientos</option>
+			      	<option data-tokens="higiene gestion" value="Especialista en gestion ambiental - higiene y seg.">Especialista en gestion ambiental - higiene y seg.</option>
+			      	<option data-tokens="a" value="Especialista en Higiene y Proteccion Ambiental">Especialista en Higiene y Proteccion Ambiental</option>
+			      	<option data-tokens="a" value="Especialista en Higiene y Seg. ">Especialista en Higiene y Seg. </option>
+			      	<option data-tokens="a" value="especialista en higiene y seguridad en el trabajo">especialista en higiene y seguridad en el trabajo</option>
+			      	<option data-tokens="a" value="ESPECIALISTA EN ING. INDUSTRIAL">ESPECIALISTA EN ING. INDUSTRIAL</option>
+			      	<option data-tokens="a" value="Especialista en Ingenieria Ambiental">Especialista en Ingenieria Ambiental</option>
+			      	<option data-tokens="a" value="Especialista en Ingeniería en Calidad">Especialista en Ingeniería en Calidad</option>
+			      	<option data-tokens="a" value="Especialista en Planificacion Urbana  ">Especialista en Planificacion Urbana  </option>
+			      	<option data-tokens="a" value="ESPECIALISTA EN SEGURIDAD E HIGIENE">ESPECIALISTA EN SEGURIDAD E HIGIENE</option>
+			      	<option data-tokens="a" value="ESPECIALISTA EN SEGURIDAD E HIGIENE DEL TRABAJO">ESPECIALISTA EN SEGURIDAD E HIGIENE DEL TRABAJO</option>
+			      	<option data-tokens="a" value="Especialista en seguridad en el trabajo agrario">Especialista en seguridad en el trabajo agrario</option>
+			      	<option data-tokens="a" value="Especialista en Seguridad, Higiene y ProtecciÃ³n A">Especialista en Seguridad, Higiene y ProtecciÃ³n A</option>
+			      	<option data-tokens="a" value="Especialista en Seguridad, Higiene y Protección Am">Especialista en Seguridad, Higiene y Protección Am</option><option data-tokens="a" value="Especialista en Seguridad,Higiene y Proteccion Amb">Especialista en Seguridad,Higiene y Proteccion Amb</option><option data-tokens="a" value="ESPECIALISTA HIGIENE Y SEGURIDAD EN EL TRABAJO">ESPECIALISTA HIGIENE Y SEGURIDAD EN EL TRABAJO</option><option data-tokens="a" value="Especialista medio ambiente y contaminación de eco">Especialista medio ambiente y contaminación de eco</option><option data-tokens="a" value="Especializacion en Desarrollo Sustentable">Especializacion en Desarrollo Sustentable</option>
+			      	<option data-tokens="a" value="ESPECIALIZACION EN EVALUACION DEL IMPACTO AMBIENTA">ESPECIALIZACION EN EVALUACION DEL IMPACTO AMBIENTA</option>
+			      	<option data-tokens="a" value="Especializacion en Higiene  y Seg. en el Trabajo">Especializacion en Higiene  y Seg. en el Trabajo</option><option data-tokens="a" value="ESPECIALIZACION EN HIGIENE Y SEGURIDAD EN EL TRABA">ESPECIALIZACION EN HIGIENE Y SEGURIDAD EN EL TRABA</option><option data-tokens="a" value="Farmaceutica Especialista en Esterilización">Farmaceutica Especialista en Esterilización</option><option data-tokens="a" value="Farmaceutico">Farmaceutico</option><option data-tokens="a" value="Geofísico">Geofísico</option>
+			      	<option data-tokens="a" value="Geólogo">Geólogo</option><option data-tokens="a" value="Geoquímico">Geoquímico</option><option data-tokens="a" value="Hidrologia Ambiental">Hidrologia Ambiental</option>
+			      	<option data-tokens="a" value="HIGIENE Y SEGURIDAD DEN EL TRABAJO">HIGIENE Y SEGURIDAD DEN EL TRABAJO</option><option data-tokens="a" value="Higiene y Seguridad en el Trabajo y Medio Ambiente">Higiene y Seguridad en el Trabajo y Medio Ambiente</option><option data-tokens="a" value="Iing. laboral  y especialista en hig y seg">Iing. laboral  y especialista en hig y seg</option><option data-tokens="a" value="Ing industrial y espec en ing amb">Ing industrial y espec en ing amb</option><option data-tokens="a" value="ING. INDUSTRIAL">ING. INDUSTRIAL</option><option data-tokens="a" value="Ing. metalurgico">Ing. metalurgico</option><option data-tokens="a" value="INGENIERA  CIVIL">INGENIERA  CIVIL</option>
+			      	<option data-tokens="a" value="INGENIERA AGROINDUSTRIAL">INGENIERA AGROINDUSTRIAL</option><option data-tokens="a" value="INGENIERA AGRONOMA">INGENIERA AGRONOMA</option>
+			      	<option data-tokens="a" value="INGENIERA AMB. Y SANITARIA">INGENIERA AMB. Y SANITARIA</option><option data-tokens="a" value="INGENIERA AMBIENTAL">INGENIERA AMBIENTAL</option>
+			      	<option data-tokens="a" value="INGENIERA CIVIL">INGENIERA CIVIL</option><option data-tokens="a" value="Ingeniera en Ecologia">Ingeniera en Ecologia</option><option data-tokens="a" value="Ingeniera en Recursos Naturales y Medio Ambiente">Ingeniera en Recursos Naturales y Medio Ambiente</option><option data-tokens="a" value="INGENIERA HIDRAULICA">INGENIERA HIDRAULICA</option><option data-tokens="a" value="INGENIERA INDUSTRIAL">INGENIERA INDUSTRIAL</option><option data-tokens="a" value="INGENIERA QUIMICA">INGENIERA QUIMICA</option>
+			      	<option data-tokens="a" value="INGENIERA ZOOTECNISTA ">INGENIERA ZOOTECNISTA </option><option data-tokens="a" value="Ingeniería en Seguridad Ambiental">Ingeniería en Seguridad Ambiental</option><option data-tokens="a" value="Ingeniero  en Alimentos">Ingeniero  en Alimentos</option><option data-tokens="a" value="Ingeniero Aeronáutico">Ingeniero Aeronáutico</option>
+			      	<option data-tokens="a" value="Ingeniero Agrónomo">Ingeniero Agrónomo</option><option data-tokens="a" value="Ingeniero Ambiental">Ingeniero Ambiental</option>
+			      	<option data-tokens="a" value="Ingeniero Civil">Ingeniero Civil</option><option data-tokens="a" value="Ingeniero Electricista">Ingeniero Electricista</option>
+			      	<option data-tokens="a" value="Ingeniero Electromecánico">Ingeniero Electromecánico</option><option data-tokens="a" value="INGENIERO ELECTROMECANICO CON OR. MECANICA">INGENIERO ELECTROMECANICO CON OR. MECANICA</option><option data-tokens="a" value="Ingeniero Electromecánico or Electricista">Ingeniero Electromecánico or Electricista</option>
+			      	<option data-tokens="a" value="Ingeniero Electrónico">Ingeniero Electrónico</option><option data-tokens="a" value="Ingeniero en Arsenales">Ingeniero en Arsenales</option>
+			      	<option data-tokens="a" value="Ingeniero en Construcciones">Ingeniero en Construcciones</option><option data-tokens="a" value="Ingeniero en Ecologia">Ingeniero en Ecologia</option>
+			      	<option data-tokens="a" value="Ingeniero en Electrònica">Ingeniero en Electrònica</option><option data-tokens="a" value="Ingeniero en Geodesia">Ingeniero en Geodesia</option>
+			      	<option data-tokens="a" value="INGENIERO EN GESTION DE SINIESTROS Y SEGURIDAD AMB">INGENIERO EN GESTION DE SINIESTROS Y SEGURIDAD AMB</option>
+			      	<option data-tokens="a" value="Ingeniero en Higiene y Seguridad  en el Trabajo">Ingeniero en Higiene y Seguridad  en el Trabajo</option>
+			      	<option data-tokens="a" value="Ingeniero en Higiene y Seguridad en el Trabajo">Ingeniero en Higiene y Seguridad en el Trabajo</option>
+			      	<option data-tokens="a" value="Ingeniero en Industrias de la Alimentacion">Ingeniero en Industrias de la Alimentacion</option>
+			      	<option data-tokens="a" value="Ingeniero en Materiales">Ingeniero en Materiales</option>
+			      	<option data-tokens="a" value="Ingeniero en Organizaci{on de Empresas">Ingeniero en Organizaci{on de Empresas</option>
+			      	<option data-tokens="a" value="Ingeniero en Organizacion de Empresas">Ingeniero en Organizacion de Empresas</option>
+			      	<option data-tokens="a" value="INGENIERO EN PRODUCCION AGROPECUARIA">INGENIERO EN PRODUCCION AGROPECUARIA</option>
+			      	<option data-tokens="a" value="Ingeniero en Recursos Hidricos">Ingeniero en Recursos Hidricos</option>
+			      	<option data-tokens="a" value="Ingeniero en Recursos Naturales y Medio  Ambiente">Ingeniero en Recursos Naturales y Medio  Ambiente</option>
+			      	<option data-tokens="a" value="Ingeniero en Seguridad Ambiental">Ingeniero en Seguridad Ambiental</option>
+			      	<option data-tokens="a" value="Ingeniero en Seguridad e Higiene">Ingeniero en Seguridad e Higiene</option>
+			      	<option data-tokens="a" value="Ingeniero en Seguridad e Higiene en el Trabajo ">Ingeniero en Seguridad e Higiene en el Trabajo </option>
+			      	<option data-tokens="a" value="ingeniero en sistemas de informacion">ingeniero en sistemas de informacion</option>
+			      	<option data-tokens="a" value="Ingeniero en Telecomunicaciones">Ingeniero en Telecomunicaciones</option>
+			      	<option data-tokens="a" value="Ingeniero en vias de comunicacion">Ingeniero en vias de comunicacion</option>
+			      	<option data-tokens="a" value="Ingeniero Especialista en Higiene y Seguridad en e">Ingeniero Especialista en Higiene y Seguridad en e</option>
+			      	<option data-tokens="a" value="Ingeniero Forestal">Ingeniero Forestal</option><option data-tokens="a" value="Ingeniero Geógrafo">Ingeniero Geógrafo</option>
+			      	<option data-tokens="a" value="Ingeniero Hidráulico">Ingeniero Hidráulico</option><option data-tokens="a" value="Ingeniero Industrail">Ingeniero Industrail</option>
+			      	<option data-tokens="a" value="Ingeniero Industrial">Ingeniero Industrial</option><option data-tokens="a" value="Ingeniero Laboral">Ingeniero Laboral</option>
+			      	<option data-tokens="a" value="Ingeniero Laboral ">Ingeniero Laboral </option><option data-tokens="a" value="Ingeniero Mecanico">Ingeniero Mecanico</option>
+			      	<option data-tokens="a" value="Ingeniero Mecánico">Ingeniero Mecánico</option><option data-tokens="a" value="Ingeniero Mecánico ">Ingeniero Mecánico </option>
+			      	<option data-tokens="a" value="Ingeniero Metalúrgico">Ingeniero Metalúrgico</option><option data-tokens="a" value="INGENIERO MILITAR">INGENIERO MILITAR</option>
+			      	<option data-tokens="a" value="Ingeniero Químico">Ingeniero Químico</option><option data-tokens="a" value="Ingeniero Sanitario">Ingeniero Sanitario</option>
+			      	<option data-tokens="a" value="Ingeniero Textil">Ingeniero Textil</option><option data-tokens="a" value="Ingeniero Zootecnista">Ingeniero Zootecnista</option>
+			      	<option data-tokens="a" value="INGENIRO NAVAL Y MECANICO">INGENIRO NAVAL Y MECANICO</option>
+			      	<option data-tokens="a" value="LIC EN BIOLOGIA OR. ECOLOGIA">LIC EN BIOLOGIA OR. ECOLOGIA</option>
+			      	<option data-tokens="a" value="Lic en Hig y Seg en el Trab, Esp en Protecc Ambtal">Lic en Hig y Seg en el Trab, Esp en Protecc Ambtal</option>
+			      	<option data-tokens="a" value="Lic. Ciencias de la Educacion">Lic. Ciencias de la Educacion</option>
+			      	<option data-tokens="a" value="Lic. en Aprovechamiento de Recur. Nat. Renovables">Lic. en Aprovechamiento de Recur. Nat. Renovables</option>
+			      	<option data-tokens="a" value="LIC. en BIOLOGIA con orientacion en  ZOOLOGIA">LIC. en BIOLOGIA con orientacion en  ZOOLOGIA</option>
+			      	<option data-tokens="a" value="LIC. EN BIOQUIMICA">LIC. EN BIOQUIMICA</option>
+			      	<option data-tokens="a" value="LIC. EN CIENCIAS QUIMICAS O. ANALISIS BIOLOGICOS">LIC. EN CIENCIAS QUIMICAS O. ANALISIS BIOLOGICOS</option>
+			      	<option data-tokens="LIC. EN GEOLOGIA" value="LIC. EN GEOLOGIA">LIC. EN GEOLOGIA</option>
+			      	<option data-tokens="a" value="LIC. EN HIGIENE Y  SEG EN EL TRABAJO">LIC. EN HIGIENE Y  SEG EN EL TRABAJO</option>
+			      	<option data-tokens="a" value="LIC. EN RELACIONES COM. INTERNACIONALES">LIC. EN RELACIONES COM. INTERNACIONALES</option>
+			      	<option data-tokens="a" value="LIC. EN RELACIONES INDUSTRIALES CON ESPEC. EN UCA,">LIC. EN RELACIONES INDUSTRIALES CON ESPEC. EN UCA,</option>
+			      	<option data-tokens="a" value="Lic. en Saneamiento y proteccion ambiental">Lic. en Saneamiento y proteccion ambiental</option>
+			      	<option data-tokens="a" value="Lic. en Seguridad Ambiental">Lic. en Seguridad Ambiental</option>
+			      	<option data-tokens="a" value="LIC. EN SEGURIDAD E HIGIENE ">LIC. EN SEGURIDAD E HIGIENE </option>
+			      	<option data-tokens="a" value="Lic. en Seguridad, Higiene y Control Ambiental Lab">Lic. en Seguridad, Higiene y Control Ambiental Lab</option>
+			      	<option data-tokens="a" value="LIC. EN SISTEMAS ">LIC. EN SISTEMAS </option><option data-tokens="a" value="Lic.en Biologia OR Zoologia">Lic.en Biologia OR Zoologia</option><option data-tokens="a" value="Lic.en Seg e Hig y Control Amb Laboral">Lic.en Seg e Hig y Control Amb Laboral</option>
+			      	<option data-tokens="a" value="Licenciad en Seguridad y salud ocupacional">Licenciad en Seguridad y salud ocupacional</option><option data-tokens="a" value="LICENCIADA  EN CIENCIAS DEL AMBIENTE">LICENCIADA  EN CIENCIAS DEL AMBIENTE</option><option data-tokens="a" value="Licenciada en Análisis Ambiental">Licenciada en Análisis Ambiental</option><option data-tokens="a" value="LICENCIADA EN BROMATOLOGIA">LICENCIADA EN BROMATOLOGIA</option>
+			      	<option data-tokens="a" value="Licenciada en Ciencia y Tecnología de Alimentos">Licenciada en Ciencia y Tecnología de Alimentos</option><option data-tokens="a" value="LICENCIADA EN CIENCIAS AMBIENTALES">LICENCIADA EN CIENCIAS AMBIENTALES</option><option data-tokens="a" value="Licenciada en Ciencias Geologicas">Licenciada en Ciencias Geologicas</option><option data-tokens="a" value="Licenciada en Ciencias Politicas">Licenciada en Ciencias Politicas</option><option data-tokens="a" value="LICENCIADA EN CIENCIAS QUIMICAS O. ANALISIS QUIM.">LICENCIADA EN CIENCIAS QUIMICAS O. ANALISIS QUIM.</option><option data-tokens="a" value="Licenciada en Diagnóstico y Gestión Ambiental">Licenciada en Diagnóstico y Gestión Ambiental</option><option data-tokens="a" value="Licenciada en Ecología Urbana">Licenciada en Ecología Urbana</option><option data-tokens="a" value="LICENCIADA EN GEOLOGIA">LICENCIADA EN GEOLOGIA</option><option data-tokens="a" value="LICENCIADA EN GERENCIAMIENTO  AMB.">LICENCIADA EN GERENCIAMIENTO  AMB.</option>
+			      	<option data-tokens="a" value="LICENCIADA EN GESTION AMBIENTAL">LICENCIADA EN GESTION AMBIENTAL</option><option data-tokens="a" value="LICENCIADA EN INFORMACION AMBIENTAL">LICENCIADA EN INFORMACION AMBIENTAL</option><option data-tokens="a" value="Licenciada en Oceanografia">Licenciada en Oceanografia</option><option data-tokens="a" value="Licenciada en Oceanografía Orientación Química Mar">Licenciada en Oceanografía Orientación Química Mar</option>
+			      	<option data-tokens="a" value="Licenciada en Quimica Industrial">Licenciada en Quimica Industrial</option><option data-tokens="a" value="Licenciada en Relaciones Industriales">Licenciada en Relaciones Industriales</option><option data-tokens="a" value="LICENCIADA EN SEGURIDAD Y SALUD OCUPACIONAL">LICENCIADA EN SEGURIDAD Y SALUD OCUPACIONAL</option><option data-tokens="a" value="Licenciada en Tecnología de los alimentos">Licenciada en Tecnología de los alimentos</option><option data-tokens="a" value="Licenciada en Tecnología Industrial de los Aliment">Licenciada en Tecnología Industrial de los Aliment</option><option data-tokens="a" value="licenciada en turismo">licenciada en turismo</option><option data-tokens="a" value="Licenciada Oceanografía Orientación Química Marina">Licenciada Oceanografía Orientación Química Marina</option><option data-tokens="a" value="Licenciado en Administración Agraria">Licenciado en Administración Agraria</option><option data-tokens="a" value="LICENCIADO EN ADMINISTRACION DE EMPRESAS.">LICENCIADO EN ADMINISTRACION DE EMPRESAS.</option><option data-tokens="a" value="Licenciado en Analisis de Sistemas">Licenciado en Analisis de Sistemas</option><option data-tokens="a" value="Licenciado en Antropologia">Licenciado en Antropologia</option><option data-tokens="a" value="Licenciado en Aprovechamiento de Recursos Naturale">Licenciado en Aprovechamiento de Recursos Naturale</option><option data-tokens="a" value="Licenciado en Biologia">Licenciado en Biologia</option><option data-tokens="a" value="LICENCIADO EN BIOLOGIA or zoologia">LICENCIADO EN BIOLOGIA or zoologia</option><option data-tokens="a" value="Licenciado en Biología or. Zoologia ">Licenciado en Biología or. Zoologia </option><option data-tokens="a" value="Licenciado en Bioquímica">Licenciado en Bioquímica</option><option data-tokens="a" value="LICENCIADO EN BIOTECNOLOGIA">LICENCIADO EN BIOTECNOLOGIA</option><option data-tokens="a" value="Licenciado en Ciencias Agrarias">Licenciado en Ciencias Agrarias</option><option data-tokens="a" value="Licenciado en Ciencias Ambientales">Licenciado en Ciencias Ambientales</option><option data-tokens="a" value="Licenciado en Ciencias Antropológicas">Licenciado en Ciencias Antropológicas</option><option data-tokens="a" value="Licenciado en Ciencias Biologicas">Licenciado en Ciencias Biologicas</option><option data-tokens="a" value="LICENCIADO EN CIENCIAS DEL AMBIENTE">LICENCIADO EN CIENCIAS DEL AMBIENTE</option><option data-tokens="a" value="Licenciado en Ciencias Fisicas">Licenciado en Ciencias Fisicas</option><option data-tokens="a" value="LICENCIADO EN CIENCIAS GEOLOGICAS">LICENCIADO EN CIENCIAS GEOLOGICAS</option><option data-tokens="a" value="LICENCIADO EN COMUNICACION SOCIAL ">LICENCIADO EN COMUNICACION SOCIAL </option><option data-tokens="a" value="Licenciado en Comunicación Social">Licenciado en Comunicación Social</option><option data-tokens="a" value="LICENCIADO EN CRIMINALISTA">LICENCIADO EN CRIMINALISTA</option><option data-tokens="a" value="Licenciado en Cs.Quimicas">Licenciado en Cs.Quimicas</option><option data-tokens="a" value="LICENCIADO EN DIAG. Y GESTION AMBIENTAL">LICENCIADO EN DIAG. Y GESTION AMBIENTAL</option><option data-tokens="a" value="Licenciado en Diagnostico y Gestion Ambiental">Licenciado en Diagnostico y Gestion Ambiental</option><option data-tokens="a" value="Licenciado en Diagnóstico y Gestión Ambiental">Licenciado en Diagnóstico y Gestión Ambiental</option><option data-tokens="a" value="Licenciado en Ecología">Licenciado en Ecología</option><option data-tokens="a" value="Licenciado en Ecologia Urbana">Licenciado en Ecologia Urbana</option><option data-tokens="a" value="Licenciado en Economía">Licenciado en Economía</option><option data-tokens="a" value="Licenciado en Economia Agropecuaria">Licenciado en Economia Agropecuaria</option><option data-tokens="a" value="Licenciado en Edafología">Licenciado en Edafología</option><option data-tokens="a" value="Licenciado en Enseñanza de ciencias del ambiente">Licenciado en Enseñanza de ciencias del ambiente</option><option data-tokens="a" value="Licenciado en Gelogía">Licenciado en Gelogía</option><option data-tokens="a" value="LICENCIADO EN GEOGRAFIA">LICENCIADO EN GEOGRAFIA</option><option data-tokens="a" value="Licenciado en Geografía">Licenciado en Geografía</option><option data-tokens="a" value="Licenciado en Geología">Licenciado en Geología</option><option data-tokens="a" value="Licenciado en Gerenciamiento Ambiental">Licenciado en Gerenciamiento Ambiental</option><option data-tokens="a" value="Licenciado en Gestiòn Ambiental">Licenciado en Gestiòn Ambiental</option><option data-tokens="a" value="Licenciado en Gestion Ambiental Urbano">Licenciado en Gestion Ambiental Urbano</option><option data-tokens="a" value="LICENCIADO EN H. Y SEG. EN EL TRAB. ESP. EN P. AMB">LICENCIADO EN H. Y SEG. EN EL TRAB. ESP. EN P. AMB</option><option data-tokens="a" value="Licenciado en Higiene y Seguridad  en el Trabajo">Licenciado en Higiene y Seguridad  en el Trabajo</option><option data-tokens="a" value="LICENCIADO EN HIGIENE Y SEGURIDAD LABORAL">LICENCIADO EN HIGIENE Y SEGURIDAD LABORAL</option><option data-tokens="a" value="LICENCIADO EN INFORMACION AMBIENTAL">LICENCIADO EN INFORMACION AMBIENTAL</option><option data-tokens="a" value="Licenciado en Informatica Ambiental">Licenciado en Informatica Ambiental</option><option data-tokens="a" value="LICENCIADO EN ORGANIZACION INDUSTRIAL">LICENCIADO EN ORGANIZACION INDUSTRIAL</option><option data-tokens="a" value="Licenciado en Organizaciòn Industrial">Licenciado en Organizaciòn Industrial</option><option data-tokens="a" value="Licenciado en Química">Licenciado en Química</option><option data-tokens="a" value="LICENCIADO EN QUIMICA INDUSTRIAL">LICENCIADO EN QUIMICA INDUSTRIAL</option><option data-tokens="a" value="LICENCIADO EN RELACIONES DEL TRABAJO">LICENCIADO EN RELACIONES DEL TRABAJO</option><option data-tokens="a" value="LICENCIADO EN SANEAMIENTO AMBIENTAL ">LICENCIADO EN SANEAMIENTO AMBIENTAL </option><option data-tokens="a" value="LICENCIADO EN SANEAMIENTO Y PROTECCION AMBIENTAL">LICENCIADO EN SANEAMIENTO Y PROTECCION AMBIENTAL</option><option data-tokens="a" value="Licenciado en Seguridad e Higiene en el Trabajo">Licenciado en Seguridad e Higiene en el Trabajo</option><option data-tokens="a" value="Licenciado en Seguridad, Higiene y Control Ambient">Licenciado en Seguridad, Higiene y Control Ambient</option><option data-tokens="a" value="Licenciado en Sistemas de Protección Contra Sinies">Licenciado en Sistemas de Protección Contra Sinies</option><option data-tokens="a" value="Licenciado en Sociología">Licenciado en Sociología</option><option data-tokens="a" value="Licenciado en Tecnologia Ambiental">Licenciado en Tecnologia Ambiental</option><option data-tokens="a" value="Licenciado en Trabajo Social">Licenciado en Trabajo Social</option><option data-tokens="a" value="Licenciado en Transporte y Logística Operativa">Licenciado en Transporte y Logística Operativa</option><option data-tokens="a" value="Licenciado en Zoología">Licenciado en Zoología</option><option data-tokens="a" value="Licenciado Eugenista Humanologo">Licenciado Eugenista Humanologo</option><option data-tokens="a" value="Licenciano de Seguridad">Licenciano de Seguridad</option><option data-tokens="a" value="LICENCIATURA DE SEGURIDAD">LICENCIATURA DE SEGURIDAD</option><option data-tokens="a" value="Licenciatura en AnÃ¡lisis ClÃ&shy;nicos y BioquÃ&shy;mica">Licenciatura en AnÃ¡lisis ClÃ&shy;nicos y BioquÃ&shy;mica</option><option data-tokens="a" value="LICENCIATURA EN GERENCIAMIENTO AMBIENTAL">LICENCIATURA EN GERENCIAMIENTO AMBIENTAL</option><option data-tokens="a" value="Licencioado en Geoquimica">Licencioado en Geoquimica</option><option data-tokens="a" value="Liicenciatura en Información Ambiental">Liicenciatura en Información Ambiental</option><option data-tokens="a" value="MAESTRIA EN ADMINISTRACION DE EMPRESAS">MAESTRIA EN ADMINISTRACION DE EMPRESAS</option><option data-tokens="a" value="Maestría en Ciencias Ambientales">Maestría en Ciencias Ambientales</option><option data-tokens="a" value="MAESTRIA EN GESTION AMBIENTAL">MAESTRIA EN GESTION AMBIENTAL</option><option data-tokens="a" value="MAESTRIA EN HIGIENE Y SEGURIDAD EN EL TRABAJO">MAESTRIA EN HIGIENE Y SEGURIDAD EN EL TRABAJO</option><option data-tokens="a" value="MAESTRIA EN MANEJO AMBIENTAL DE SISTEMAS HIDRICOS">MAESTRIA EN MANEJO AMBIENTAL DE SISTEMAS HIDRICOS</option><option data-tokens="a" value="Maestro  Mayor de Obras">Maestro  Mayor de Obras</option><option data-tokens="a" value="MAGISTER EN ESTUDIOS AMBIENTALES ">MAGISTER EN ESTUDIOS AMBIENTALES </option><option data-tokens="a" value="MAGISTER EN GESTION AMBIENTAL DEL DESARROLLO URBAN">MAGISTER EN GESTION AMBIENTAL DEL DESARROLLO URBAN</option><option data-tokens="a" value="Magister en Ingenieria Ambiental">Magister en Ingenieria Ambiental</option><option data-tokens="a" value="Martillero y Corredor Publico">Martillero y Corredor Publico</option><option data-tokens="a" value="MASTER EN INGENIERIA AMBIENTAL DE LA EMPRESA">MASTER EN INGENIERIA AMBIENTAL DE LA EMPRESA</option><option data-tokens="a" value="Master en Seguridad Industrial">Master en Seguridad Industrial</option><option data-tokens="a" value="Master Lic. en Amb. del Desarrolo Urbano   ">Master Lic. en Amb. del Desarrolo Urbano   </option><option data-tokens="a" value="Master Universitario en Gestion y Auditoria Ambie ">Master Universitario en Gestion y Auditoria Ambie </option><option data-tokens="a" value="Médico">Médico</option><option data-tokens="a" value="Meteorólogo">Meteorólogo</option><option data-tokens="a" value="Muestreador (Curso RENATOM)">Muestreador (Curso RENATOM)</option><option data-tokens="a" value="Muestreador (Curso RETOMA)">Muestreador (Curso RETOMA)</option><option data-tokens="a" value="No posee colegio">No posee colegio</option><option data-tokens="a" value="Oceanografo">Oceanografo</option><option data-tokens="a" value="ODONTOLOGA">ODONTOLOGA</option><option data-tokens="a" value="Orientacion Mecanica">Orientacion Mecanica</option><option data-tokens="a" value="Posgrado - INGENIERIA AMBIENTAL">Posgrado - INGENIERIA AMBIENTAL</option><option data-tokens="a" value="Posgrado en Hig. y Seg. en el Trab">Posgrado en Hig. y Seg. en el Trab</option><option data-tokens="a" value="post grado en gestión ambiental">post grado en gestión ambiental</option><option data-tokens="a" value="PROCURADORA">PROCURADORA</option><option data-tokens="a" value="Profesora en Geografía">Profesora en Geografía</option><option data-tokens="a" value="Programa de Gestión Ambiental">Programa de Gestión Ambiental</option><option data-tokens="a" value="Programa de Gestiòn Ambiental">Programa de Gestiòn Ambiental</option><option data-tokens="a" value="proyecto de instalaciones hospitalarias">proyecto de instalaciones hospitalarias</option><option data-tokens="a" value="QUIMICA (Carrera Bioquimica)">QUIMICA (Carrera Bioquimica)</option><option data-tokens="a" value="QUIMICO">QUIMICO</option><option data-tokens="a" value="saneamiento proteccion ambiental">saneamiento proteccion ambiental</option><option data-tokens="a" value="tec sup en seg e higiene en el trabajo . ">tec sup en seg e higiene en el trabajo . </option><option data-tokens="a" value="Tec. Superior en Manejo Ambiental">Tec. Superior en Manejo Ambiental</option><option data-tokens="a" value="TECNICA MAESTRO MAYOR DE OBRAS">TECNICA MAESTRO MAYOR DE OBRAS</option><option data-tokens="a" value="Tecnica Superior en Gestiòn Ambiental">Tecnica Superior en Gestiòn Ambiental</option><option data-tokens="a" value="Tecnica Univ. en Informacion Ambiental">Tecnica Univ. en Informacion Ambiental</option><option data-tokens="a" value="TECNICATURA SUPERIOR EN GESTION AMBIENTAL Y SALUD">TECNICATURA SUPERIOR EN GESTION AMBIENTAL Y SALUD</option><option data-tokens="a" value="Tecnico  Mecanico">Tecnico  Mecanico</option><option data-tokens="a" value="Tecnico  Saneamiento Ambiental">Tecnico  Saneamiento Ambiental</option><option data-tokens="a" value="Tecnico Analista Ambiental">Tecnico Analista Ambiental</option><option data-tokens="a" value="tecnico constructor">tecnico constructor</option><option data-tokens="a" value="Técnico Electrónico">Técnico Electrónico</option><option data-tokens="a" value="TECNICO EN E. Y INST. ELECTROMECANICAS">TECNICO EN E. Y INST. ELECTROMECANICAS</option><option data-tokens="a" value="Técnico en Electromecanica">Técnico en Electromecanica</option><option data-tokens="a" value="TECNICO EN EQUIPOS E INST. ELECTROMECANICAS">TECNICO EN EQUIPOS E INST. ELECTROMECANICAS</option><option data-tokens="a" value="Tecnico en Gerenciamiento Ambiental">Tecnico en Gerenciamiento Ambiental</option><option data-tokens="a" value="TECNICO EN INDUSTRIAS DE LA ALIMENTACION ORI.PESCA">TECNICO EN INDUSTRIAS DE LA ALIMENTACION ORI.PESCA</option><option data-tokens="a" value="TECNICO EN INDUSTRIAS DE PROCESOS">TECNICO EN INDUSTRIAS DE PROCESOS</option><option data-tokens="a" value="Técnico en la Cadena de Carnes">Técnico en la Cadena de Carnes</option><option data-tokens="a" value="Técnico en Meteorología Sinóptica">Técnico en Meteorología Sinóptica</option><option data-tokens="a" value="Tecnico en Seguridad e Higiene">Tecnico en Seguridad e Higiene</option><option data-tokens="a" value="Tecnico en Seguridad Industrial ">Tecnico en Seguridad Industrial </option><option data-tokens="a" value="TECNICO EN SONIDO ESP EN DISEÑO DE INST. ACUSTICAS">TECNICO EN SONIDO ESP EN DISEÑO DE INST. ACUSTICAS</option><option data-tokens="a" value="TECNICO FORESTAL">TECNICO FORESTAL</option><option data-tokens="a" value="Técnico Mecánico ">Técnico Mecánico </option><option data-tokens="a" value="Tecnico Mecanico Electricista">Tecnico Mecanico Electricista</option><option data-tokens="a" value="Tècnico Mecanico Electricista">Tècnico Mecanico Electricista</option><option data-tokens="a" value="Técnico Químico">Técnico Químico</option><option data-tokens="a" value="Técnico sup. en gestion Ambiental">Técnico sup. en gestion Ambiental</option><option data-tokens="a" value="TECNICO SUPERIOR AGRARIO EN SUELOS Y AGUAS">TECNICO SUPERIOR AGRARIO EN SUELOS Y AGUAS</option><option data-tokens="a" value="TECNICO SUPERIOR EN BROMATOLOGIA">TECNICO SUPERIOR EN BROMATOLOGIA</option><option data-tokens="a" value="Tecnico Superior en Ecologia">Tecnico Superior en Ecologia</option><option data-tokens="a" value="TECNICO SUPERIOR EN MANEJO AMBIENTAL">TECNICO SUPERIOR EN MANEJO AMBIENTAL</option><option data-tokens="a" value="Técnico Superior en Seg. Higiene y Control Amb.">Técnico Superior en Seg. Higiene y Control Amb.</option><option data-tokens="a" value="Tecnico Superior en Seguridad e Higiene en el Trab">Tecnico Superior en Seguridad e Higiene en el Trab</option><option data-tokens="a" value="Técnico Superior en Seguridad e Higiene Industrial">Técnico Superior en Seguridad e Higiene Industrial</option><option data-tokens="a" value="Técnico Superior en Seguridad, Higiene y Control A">Técnico Superior en Seguridad, Higiene y Control A</option><option data-tokens="a" value="Tecnico Superior en Seguridad, Higiene y ControlAm">Tecnico Superior en Seguridad, Higiene y ControlAm</option><option data-tokens="a" value="tecnico superior en turismo">tecnico superior en turismo</option><option data-tokens="a" value="TECNICO UNIVERSITARIO EN GERENCIAMIENTO AMBIENTAL">TECNICO UNIVERSITARIO EN GERENCIAMIENTO AMBIENTAL</option><option data-tokens="a" value="TECNICO UNIVERSITARIO EN GESTION AMBIENTAL">TECNICO UNIVERSITARIO EN GESTION AMBIENTAL</option><option data-tokens="a" value="Técnico Universitario en Gestión Ambiental">Técnico Universitario en Gestión Ambiental</option><option data-tokens="a" value="TECNICO UNIVERSITARIO EN INFORMACION AMBIENTAL">TECNICO UNIVERSITARIO EN INFORMACION AMBIENTAL</option><option data-tokens="a" value="TECNICO UNIVERSITARIO EN MEDIO AMBIENTE">TECNICO UNIVERSITARIO EN MEDIO AMBIENTE</option><option data-tokens="a" value="Veterinario">Veterinario</option><option data-tokens="a" value="Zoólogo">Zoólogo</option>      
+		      	</select>
+			</div>
+			<div class="form-group col-md-6">
+				<label class="FontNormal">Provincia:</label>
+				<select name="sltProvincia" class="FontNormal form-control" onchange="submit();">
+		       		<option data-tokens="a" value="0">-- Seleccione --</option>
+		       		<option data-tokens="a" value="1">BUENOS AIRES</option>
+		       		<option data-tokens="a" value="22">CATAMARCA</option>
+		       		<option data-tokens="a" value="5">CHACO</option>
+		       		<option data-tokens="a" value="17">CHUBUT</option>
+		       		<option data-tokens="a" value="14">CORDOBA</option>
+		       		<option data-tokens="a" value="4">CORRIENTES</option>
+		       		<option data-tokens="a" value="2">ENTRE RIOS</option>
+		       		<option data-tokens="a" value="6">FORMOSA</option>
+		       		<option data-tokens="a" value="8">JUJUY</option>
+		       		<option data-tokens="a" value="13">LA PAMPA</option>
+		       		<option data-tokens="a" value="23">LA RIOJA</option>
+		       		<option data-tokens="a" value="11">MENDOZA</option>
+		       		<option data-tokens="a" value="7">MISIONES</option>
+		       		<option data-tokens="a" value="15">NEUQUÉN</option>
+		       		<option data-tokens="a" value="16">RÍO NEGRO</option>
+		       		<option data-tokens="a" value="9">SALTA</option>
+		       		<option data-tokens="a" value="10">SAN JUAN</option>
+		       		<option data-tokens="a" value="12">SAN LUIS</option>
+		       		<option data-tokens="a" value="18">SANTA CRUZ</option>
+		       		<option data-tokens="a" value="3">SANTA FE</option>
+		       		<option data-tokens="a" value="21">SANTIAGO DEL ESTERO</option>
+		       		<option data-tokens="a" value="19">TIERRA DEL FUEGO</option>
+		       		<option data-tokens="a" value="20">TUCUMÁN</option>      
+		       </select>
+			</div>
+			<div class="form-group col-md-6">
+				<label class="FontNormal">Partido:</label>
+				<select name="sltPartidoR" class="FontNormal form-control" onchange="submit();">
+        			<option data-tokens="a" value="0">-- Seleccione Partido --</option>
+              	</select>
+			</div>
+			<div class="form-group col-md-6">
+				<label class="FontNormal">Localidad:</label>
+				<select name="sltLocalidadR" class="FontNormal form-control">
+         			<option data-tokens="a" value="0">-- Seleccione Localidad --</option>
+                </select>
+			</div>
+
+			<div class="form-group text-center">
+				<input type="submit" name="btnBuscaDNI" value="Buscar" onmouseout="javascript:this.className=&quot;botones&quot;;" onmouseover="javascript:this.className=&quot;botonesSeleccionados&quot;;" class="btn btn-default">
+			</div>
+
+
+<br>
+
+	<p>
+		<span class="FontNormal">
+			SE HAN ENCONTRADO 188 REGISTROS<br>
+			<a href="imprime_profesionalesWeb.php" target="_blank"><img src="../Imagenes/WinXPSetV4 Icon 28.ico" width="35" height="30" border="0"></a><br>  
+			<input name="txtAux" type="hidden" value=" idregistro = 1">
+		</span>
+	</p>
+</form>
+</div>
+		<p align="center">Para visualizar y poder imprimir el resultado de su búsqueda, deberá tener instalado  
+			<a href="http://www.adobe.com/la/products/acrobat/readstep2.html" target="_blank"><img src="adoberojo.jpg" width="117" height="39" border="0" align="middle"></a>
+		</p>
+		<div class="container-fluid">
+			<table id="no-more-tables" class="table-bordered table-striped table-condensed cf">
+			  	<thead class="cf divTableHeading">
+					<tr>
+						<th>Registro</th>
+					    <th># Prof.</th>
+					    <th>Apellido y Nombre</th>
+					    <th>DNI</th>
+					    <th>Domicilio</th>
+					    <th>Teléfono</th>
+					    <th>E-Mail</th>
+					    <th>Partido</th>
+					    <th>Localidad</th>
+					    <th>Título</th>
+				  	</tr>
+				</thead>
+				<tbody>
+					<tr class="FontNormal">
+	  					<td data-title="Registro">
+	  						Profesionales de Aparatos Sometidos A Presión
+	  					</td>
+						<td data-title="# Prof.">
+					    	<span class="FontNormal">184</span>
+					    </td>
+						<td data-title="Apellido y Nombre" class="FontNormal">
+					     ABDO, LUIS ALBERTO					 
+					    </td>
+						<td data-title="DNI" class="FontNormal">LE 8337301&nbsp;</td>
+						<td data-title="Domicilio" class="FontNormal">Calle: MOZOTEGUI    - Nro: 560 Dpto:  Piso: </td>
+						<td data-title="Teléfono" class="FontNormal">
+					    Tel: ( 0222)-6421494					</td>
+						<td data-title="E-Mail" class="FontNormal">ingabdo2004@yahoo.com.ar</td>
+						<td data-title="Partido" class="FontNormal">
+					     CAÑUELAS					 </td>
+						<td data-title="Localidad" class="FontNormal">
+					      CAÑUELAS					  </td>
+						<td data-title="Título" class="FontNormal">
+					      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+					</tr>
+					<tr class="FontNormal">
+	  					<td data-title="Registro">Profesionales de Aparatos Sometidos A Presión</td>
+						<td data-title="# Prof.">
+					       <span class="FontNormal">455</span></td>
+						<td data-title="Apellido y Nombre" class="FontNormal">
+					     AHARGO, Edgardo Bautista					 </td>
+						<td data-title="DNI" class="FontNormal">DNI 7687644&nbsp;</td>
+						<td data-title="Domicilio" class="FontNormal">Calle: Avda. aAem - Nro: 783 Dpto:  Piso: </td>
+						<td data-title="Teléfono" class="FontNormal">
+				    					</td>
+						<td data-title="E-Mail" class="FontNormal">edgardo@arrietafiotto.com.ar</td>
+					 	<td data-title="Partido" class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  	<td data-title="Localidad" class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  	<td data-title="Título" class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Industrial					  </td>
+
+  					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

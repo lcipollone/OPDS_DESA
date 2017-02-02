@@ -1,0 +1,2400 @@
+<html><head>
+<title>Registro de Profesionales</title>
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">-->
+<!--<link rel="stylesheet" type="text/css" href="style.css">-->
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="general.css">
+
+<script>
+	function solonumeros() {
+		if ((event.keyCode < 48) || (event.keyCode > 57)) 
+		{	
+			event.returnValue = false;
+		}
+	} // end function 
+
+
+function validar(){
+	   mensaje='';
+
+    var indice = document.formMovim.sltAreas.selectedIndex;  
+    var tipoarea = document.formMovim.sltAreas.options[indice].value;
+    if (tipoarea == ''){ mensaje='Debe seleccionar el Area del cual decea Recibir los Expedientes'; } 
+	if (formMovim.numRemito.value == ''){ mensaje='Debe seleccionar un Remito'; }   
+    
+
+		  if (mensaje!=''){
+  			  alert(mensaje);
+		     return false;
+		  }else{ return true;}
+	}
+
+
+</script></head>
+
+	
+<body>
+<p>
+    <br>
+</p>
+<table width="1100" border="0" align="center" class="tabla">
+  <tbody><tr>
+    <td><img src="../../Imagenes/header_opds.jpg" width="1100" height="134"></td>
+  </tr>
+</tbody></table>
+<form name="frmBuscaProf" method="post" action="ConsultaWeb.php">
+  <table width="1100" border="0" align="center" class="tabla">
+    <tbody><tr>
+      <td width="848" class="estilo-titulos-principales">BÚSQUEDA DE PROFESIONALES</td>
+    </tr>
+  </tbody></table>
+  <br>
+  <table width="1100" border="0" align="center" class="tabla">
+  <tbody><tr>
+ <td width="15%" class="FontNormal">Registro:</td>
+ <td colspan="3" class="FontNormal"><select name="sltRegistro">
+  <option value="0">-- Seleccione Registro --</option>
+  <option value="3">Consultoras de Evaluación</option><option value="1" selected="">Profesionales de Aparatos Sometidos A Presión</option><option value="2">Profesionales de Evaluación</option><option value="13">Técnicos de Aparatos Sometidos a Presión</option></select></td>
+ </tr>
+ <tr class="FontNormal">
+  <td width="15%"> <span class="FontNormal">Nro Profesional: </span></td>
+  <td width="35%"> <input name="txtNroProf" type="text" onkeypress="solonumeros();" value="" size="8" maxlength="8"></td>
+   <td width="15%" class="FontNormal">Nro Documento:</td>	
+      <td width="35%"><input name="txtDNIBusca" type="text" onkeypress="solonumeros();" value="" size="9" maxlength="9"> 
+</td>
+		
+ </tr>
+<tr class="FontNormal">
+   <td width="15%"> <span class="FontNormal">Apellido: </span></td>
+   <td width="35%"><input name="txtApellidoBusca" type="text" value="" size="37"></td>
+   <td width="15%" class="FontNormal">Nombre:</td>
+    <td width="35%"><input name="txtNombre" type="text" value="" size="37"></td>
+</tr>
+  <tr class="FontNormal">
+	<td class="FontNormal">Título: </td>
+	<td class="FontNormal">
+	  <select name="sltTitulo" class="FontNormal">
+      <option value="nada">-- Seleccione Título --</option>
+      <option value="ABOGADA">ABOGADA</option><option value="Abogado">Abogado</option><option value="Agrimensor">Agrimensor</option><option value="Agrónomo">Agrónomo</option><option value="Analista de Sistemas">Analista de Sistemas</option><option value="ANALISTA ECOLOGICO">ANALISTA ECOLOGICO</option><option value="Analista Ecológico">Analista Ecológico</option><option value="Analista Ecológico y en  Contaminación">Analista Ecológico y en  Contaminación</option><option value="Analista en Ciencias Ambientales">Analista en Ciencias Ambientales</option><option value="Analista en Contaminación y Analista Ecológico">Analista en Contaminación y Analista Ecológico</option><option value="Antropologa">Antropologa</option><option value="Arquitecta">Arquitecta</option><option value="Arquitecto">Arquitecto</option><option value="Artillero y corredor Publico">Artillero y corredor Publico</option><option value="BIOLOGA">BIOLOGA</option><option value="Biologo">Biologo</option><option value="Bioquímico">Bioquímico</option><option value="con orientacion en botanica">con orientacion en botanica</option><option value="Contador">Contador</option><option value="Curso de Evaluacion de Impacto Ambiental y Proyect">Curso de Evaluacion de Impacto Ambiental y Proyect</option><option value="curso de psgrado en EIA">curso de psgrado en EIA</option><option value="CURSO DE PUESTA A TIERRA DE PLANTAS INDUSTRIALES">CURSO DE PUESTA A TIERRA DE PLANTAS INDUSTRIALES</option><option value="Curso EIA y Proyecto Urbano">Curso EIA y Proyecto Urbano</option><option value="Diseñador Industrial">Diseñador Industrial</option><option value="diseño en areas esteriles ">diseño en areas esteriles </option><option value="Doctor en Ciencias del Mar">Doctor en Ciencias del Mar</option><option value="Doctor en Ciencias Naturales">Doctor en Ciencias Naturales</option><option value="Doctor en Ciencias Veterinarias ">Doctor en Ciencias Veterinarias </option><option value="Doctorado en Ciencias Quimica">Doctorado en Ciencias Quimica</option><option value="DR EN QUIMICA">DR EN QUIMICA</option><option value="Ecólogo">Ecólogo</option><option value="Esp en Hig Ambiental">Esp en Hig Ambiental</option><option value="Esp. en Higiene y Seguridad en el Trabajo Agrario">Esp. en Higiene y Seguridad en el Trabajo Agrario</option><option value="ESP. HIGIENE Y SEG.LAB.INDUST. DE LA CONST.">ESP. HIGIENE Y SEG.LAB.INDUST. DE LA CONST.</option><option value="Esp. Seg. e Higiene">Esp. Seg. e Higiene</option><option value="Esp. Seg.e Higiene">Esp. Seg.e Higiene</option><option value="ESPCIALISTA EN PLANEAMIENTO P. Y AMB.">ESPCIALISTA EN PLANEAMIENTO P. Y AMB.</option><option value="Espec. en Hig y Seg en el Trab Agra">Espec. en Hig y Seg en el Trab Agra</option><option value="espec.en Gestion del Patrimonio y Turismo Sostenib">espec.en Gestion del Patrimonio y Turismo Sostenib</option><option value="Especialidad Hidraulica">Especialidad Hidraulica</option><option value="ESPECIALISTA  AMBIENTAL">ESPECIALISTA  AMBIENTAL</option><option value="especialista  en ambiente y patologia ambiental">especialista  en ambiente y patologia ambiental</option><option value="Especialista en Ciencias Químicas y Ambiente">Especialista en Ciencias Químicas y Ambiente</option><option value="Especialista en Derecho Ambiental">Especialista en Derecho Ambiental</option><option value="Especialista en Diagnostico y EvaluaciÃ³n Ambienta">Especialista en Diagnostico y EvaluaciÃ³n Ambienta</option><option value="Especialista en Explotación de Yacimientos">Especialista en Explotación de Yacimientos</option><option value="Especialista en gestion ambiental - higiene y seg.">Especialista en gestion ambiental - higiene y seg.</option><option value="Especialista en Higiene y Proteccion Ambiental">Especialista en Higiene y Proteccion Ambiental</option><option value="Especialista en Higiene y Seg. ">Especialista en Higiene y Seg. </option><option value="especialista en higiene y seguridad en el trabajo">especialista en higiene y seguridad en el trabajo</option><option value="ESPECIALISTA EN ING. INDUSTRIAL">ESPECIALISTA EN ING. INDUSTRIAL</option><option value="Especialista en Ingenieria Ambiental">Especialista en Ingenieria Ambiental</option><option value="Especialista en Ingeniería en Calidad">Especialista en Ingeniería en Calidad</option><option value="Especialista en Planificacion Urbana  ">Especialista en Planificacion Urbana  </option><option value="ESPECIALISTA EN SEGURIDAD E HIGIENE">ESPECIALISTA EN SEGURIDAD E HIGIENE</option><option value="ESPECIALISTA EN SEGURIDAD E HIGIENE DEL TRABAJO">ESPECIALISTA EN SEGURIDAD E HIGIENE DEL TRABAJO</option><option value="Especialista en seguridad en el trabajo agrario">Especialista en seguridad en el trabajo agrario</option><option value="Especialista en Seguridad, Higiene y ProtecciÃ³n A">Especialista en Seguridad, Higiene y ProtecciÃ³n A</option><option value="Especialista en Seguridad, Higiene y Protección Am">Especialista en Seguridad, Higiene y Protección Am</option><option value="Especialista en Seguridad,Higiene y Proteccion Amb">Especialista en Seguridad,Higiene y Proteccion Amb</option><option value="ESPECIALISTA HIGIENE Y SEGURIDAD EN EL TRABAJO">ESPECIALISTA HIGIENE Y SEGURIDAD EN EL TRABAJO</option><option value="Especialista medio ambiente y contaminación de eco">Especialista medio ambiente y contaminación de eco</option><option value="Especializacion en Desarrollo Sustentable">Especializacion en Desarrollo Sustentable</option><option value="ESPECIALIZACION EN EVALUACION DEL IMPACTO AMBIENTA">ESPECIALIZACION EN EVALUACION DEL IMPACTO AMBIENTA</option><option value="Especializacion en Higiene  y Seg. en el Trabajo">Especializacion en Higiene  y Seg. en el Trabajo</option><option value="ESPECIALIZACION EN HIGIENE Y SEGURIDAD EN EL TRABA">ESPECIALIZACION EN HIGIENE Y SEGURIDAD EN EL TRABA</option><option value="Farmaceutica Especialista en Esterilización">Farmaceutica Especialista en Esterilización</option><option value="Farmaceutico">Farmaceutico</option><option value="Geofísico">Geofísico</option><option value="Geólogo">Geólogo</option><option value="Geoquímico">Geoquímico</option><option value="Hidrologia Ambiental">Hidrologia Ambiental</option><option value="HIGIENE Y SEGURIDAD DEN EL TRABAJO">HIGIENE Y SEGURIDAD DEN EL TRABAJO</option><option value="Higiene y Seguridad en el Trabajo y Medio Ambiente">Higiene y Seguridad en el Trabajo y Medio Ambiente</option><option value="Iing. laboral  y especialista en hig y seg">Iing. laboral  y especialista en hig y seg</option><option value="Ing industrial y espec en ing amb">Ing industrial y espec en ing amb</option><option value="ING. INDUSTRIAL">ING. INDUSTRIAL</option><option value="Ing. metalurgico">Ing. metalurgico</option><option value="INGENIERA  CIVIL">INGENIERA  CIVIL</option><option value="INGENIERA AGROINDUSTRIAL">INGENIERA AGROINDUSTRIAL</option><option value="INGENIERA AGRONOMA">INGENIERA AGRONOMA</option><option value="INGENIERA AMB. Y SANITARIA">INGENIERA AMB. Y SANITARIA</option><option value="INGENIERA AMBIENTAL">INGENIERA AMBIENTAL</option><option value="INGENIERA CIVIL">INGENIERA CIVIL</option><option value="Ingeniera en Ecologia">Ingeniera en Ecologia</option><option value="Ingeniera en Recursos Naturales y Medio Ambiente">Ingeniera en Recursos Naturales y Medio Ambiente</option><option value="INGENIERA HIDRAULICA">INGENIERA HIDRAULICA</option><option value="INGENIERA INDUSTRIAL">INGENIERA INDUSTRIAL</option><option value="INGENIERA QUIMICA">INGENIERA QUIMICA</option><option value="INGENIERA ZOOTECNISTA ">INGENIERA ZOOTECNISTA </option><option value="Ingeniería en Seguridad Ambiental">Ingeniería en Seguridad Ambiental</option><option value="Ingeniero  en Alimentos">Ingeniero  en Alimentos</option><option value="Ingeniero Aeronáutico">Ingeniero Aeronáutico</option><option value="Ingeniero Agrónomo">Ingeniero Agrónomo</option><option value="Ingeniero Ambiental">Ingeniero Ambiental</option><option value="Ingeniero Civil">Ingeniero Civil</option><option value="Ingeniero Electricista">Ingeniero Electricista</option><option value="Ingeniero Electromecánico">Ingeniero Electromecánico</option><option value="INGENIERO ELECTROMECANICO CON OR. MECANICA">INGENIERO ELECTROMECANICO CON OR. MECANICA</option><option value="Ingeniero Electromecánico or Electricista">Ingeniero Electromecánico or Electricista</option><option value="Ingeniero Electrónico">Ingeniero Electrónico</option><option value="Ingeniero en Arsenales">Ingeniero en Arsenales</option><option value="Ingeniero en Construcciones">Ingeniero en Construcciones</option><option value="Ingeniero en Ecologia">Ingeniero en Ecologia</option><option value="Ingeniero en Electrònica">Ingeniero en Electrònica</option><option value="Ingeniero en Geodesia">Ingeniero en Geodesia</option><option value="INGENIERO EN GESTION DE SINIESTROS Y SEGURIDAD AMB">INGENIERO EN GESTION DE SINIESTROS Y SEGURIDAD AMB</option><option value="Ingeniero en Higiene y Seguridad  en el Trabajo">Ingeniero en Higiene y Seguridad  en el Trabajo</option><option value="Ingeniero en Higiene y Seguridad en el Trabajo">Ingeniero en Higiene y Seguridad en el Trabajo</option><option value="Ingeniero en Industrias de la Alimentacion">Ingeniero en Industrias de la Alimentacion</option><option value="Ingeniero en Materiales">Ingeniero en Materiales</option><option value="Ingeniero en Organizaci{on de Empresas">Ingeniero en Organizaci{on de Empresas</option><option value="Ingeniero en Organizacion de Empresas">Ingeniero en Organizacion de Empresas</option><option value="INGENIERO EN PRODUCCION AGROPECUARIA">INGENIERO EN PRODUCCION AGROPECUARIA</option><option value="Ingeniero en Recursos Hidricos">Ingeniero en Recursos Hidricos</option><option value="Ingeniero en Recursos Naturales y Medio  Ambiente">Ingeniero en Recursos Naturales y Medio  Ambiente</option><option value="Ingeniero en Seguridad Ambiental">Ingeniero en Seguridad Ambiental</option><option value="Ingeniero en Seguridad e Higiene">Ingeniero en Seguridad e Higiene</option><option value="Ingeniero en Seguridad e Higiene en el Trabajo ">Ingeniero en Seguridad e Higiene en el Trabajo </option><option value="ingeniero en sistemas de informacion">ingeniero en sistemas de informacion</option><option value="Ingeniero en Telecomunicaciones">Ingeniero en Telecomunicaciones</option><option value="Ingeniero en vias de comunicacion">Ingeniero en vias de comunicacion</option><option value="Ingeniero Especialista en Higiene y Seguridad en e">Ingeniero Especialista en Higiene y Seguridad en e</option><option value="Ingeniero Forestal">Ingeniero Forestal</option><option value="Ingeniero Geógrafo">Ingeniero Geógrafo</option><option value="Ingeniero Hidráulico">Ingeniero Hidráulico</option><option value="Ingeniero Industrail">Ingeniero Industrail</option><option value="Ingeniero Industrial">Ingeniero Industrial</option><option value="Ingeniero Laboral">Ingeniero Laboral</option><option value="Ingeniero Laboral ">Ingeniero Laboral </option><option value="Ingeniero Mecanico">Ingeniero Mecanico</option><option value="Ingeniero Mecánico">Ingeniero Mecánico</option><option value="Ingeniero Mecánico ">Ingeniero Mecánico </option><option value="Ingeniero Metalúrgico">Ingeniero Metalúrgico</option><option value="INGENIERO MILITAR">INGENIERO MILITAR</option><option value="Ingeniero Químico">Ingeniero Químico</option><option value="Ingeniero Sanitario">Ingeniero Sanitario</option><option value="Ingeniero Textil">Ingeniero Textil</option><option value="Ingeniero Zootecnista">Ingeniero Zootecnista</option><option value="INGENIRO NAVAL Y MECANICO">INGENIRO NAVAL Y MECANICO</option><option value="LIC EN BIOLOGIA OR. ECOLOGIA">LIC EN BIOLOGIA OR. ECOLOGIA</option><option value="Lic en Hig y Seg en el Trab, Esp en Protecc Ambtal">Lic en Hig y Seg en el Trab, Esp en Protecc Ambtal</option><option value="Lic. Ciencias de la Educacion">Lic. Ciencias de la Educacion</option><option value="Lic. en Aprovechamiento de Recur. Nat. Renovables">Lic. en Aprovechamiento de Recur. Nat. Renovables</option><option value="LIC. en BIOLOGIA con orientacion en  ZOOLOGIA">LIC. en BIOLOGIA con orientacion en  ZOOLOGIA</option><option value="LIC. EN BIOQUIMICA">LIC. EN BIOQUIMICA</option><option value="LIC. EN CIENCIAS QUIMICAS O. ANALISIS BIOLOGICOS">LIC. EN CIENCIAS QUIMICAS O. ANALISIS BIOLOGICOS</option><option value="LIC. EN GEOLOGIA">LIC. EN GEOLOGIA</option><option value="LIC. EN HIGIENE Y  SEG EN EL TRABAJO">LIC. EN HIGIENE Y  SEG EN EL TRABAJO</option><option value="LIC. EN RELACIONES COM. INTERNACIONALES">LIC. EN RELACIONES COM. INTERNACIONALES</option><option value="LIC. EN RELACIONES INDUSTRIALES CON ESPEC. EN UCA,">LIC. EN RELACIONES INDUSTRIALES CON ESPEC. EN UCA,</option><option value="Lic. en Saneamiento y proteccion ambiental">Lic. en Saneamiento y proteccion ambiental</option><option value="Lic. en Seguridad Ambiental">Lic. en Seguridad Ambiental</option><option value="LIC. EN SEGURIDAD E HIGIENE ">LIC. EN SEGURIDAD E HIGIENE </option><option value="Lic. en Seguridad, Higiene y Control Ambiental Lab">Lic. en Seguridad, Higiene y Control Ambiental Lab</option><option value="LIC. EN SISTEMAS ">LIC. EN SISTEMAS </option><option value="Lic.en Biologia OR Zoologia">Lic.en Biologia OR Zoologia</option><option value="Lic.en Seg e Hig y Control Amb Laboral">Lic.en Seg e Hig y Control Amb Laboral</option><option value="Licenciad en Seguridad y salud ocupacional">Licenciad en Seguridad y salud ocupacional</option><option value="LICENCIADA  EN CIENCIAS DEL AMBIENTE">LICENCIADA  EN CIENCIAS DEL AMBIENTE</option><option value="Licenciada en Análisis Ambiental">Licenciada en Análisis Ambiental</option><option value="LICENCIADA EN BROMATOLOGIA">LICENCIADA EN BROMATOLOGIA</option><option value="Licenciada en Ciencia y Tecnología de Alimentos">Licenciada en Ciencia y Tecnología de Alimentos</option><option value="LICENCIADA EN CIENCIAS AMBIENTALES">LICENCIADA EN CIENCIAS AMBIENTALES</option><option value="Licenciada en Ciencias Geologicas">Licenciada en Ciencias Geologicas</option><option value="Licenciada en Ciencias Politicas">Licenciada en Ciencias Politicas</option><option value="LICENCIADA EN CIENCIAS QUIMICAS O. ANALISIS QUIM.">LICENCIADA EN CIENCIAS QUIMICAS O. ANALISIS QUIM.</option><option value="Licenciada en Diagnóstico y Gestión Ambiental">Licenciada en Diagnóstico y Gestión Ambiental</option><option value="Licenciada en Ecología Urbana">Licenciada en Ecología Urbana</option><option value="LICENCIADA EN GEOLOGIA">LICENCIADA EN GEOLOGIA</option><option value="LICENCIADA EN GERENCIAMIENTO  AMB.">LICENCIADA EN GERENCIAMIENTO  AMB.</option><option value="LICENCIADA EN GESTION AMBIENTAL">LICENCIADA EN GESTION AMBIENTAL</option><option value="LICENCIADA EN INFORMACION AMBIENTAL">LICENCIADA EN INFORMACION AMBIENTAL</option><option value="Licenciada en Oceanografia">Licenciada en Oceanografia</option><option value="Licenciada en Oceanografía Orientación Química Mar">Licenciada en Oceanografía Orientación Química Mar</option><option value="Licenciada en Quimica Industrial">Licenciada en Quimica Industrial</option><option value="Licenciada en Relaciones Industriales">Licenciada en Relaciones Industriales</option><option value="LICENCIADA EN SEGURIDAD Y SALUD OCUPACIONAL">LICENCIADA EN SEGURIDAD Y SALUD OCUPACIONAL</option><option value="Licenciada en Tecnología de los alimentos">Licenciada en Tecnología de los alimentos</option><option value="Licenciada en Tecnología Industrial de los Aliment">Licenciada en Tecnología Industrial de los Aliment</option><option value="licenciada en turismo">licenciada en turismo</option><option value="Licenciada Oceanografía Orientación Química Marina">Licenciada Oceanografía Orientación Química Marina</option><option value="Licenciado en Administración Agraria">Licenciado en Administración Agraria</option><option value="LICENCIADO EN ADMINISTRACION DE EMPRESAS.">LICENCIADO EN ADMINISTRACION DE EMPRESAS.</option><option value="Licenciado en Analisis de Sistemas">Licenciado en Analisis de Sistemas</option><option value="Licenciado en Antropologia">Licenciado en Antropologia</option><option value="Licenciado en Aprovechamiento de Recursos Naturale">Licenciado en Aprovechamiento de Recursos Naturale</option><option value="Licenciado en Biologia">Licenciado en Biologia</option><option value="LICENCIADO EN BIOLOGIA or zoologia">LICENCIADO EN BIOLOGIA or zoologia</option><option value="Licenciado en Biología or. Zoologia ">Licenciado en Biología or. Zoologia </option><option value="Licenciado en Bioquímica">Licenciado en Bioquímica</option><option value="LICENCIADO EN BIOTECNOLOGIA">LICENCIADO EN BIOTECNOLOGIA</option><option value="Licenciado en Ciencias Agrarias">Licenciado en Ciencias Agrarias</option><option value="Licenciado en Ciencias Ambientales">Licenciado en Ciencias Ambientales</option><option value="Licenciado en Ciencias Antropológicas">Licenciado en Ciencias Antropológicas</option><option value="Licenciado en Ciencias Biologicas">Licenciado en Ciencias Biologicas</option><option value="LICENCIADO EN CIENCIAS DEL AMBIENTE">LICENCIADO EN CIENCIAS DEL AMBIENTE</option><option value="Licenciado en Ciencias Fisicas">Licenciado en Ciencias Fisicas</option><option value="LICENCIADO EN CIENCIAS GEOLOGICAS">LICENCIADO EN CIENCIAS GEOLOGICAS</option><option value="LICENCIADO EN COMUNICACION SOCIAL ">LICENCIADO EN COMUNICACION SOCIAL </option><option value="Licenciado en Comunicación Social">Licenciado en Comunicación Social</option><option value="LICENCIADO EN CRIMINALISTA">LICENCIADO EN CRIMINALISTA</option><option value="Licenciado en Cs.Quimicas">Licenciado en Cs.Quimicas</option><option value="LICENCIADO EN DIAG. Y GESTION AMBIENTAL">LICENCIADO EN DIAG. Y GESTION AMBIENTAL</option><option value="Licenciado en Diagnostico y Gestion Ambiental">Licenciado en Diagnostico y Gestion Ambiental</option><option value="Licenciado en Diagnóstico y Gestión Ambiental">Licenciado en Diagnóstico y Gestión Ambiental</option><option value="Licenciado en Ecología">Licenciado en Ecología</option><option value="Licenciado en Ecologia Urbana">Licenciado en Ecologia Urbana</option><option value="Licenciado en Economía">Licenciado en Economía</option><option value="Licenciado en Economia Agropecuaria">Licenciado en Economia Agropecuaria</option><option value="Licenciado en Edafología">Licenciado en Edafología</option><option value="Licenciado en Enseñanza de ciencias del ambiente">Licenciado en Enseñanza de ciencias del ambiente</option><option value="Licenciado en Gelogía">Licenciado en Gelogía</option><option value="LICENCIADO EN GEOGRAFIA">LICENCIADO EN GEOGRAFIA</option><option value="Licenciado en Geografía">Licenciado en Geografía</option><option value="Licenciado en Geología">Licenciado en Geología</option><option value="Licenciado en Gerenciamiento Ambiental">Licenciado en Gerenciamiento Ambiental</option><option value="Licenciado en Gestiòn Ambiental">Licenciado en Gestiòn Ambiental</option><option value="Licenciado en Gestion Ambiental Urbano">Licenciado en Gestion Ambiental Urbano</option><option value="LICENCIADO EN H. Y SEG. EN EL TRAB. ESP. EN P. AMB">LICENCIADO EN H. Y SEG. EN EL TRAB. ESP. EN P. AMB</option><option value="Licenciado en Higiene y Seguridad  en el Trabajo">Licenciado en Higiene y Seguridad  en el Trabajo</option><option value="LICENCIADO EN HIGIENE Y SEGURIDAD LABORAL">LICENCIADO EN HIGIENE Y SEGURIDAD LABORAL</option><option value="LICENCIADO EN INFORMACION AMBIENTAL">LICENCIADO EN INFORMACION AMBIENTAL</option><option value="Licenciado en Informatica Ambiental">Licenciado en Informatica Ambiental</option><option value="LICENCIADO EN ORGANIZACION INDUSTRIAL">LICENCIADO EN ORGANIZACION INDUSTRIAL</option><option value="Licenciado en Organizaciòn Industrial">Licenciado en Organizaciòn Industrial</option><option value="Licenciado en Química">Licenciado en Química</option><option value="LICENCIADO EN QUIMICA INDUSTRIAL">LICENCIADO EN QUIMICA INDUSTRIAL</option><option value="LICENCIADO EN RELACIONES DEL TRABAJO">LICENCIADO EN RELACIONES DEL TRABAJO</option><option value="LICENCIADO EN SANEAMIENTO AMBIENTAL ">LICENCIADO EN SANEAMIENTO AMBIENTAL </option><option value="LICENCIADO EN SANEAMIENTO Y PROTECCION AMBIENTAL">LICENCIADO EN SANEAMIENTO Y PROTECCION AMBIENTAL</option><option value="Licenciado en Seguridad e Higiene en el Trabajo">Licenciado en Seguridad e Higiene en el Trabajo</option><option value="Licenciado en Seguridad, Higiene y Control Ambient">Licenciado en Seguridad, Higiene y Control Ambient</option><option value="Licenciado en Sistemas de Protección Contra Sinies">Licenciado en Sistemas de Protección Contra Sinies</option><option value="Licenciado en Sociología">Licenciado en Sociología</option><option value="Licenciado en Tecnologia Ambiental">Licenciado en Tecnologia Ambiental</option><option value="Licenciado en Trabajo Social">Licenciado en Trabajo Social</option><option value="Licenciado en Transporte y Logística Operativa">Licenciado en Transporte y Logística Operativa</option><option value="Licenciado en Zoología">Licenciado en Zoología</option><option value="Licenciado Eugenista Humanologo">Licenciado Eugenista Humanologo</option><option value="Licenciano de Seguridad">Licenciano de Seguridad</option><option value="LICENCIATURA DE SEGURIDAD">LICENCIATURA DE SEGURIDAD</option><option value="Licenciatura en AnÃ¡lisis ClÃ&shy;nicos y BioquÃ&shy;mica">Licenciatura en AnÃ¡lisis ClÃ&shy;nicos y BioquÃ&shy;mica</option><option value="LICENCIATURA EN GERENCIAMIENTO AMBIENTAL">LICENCIATURA EN GERENCIAMIENTO AMBIENTAL</option><option value="Licencioado en Geoquimica">Licencioado en Geoquimica</option><option value="Liicenciatura en Información Ambiental">Liicenciatura en Información Ambiental</option><option value="MAESTRIA EN ADMINISTRACION DE EMPRESAS">MAESTRIA EN ADMINISTRACION DE EMPRESAS</option><option value="Maestría en Ciencias Ambientales">Maestría en Ciencias Ambientales</option><option value="MAESTRIA EN GESTION AMBIENTAL">MAESTRIA EN GESTION AMBIENTAL</option><option value="MAESTRIA EN HIGIENE Y SEGURIDAD EN EL TRABAJO">MAESTRIA EN HIGIENE Y SEGURIDAD EN EL TRABAJO</option><option value="MAESTRIA EN MANEJO AMBIENTAL DE SISTEMAS HIDRICOS">MAESTRIA EN MANEJO AMBIENTAL DE SISTEMAS HIDRICOS</option><option value="Maestro  Mayor de Obras">Maestro  Mayor de Obras</option><option value="MAGISTER EN ESTUDIOS AMBIENTALES ">MAGISTER EN ESTUDIOS AMBIENTALES </option><option value="MAGISTER EN GESTION AMBIENTAL DEL DESARROLLO URBAN">MAGISTER EN GESTION AMBIENTAL DEL DESARROLLO URBAN</option><option value="Magister en Ingenieria Ambiental">Magister en Ingenieria Ambiental</option><option value="Martillero y Corredor Publico">Martillero y Corredor Publico</option><option value="MASTER EN INGENIERIA AMBIENTAL DE LA EMPRESA">MASTER EN INGENIERIA AMBIENTAL DE LA EMPRESA</option><option value="Master en Seguridad Industrial">Master en Seguridad Industrial</option><option value="Master Lic. en Amb. del Desarrolo Urbano   ">Master Lic. en Amb. del Desarrolo Urbano   </option><option value="Master Universitario en Gestion y Auditoria Ambie ">Master Universitario en Gestion y Auditoria Ambie </option><option value="Médico">Médico</option><option value="Meteorólogo">Meteorólogo</option><option value="Muestreador (Curso RENATOM)">Muestreador (Curso RENATOM)</option><option value="Muestreador (Curso RETOMA)">Muestreador (Curso RETOMA)</option><option value="No posee colegio">No posee colegio</option><option value="Oceanografo">Oceanografo</option><option value="ODONTOLOGA">ODONTOLOGA</option><option value="Orientacion Mecanica">Orientacion Mecanica</option><option value="Posgrado - INGENIERIA AMBIENTAL">Posgrado - INGENIERIA AMBIENTAL</option><option value="Posgrado en Hig. y Seg. en el Trab">Posgrado en Hig. y Seg. en el Trab</option><option value="post grado en gestión ambiental">post grado en gestión ambiental</option><option value="PROCURADORA">PROCURADORA</option><option value="Profesora en Geografía">Profesora en Geografía</option><option value="Programa de Gestión Ambiental">Programa de Gestión Ambiental</option><option value="Programa de Gestiòn Ambiental">Programa de Gestiòn Ambiental</option><option value="proyecto de instalaciones hospitalarias">proyecto de instalaciones hospitalarias</option><option value="QUIMICA (Carrera Bioquimica)">QUIMICA (Carrera Bioquimica)</option><option value="QUIMICO">QUIMICO</option><option value="saneamiento proteccion ambiental">saneamiento proteccion ambiental</option><option value="tec sup en seg e higiene en el trabajo . ">tec sup en seg e higiene en el trabajo . </option><option value="Tec. Superior en Manejo Ambiental">Tec. Superior en Manejo Ambiental</option><option value="TECNICA MAESTRO MAYOR DE OBRAS">TECNICA MAESTRO MAYOR DE OBRAS</option><option value="Tecnica Superior en Gestiòn Ambiental">Tecnica Superior en Gestiòn Ambiental</option><option value="Tecnica Univ. en Informacion Ambiental">Tecnica Univ. en Informacion Ambiental</option><option value="TECNICATURA SUPERIOR EN GESTION AMBIENTAL Y SALUD">TECNICATURA SUPERIOR EN GESTION AMBIENTAL Y SALUD</option><option value="Tecnico  Mecanico">Tecnico  Mecanico</option><option value="Tecnico  Saneamiento Ambiental">Tecnico  Saneamiento Ambiental</option><option value="Tecnico Analista Ambiental">Tecnico Analista Ambiental</option><option value="tecnico constructor">tecnico constructor</option><option value="Técnico Electrónico">Técnico Electrónico</option><option value="TECNICO EN E. Y INST. ELECTROMECANICAS">TECNICO EN E. Y INST. ELECTROMECANICAS</option><option value="Técnico en Electromecanica">Técnico en Electromecanica</option><option value="TECNICO EN EQUIPOS E INST. ELECTROMECANICAS">TECNICO EN EQUIPOS E INST. ELECTROMECANICAS</option><option value="Tecnico en Gerenciamiento Ambiental">Tecnico en Gerenciamiento Ambiental</option><option value="TECNICO EN INDUSTRIAS DE LA ALIMENTACION ORI.PESCA">TECNICO EN INDUSTRIAS DE LA ALIMENTACION ORI.PESCA</option><option value="TECNICO EN INDUSTRIAS DE PROCESOS">TECNICO EN INDUSTRIAS DE PROCESOS</option><option value="Técnico en la Cadena de Carnes">Técnico en la Cadena de Carnes</option><option value="Técnico en Meteorología Sinóptica">Técnico en Meteorología Sinóptica</option><option value="Tecnico en Seguridad e Higiene">Tecnico en Seguridad e Higiene</option><option value="Tecnico en Seguridad Industrial ">Tecnico en Seguridad Industrial </option><option value="TECNICO EN SONIDO ESP EN DISEÑO DE INST. ACUSTICAS">TECNICO EN SONIDO ESP EN DISEÑO DE INST. ACUSTICAS</option><option value="TECNICO FORESTAL">TECNICO FORESTAL</option><option value="Técnico Mecánico ">Técnico Mecánico </option><option value="Tecnico Mecanico Electricista">Tecnico Mecanico Electricista</option><option value="Tècnico Mecanico Electricista">Tècnico Mecanico Electricista</option><option value="Técnico Químico">Técnico Químico</option><option value="Técnico sup. en gestion Ambiental">Técnico sup. en gestion Ambiental</option><option value="TECNICO SUPERIOR AGRARIO EN SUELOS Y AGUAS">TECNICO SUPERIOR AGRARIO EN SUELOS Y AGUAS</option><option value="TECNICO SUPERIOR EN BROMATOLOGIA">TECNICO SUPERIOR EN BROMATOLOGIA</option><option value="Tecnico Superior en Ecologia">Tecnico Superior en Ecologia</option><option value="TECNICO SUPERIOR EN MANEJO AMBIENTAL">TECNICO SUPERIOR EN MANEJO AMBIENTAL</option><option value="Técnico Superior en Seg. Higiene y Control Amb.">Técnico Superior en Seg. Higiene y Control Amb.</option><option value="Tecnico Superior en Seguridad e Higiene en el Trab">Tecnico Superior en Seguridad e Higiene en el Trab</option><option value="Técnico Superior en Seguridad e Higiene Industrial">Técnico Superior en Seguridad e Higiene Industrial</option><option value="Técnico Superior en Seguridad, Higiene y Control A">Técnico Superior en Seguridad, Higiene y Control A</option><option value="Tecnico Superior en Seguridad, Higiene y ControlAm">Tecnico Superior en Seguridad, Higiene y ControlAm</option><option value="tecnico superior en turismo">tecnico superior en turismo</option><option value="TECNICO UNIVERSITARIO EN GERENCIAMIENTO AMBIENTAL">TECNICO UNIVERSITARIO EN GERENCIAMIENTO AMBIENTAL</option><option value="TECNICO UNIVERSITARIO EN GESTION AMBIENTAL">TECNICO UNIVERSITARIO EN GESTION AMBIENTAL</option><option value="Técnico Universitario en Gestión Ambiental">Técnico Universitario en Gestión Ambiental</option><option value="TECNICO UNIVERSITARIO EN INFORMACION AMBIENTAL">TECNICO UNIVERSITARIO EN INFORMACION AMBIENTAL</option><option value="TECNICO UNIVERSITARIO EN MEDIO AMBIENTE">TECNICO UNIVERSITARIO EN MEDIO AMBIENTE</option><option value="Veterinario">Veterinario</option><option value="Zoólogo">Zoólogo</option>      </select>
+	  </td>
+	<td class="FontNormal">Provincia: </td>
+    <td><span class="FontNormal">
+      <select name="sltProvincia" class="FontNormal" onchange="submit();">
+       <option value="0">-- Seleccione --</option>
+       <option value="1">BUENOS AIRES</option><option value="22">CATAMARCA</option><option value="5">CHACO</option><option value="17">CHUBUT</option><option value="14">CORDOBA</option><option value="4">CORRIENTES</option><option value="2">ENTRE RIOS</option><option value="6">FORMOSA</option><option value="8">JUJUY</option><option value="13">LA PAMPA</option><option value="23">LA RIOJA</option><option value="11">MENDOZA</option><option value="7">MISIONES</option><option value="15">NEUQUÉN</option><option value="16">RÍO NEGRO</option><option value="9">SALTA</option><option value="10">SAN JUAN</option><option value="12">SAN LUIS</option><option value="18">SANTA CRUZ</option><option value="3">SANTA FE</option><option value="21">SANTIAGO DEL ESTERO</option><option value="19">TIERRA DEL FUEGO</option><option value="20">TUCUMÁN</option>      </select>
+    </span> </td>
+  </tr>	
+
+<tr class="FontNormal">
+    <td class="FontNormal">Partido:</td>
+	<td><span class="FontNormal">
+	  <select name="sltPartidoR" class="FontNormal" onchange="submit();">
+        <option value="0">-- Seleccione Partido --</option>
+              </select>
+	  </span> </td>
+	<td class="FontNormal">Localidad:</td>
+	 <td class="FontNormal">
+	   <select name="sltLocalidadR" class="FontNormal">
+         <option value="0">-- Seleccione Localidad --</option>
+                </select>
+      </td>
+</tr>
+
+<tr>
+
+
+</tr>
+
+ 
+</tbody></table>
+
+<p align="center"><input type="submit" name="btnBuscaDNI" value="Buscar" onmouseout="javascript:this.className=&quot;botones&quot;;" onmouseover="javascript:this.className=&quot;botonesSeleccionados&quot;;" class="botones"></p>
+
+
+<p></p>
+
+<p><span class="FontNormal">
+  SE HAN ENCONTRADO 188 REGISTROS<br><a href="imprime_profesionalesWeb.php" target="_blank"><img src="../Imagenes/WinXPSetV4 Icon 28.ico" width="35" height="30" border="0"></a><br>  <input name="txtAux" type="hidden" value=" idregistro = 1">
+</span></p>
+</form>
+<!--<table width="1100" align="center" class="tabla">
+  <tbody><tr>
+    <td width="97%" height="44" valign="baseline"><p align="center">Para visualizar y poder imprimir el resultado de su búsqueda, deberá tener instalado&nbsp;  <a href="http://www.adobe.com/la/products/acrobat/readstep2.html" target="_blank"><img src="adoberojo.jpg" width="117" height="39" border="0" align="middle"></a></p>    </td>
+  </tr>
+</tbody></table>-->
+<br>
+<div class="divTable">
+<div class="divTableBody container">
+<div class="divTableHeading row bottom">
+	<div class="divTableHead col-md-1" style="font-size: 9px">REGISTRO</div>
+	<div class="divTableHead col-md-1"># PROF.</div>
+	<div class="divTableHead col-md-1">APELLIDO Y NOMBRE</div>
+	<div class="divTableHead col-md-1">DNI</div>
+	<div class="divTableHead col-md-1">DOMICILIO</div>
+	<div class="divTableHead col-md-1">TEL&Eacute;FONO</div>
+	<div class="divTableHead col-md-3">E-MAIL</div>
+	<div class="divTableHead col-md-1">PARTIDO</div>
+	<div class="divTableHead col-md-1">LOCALIDAD</div>
+	<div class="divTableHead col-md-1">T&Iacute;TULO</div>
+</div>
+<div class="divTableRow row bottom">
+<div class="divTableCell col-md-1">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell col-md-1"><span class="FontNormal">184</span></div>
+<div class="divTableCell col-md-1">ABDO, LUIS ALBERTO</div>
+<div class="divTableCell col-md-1">LE 8337301&nbsp;</div>
+<div class="divTableCell col-md-1">Calle: MOZOTEGUI - Nro: 560 Dpto: Piso:</div>
+<div class="divTableCell col-md-1">Tel: ( 0222)-6421494</div>
+<div class="divTableCell col-md-3">ingabdo2004@yahoo.com.ar</div>
+<div class="divTableCell col-md-1">CA&Ntilde;UELAS</div>
+<div class="divTableCell col-md-1">CA&Ntilde;UELAS</div>
+<div class="divTableCell col-md-1">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row bottom">
+<div class="divTableCell col-md-1">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell col-md-1"><span class="FontNormal">455</span></div>
+<div class="divTableCell col-md-1">AHARGO, Edgardo Bautista</div>
+<div class="divTableCell col-md-1">DNI 7687644&nbsp;</div>
+<div class="divTableCell col-md-1">Calle: Avda. aAem - Nro: 783 Dpto: Piso:</div>
+<div class="divTableCell col-md-1">&nbsp;</div>
+<div class="divTableCell col-md-3">edgardo@arrietafiotto.com.ar</div>
+<div class="divTableCell col-md-1">BAHIA BLANCA</div>
+<div class="divTableCell col-md-1">BAHIA BLANCA</div>
+<div class="divTableCell col-md-1">Ingeniero Laboral,Ingeniero Industrial</div>
+</div>
+<!--<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">316</span></div>
+<div class="divTableCell">ALVAREZ, ADALBERTO RA&Uacute;L</div>
+<div class="divTableCell">DNI 5224751&nbsp;</div>
+<div class="divTableCell">Calle: COMODORO RIVADAVIA N&ordf; - Nro: 5094 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 42068838</div>
+<div class="divTableCell">-</div>
+<div class="divTableCell">AVELLANEDA</div>
+<div class="divTableCell">AVELLANEDA</div>
+<div class="divTableCell">Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">281</span></div>
+<div class="divTableCell">ALVAREZ, CARLOS RAUL</div>
+<div class="divTableCell">DNI 10286837&nbsp;</div>
+<div class="divTableCell">Calle: 70 - Nro: 490 Dpto: 2 Piso:</div>
+<div class="divTableCell">Tel: (0221) 4235538 Fax: celular (0221) 15-5895378</div>
+<div class="divTableCell">ingenierosconsultoresasoc@gmail.com</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico,Ingeniero Laboral</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">175</span></div>
+<div class="divTableCell">ANDRADE, ALBERTO FRANCISCO</div>
+<div class="divTableCell">LE 7638052&nbsp;</div>
+<div class="divTableCell">Calle: GAUCHO CRUZ N&deg; 5144 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 7506636</div>
+<div class="divTableCell">albertoandrade@arnet.com.ar</div>
+<div class="divTableCell">TRES DE FEBRERO</div>
+<div class="divTableCell">CASEROS</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">152</span></div>
+<div class="divTableCell">ARRIEN, LUIS MARIA</div>
+<div class="divTableCell">DNI 16303997&nbsp;</div>
+<div class="divTableCell">Calle: HORNOS N&ordm; - Nro: 1941 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (02284)-443835</div>
+<div class="divTableCell">LMARRIEN@SPEEDY.COM.AR</div>
+<div class="divTableCell">OLAVARRIA</div>
+<div class="divTableCell">OLAVARRIA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">335</span></div>
+<div class="divTableCell">ARTUCIO , RUBEN JUAN CARLOS</div>
+<div class="divTableCell">DNI 6613101&nbsp;</div>
+<div class="divTableCell">Calle: 25 DE MAYO N&ordm;864 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 03489-437745</div>
+<div class="divTableCell">raasi@fibertel.com.ar</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">280</span></div>
+<div class="divTableCell">AVETTA, HAROLDO TOMAS</div>
+<div class="divTableCell">DNI 10959671&nbsp;</div>
+<div class="divTableCell">Calle: AVD. CENTRAL N&deg; 3070 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 46162788</div>
+<div class="divTableCell">jcg@jmnspecialties.com</div>
+<div class="divTableCell">SAN NICOLAS</div>
+<div class="divTableCell">SAN NICOLAS DE LOS ARROYOS</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">324</span></div>
+<div class="divTableCell">BALTAZAR, JOSE LUIS</div>
+<div class="divTableCell">DNI 22630108&nbsp;</div>
+<div class="divTableCell">Calle: 33 - Nro: 813 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0221) 4222150</div>
+<div class="divTableCell">joseluis@cdkot.com</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">462</span></div>
+<div class="divTableCell">Baratelli, Gerardo Fabian</div>
+<div class="divTableCell">DNI 30536496&nbsp;</div>
+<div class="divTableCell">Calle: Ayacucho - Nro: 732 Dpto: Piso:</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">459</span></div>
+<div class="divTableCell">Barbero, Jorge Luis</div>
+<div class="divTableCell">DNI 32515368&nbsp;</div>
+<div class="divTableCell">Calle: Lavalle - Nro: 2046 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 02284-427313 Fax: 2284372193</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">OLAVARRIA</div>
+<div class="divTableCell">OLAVARRIA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">430</span></div>
+<div class="divTableCell">Barbetta, Ruben Guillermo</div>
+<div class="divTableCell">DNI 10767234&nbsp;</div>
+<div class="divTableCell">Calle: Potosi - Nro: 2143 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 011-47971450</div>
+<div class="divTableCell">ruben.barbeta@ecotec.com.ar</div>
+<div class="divTableCell">VICENTE LOPEZ</div>
+<div class="divTableCell">OLIVOS</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">208</span></div>
+<div class="divTableCell">BARBIERI, CAYETANO</div>
+<div class="divTableCell">DNI 93793247&nbsp;</div>
+<div class="divTableCell">Calle: BOULEVARD FINCA - Nro: 272 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4751-7623 Fax: (011) 4751- 7623</div>
+<div class="divTableCell">inge.bar@arnet.com.ar</div>
+<div class="divTableCell">TRES DE FEBRERO</div>
+<div class="divTableCell">EL PALOMAR</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero en Seguridad e Higiene,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">443</span></div>
+<div class="divTableCell">BECERRA, JORGE RAFAEL</div>
+<div class="divTableCell">DNI 5063332&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 119 E/ 39 Y 40 - Nro: N&ordm; 366 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0221) 4822483</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">&nbsp;</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">43</span></div>
+<div class="divTableCell">BEN, ALEJANDRO SERGIO</div>
+<div class="divTableCell">DNI 17226090&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 73 - Nro: N&deg; 1289 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 4517611</div>
+<div class="divTableCell">asb_ing@yahoo.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">331</span></div>
+<div class="divTableCell">BENENTE, RICARDO</div>
+<div class="divTableCell">DNI 13856096&nbsp;</div>
+<div class="divTableCell">Calle: CIUDAELA N&deg; 1883 - Nro: 1883 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 42590018</div>
+<div class="divTableCell">ricardo.benente@consultorabenente.com.ar</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">DON BOSCO</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico,Ingeniero Laboral</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">129</span></div>
+<div class="divTableCell">BEOVIDE, ENRIQUE HORACIO</div>
+<div class="divTableCell">DNI 4981418&nbsp;</div>
+<div class="divTableCell">Calle: HIPOLITO YRIGOYEN N&deg;2731 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 44419788</div>
+<div class="divTableCell">consultora@beovide.com.ar</div>
+<div class="divTableCell">LA MATANZA</div>
+<div class="divTableCell">SAN JUSTO</div>
+<div class="divTableCell">Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">432</span></div>
+<div class="divTableCell">BERGALLO, BRUNO OMAR</div>
+<div class="divTableCell">DNI 26704476&nbsp;</div>
+<div class="divTableCell">Calle: CANE - Nro: 725 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0291-154025077 Fax: 0291-4305284</div>
+<div class="divTableCell">estudiodeingenieria@live.com</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico,Ingeniero Industrail</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">159</span></div>
+<div class="divTableCell">BERNACHI, MARIO RODOLFO</div>
+<div class="divTableCell">DNI 13551622&nbsp;</div>
+<div class="divTableCell">Calle: CALLE BOLIVAR N&ordf; 4047 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 2234941029/(0223) 472-4373 Fax: (0223) 4724373</div>
+<div class="divTableCell">bybing@arnet.com.ar</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">439</span></div>
+<div class="divTableCell">BERNADSKY, RODOLFO</div>
+<div class="divTableCell">DNI 4405240&nbsp;</div>
+<div class="divTableCell">Calle: Coronel Apolinario Figeroa - Nro: 165 Dpto: Piso: 1 E</div>
+<div class="divTableCell">Tel: 011- 1556995611</div>
+<div class="divTableCell">INGBERNADSKY@HOTMAIL.COM</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Metal&uacute;rgico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">458</span></div>
+<div class="divTableCell">BERNARDINO, ALEJANDRO CARLOS</div>
+<div class="divTableCell">DNI 32104966&nbsp;</div>
+<div class="divTableCell">Calle: GALICIA - Nro: 185 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0223-155134073</div>
+<div class="divTableCell">alejandrobernardino@gmail.com</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">1</span></div>
+<div class="divTableCell">BERTINO, MARIO ADOLFO</div>
+<div class="divTableCell">DNI 16462256&nbsp;</div>
+<div class="divTableCell">Calle: 13 n&deg; 723 - Nro: 723 Dpto: 16462256 Piso: P. 07</div>
+<div class="divTableCell">Tel: 421-4772</div>
+<div class="divTableCell">m.bertino@claysi.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">406</span></div>
+<div class="divTableCell">BIRMAN, BENJAMIN</div>
+<div class="divTableCell">LE 8462146&nbsp;</div>
+<div class="divTableCell">Calle: VIAMONTEN - Nro: 1419 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4931-2322</div>
+<div class="divTableCell">birben@fibertel.com.ar</div>
+<div class="divTableCell">LOMAS DE ZAMORA</div>
+<div class="divTableCell">LOMAS DE ZAMORA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Electricista</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">371</span></div>
+<div class="divTableCell">BLANCO, JUAN RICARDO</div>
+<div class="divTableCell">DNI 12498875&nbsp;</div>
+<div class="divTableCell">Calle: PAREJA 2450 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4505114</div>
+<div class="divTableCell">jblancog1@yahoo.com.ar</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Laboral</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">162</span></div>
+<div class="divTableCell">BOC, RICARDO MILAN</div>
+<div class="divTableCell">DNI 12258461&nbsp;</div>
+<div class="divTableCell">Calle: BONIFACINI - Nro: 1982 Dpto: 1 Piso: 1</div>
+<div class="divTableCell">Tel: (011) 4713-1685</div>
+<div class="divTableCell">ambiental@bocyasoc.com.ar</div>
+<div class="divTableCell">GENERAL SAN MARTIN</div>
+<div class="divTableCell">SAN MARTIN</div>
+<div class="divTableCell">Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">196</span></div>
+<div class="divTableCell">BREDICE , ANTONIO</div>
+<div class="divTableCell">DNI 12476173&nbsp;</div>
+<div class="divTableCell">Calle: 62 - Nro: 2328 Dpto: Piso:</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">COMPRESORESENTHALPOS@INFOVIA.COM.AR</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">433</span></div>
+<div class="divTableCell">BRUNO , MARIANO</div>
+<div class="divTableCell">DNI 21904120&nbsp;</div>
+<div class="divTableCell">Calle: SAN LORENZO - Nro: - Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0223-154-175238</div>
+<div class="divTableCell">INGENIEROBRUNO@GMAIL.COM</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">especialista en higiene y seguridad en el trabajo,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">304</span></div>
+<div class="divTableCell">Brusotti, Walter Daniel</div>
+<div class="divTableCell">DNI 16737227&nbsp;</div>
+<div class="divTableCell">Calle: Alsina - Nro: 239 Dpto: B Piso: PB</div>
+<div class="divTableCell">Tel: 011-46542653</div>
+<div class="divTableCell">wdbrusotti@hotmail.com</div>
+<div class="divTableCell">LA MATANZA</div>
+<div class="divTableCell">RAMOS MEJIA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">174</span></div>
+<div class="divTableCell">BURGOS , HUGO</div>
+<div class="divTableCell">DNI 13340691&nbsp;</div>
+<div class="divTableCell">Calle: FRAY M. ESQUIU 5251 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0114750-7883</div>
+<div class="divTableCell">direcciontecnica@laboratoriodicofar.com.ar</div>
+<div class="divTableCell">TRES DE FEBRERO</div>
+<div class="divTableCell">VILLA BOSCH</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">450</span></div>
+<div class="divTableCell">bustamante , jorge horacio</div>
+<div class="divTableCell">DNI 11489991&nbsp;</div>
+<div class="divTableCell">Calle: 3 DE FEBRERO - Nro: 1256 Dpto: C Piso: 1</div>
+<div class="divTableCell">Tel: 0111556628106</div>
+<div class="divTableCell">jhbustamante.com.ar</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">INGENIERO MILITAR</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">245</span></div>
+<div class="divTableCell">CACERES, ROBERTO MARTIN</div>
+<div class="divTableCell">DNI 14355036&nbsp;</div>
+<div class="divTableCell">Calle: H. YRIGOYEN N&deg; 684 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 42965456</div>
+<div class="divTableCell">caceresr@infovia.com.ar</div>
+<div class="divTableCell">ESTEBAN ECHEVERRIA</div>
+<div class="divTableCell">MONTE GRANDE</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene,Licenciado en Higiene y Seguridad en el Trabajo</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">39</span></div>
+<div class="divTableCell">CAETANO, JOSE ALBERTO</div>
+<div class="divTableCell">DNI 11373550&nbsp;</div>
+<div class="divTableCell">Calle: IGUAZU - Nro: N&deg; 8905 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 48402330 Fax: 48423521</div>
+<div class="divTableCell">jacaetano@ametbiz.com.ar</div>
+<div class="divTableCell">TRES DE FEBRERO</div>
+<div class="divTableCell">LOMA HERMOSA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">348</span></div>
+<div class="divTableCell">CAMINOS, CARLOS EDUARDO</div>
+<div class="divTableCell">DNI 17815705&nbsp;</div>
+<div class="divTableCell">Calle: camino Gral Belgrano e/ 489 y 490 - Nro: 4259 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0221-154639862-4711605</div>
+<div class="divTableCell">caminoscarlose@hotmail.com</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">GONNET</div>
+<div class="divTableCell">Licenciado en Higiene y Seguridad en el Trabajo,Ingeniero en Seguridad Ambiental</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">15</span></div>
+<div class="divTableCell">CANULLO, SERGIO DANIEL</div>
+<div class="divTableCell">DNI 10103182&nbsp;</div>
+<div class="divTableCell">Calle: PANAMA N&deg; 1053 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0291)-4530833</div>
+<div class="divTableCell">scanullo@bvconline.com.ar</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Electricista</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">307</span></div>
+<div class="divTableCell">CAPURRO , TOMAS</div>
+<div class="divTableCell">DNI 5191042&nbsp;</div>
+<div class="divTableCell">Calle: 9 - Nro: 2010 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0221-451-4988</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">172</span></div>
+<div class="divTableCell">CARAVELLI , VICENTE</div>
+<div class="divTableCell">DNI 5487216&nbsp;</div>
+<div class="divTableCell">Calle: 70 1128 - Nro: 1128 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 452-2310</div>
+<div class="divTableCell">caravelli@netverk.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">359</span></div>
+<div class="divTableCell">CARDINALI, CARLOS SANTOS</div>
+<div class="divTableCell">DNI 13433044&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 53 N&deg; 2370 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 7553549</div>
+<div class="divTableCell">carlos@cuidadosdelambiente.com.ar</div>
+<div class="divTableCell">MORENO</div>
+<div class="divTableCell">GENERAL SAN MARTIN</div>
+<div class="divTableCell">Ingeniero en Seguridad Ambiental</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">157</span></div>
+<div class="divTableCell">CARELLI , JUAN CARLOS</div>
+<div class="divTableCell">DNI 13139940&nbsp;</div>
+<div class="divTableCell">Calle: BONIFACINI - Nro: 5561 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 011-4751-7038</div>
+<div class="divTableCell">jccarelli@exertsrl.com.ar</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">465</span></div>
+<div class="divTableCell">Carluccio, Ariel Ignacio</div>
+<div class="divTableCell">DNI 30994646&nbsp;</div>
+<div class="divTableCell">Calle: Guamini - Nro: 5015 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 1162866864</div>
+<div class="divTableCell">arielcarluccio@hotmail.com</div>
+<div class="divTableCell">TRES DE FEBRERO</div>
+<div class="divTableCell">CASEROS</div>
+<div class="divTableCell">&nbsp;</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">262</span></div>
+<div class="divTableCell">CARREIRA, NORBERTO</div>
+<div class="divTableCell">DNI 18211787&nbsp;</div>
+<div class="divTableCell">Calle: Humberto Primo - Nro: 2021 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4262-7913 Fax: (011) 4262-7913</div>
+<div class="divTableCell">SIPE@CIUDAD.COM.AR</div>
+<div class="divTableCell">LANUS</div>
+<div class="divTableCell">LANUS</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">14</span></div>
+<div class="divTableCell">CARRIQUIRIBORDE, PABLO GUSTAVO</div>
+<div class="divTableCell">DNI 13942796&nbsp;</div>
+<div class="divTableCell">Calle: 116 - Nro: 1365 Dpto: Piso: PB</div>
+<div class="divTableCell">Tel: (0221) 422-7869</div>
+<div class="divTableCell">icys@live.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">199</span></div>
+<div class="divTableCell">CARRO, ROBERTO</div>
+<div class="divTableCell">DNI 10506316&nbsp;</div>
+<div class="divTableCell">Calle: Marconi - Nro: 733 Dpto: 3 Piso:</div>
+<div class="divTableCell">Tel: (0223) 4740871 Fax: (0223) 4740871</div>
+<div class="divTableCell">rcarro@speedy.com.ar</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero en Seguridad e Higiene,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">411</span></div>
+<div class="divTableCell">Casco, Juan Francisco</div>
+<div class="divTableCell">DNI 12852508&nbsp;</div>
+<div class="divTableCell">Calle: Alvarez Thomas - Nro: 221 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 011-35337776</div>
+<div class="divTableCell">juanfcasco@gmail.com</div>
+<div class="divTableCell">LOMAS DE ZAMORA</div>
+<div class="divTableCell">LOMAS DE ZAMORA</div>
+<div class="divTableCell">Especializacion en Higiene y Seg. en el Trabajo,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">382</span></div>
+<div class="divTableCell">CATTANEO , JOSE MARIA</div>
+<div class="divTableCell">DNI 22120876&nbsp;</div>
+<div class="divTableCell">Calle: ALTE.BROWN - Nro: 467 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 011-1532064116</div>
+<div class="divTableCell">rheing.cattaneo@gmail.com</div>
+<div class="divTableCell">GENERAL RODRIGUEZ</div>
+<div class="divTableCell">GENERAL RODRIGUEZ</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">420</span></div>
+<div class="divTableCell">CERDA, HECTOR CEFERINO</div>
+<div class="divTableCell">DNI 27747757&nbsp;</div>
+<div class="divTableCell">Calle: 84 - Nro: 389 Dpto: Piso:</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">cerda_hector@hotmail.com</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">251</span></div>
+<div class="divTableCell">CERVONE, GUSTAVO ANDRES</div>
+<div class="divTableCell">DNI 21604744&nbsp;</div>
+<div class="divTableCell">Calle: MORENO PISO - Nro: 3644 Dpto: A Piso: 3</div>
+<div class="divTableCell">Tel: (0223)492-1246</div>
+<div class="divTableCell">galaingenieria@speedy.com</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">401</span></div>
+<div class="divTableCell">CESKIAVIKUS, JORGE ROBERTO</div>
+<div class="divTableCell">DNI 17993082&nbsp;</div>
+<div class="divTableCell">Calle: gonet - Nro: 2135 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 2214843677</div>
+<div class="divTableCell">ceskiavikus@ciudad.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Electricista</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">396</span></div>
+<div class="divTableCell">Corbacho, Ricardo Hector</div>
+<div class="divTableCell">DNI 17610691&nbsp;</div>
+<div class="divTableCell">Calle: 498 - Nro: 1757 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 4846426</div>
+<div class="divTableCell">rhcorbacho@hotmail.com</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">GONNET</div>
+<div class="divTableCell">Ingeniero en Seguridad Ambiental</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">179</span></div>
+<div class="divTableCell">CORBATO , JOSE MANUEL</div>
+<div class="divTableCell">DNI 11005922&nbsp;</div>
+<div class="divTableCell">Calle: EMILIO ZOLA 1587 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011)4254-2298</div>
+<div class="divTableCell">ventas@riccompresores.com.ar</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">365</span></div>
+<div class="divTableCell">CORRALES MARTINEZ, VICENTE</div>
+<div class="divTableCell">DNI 18776340&nbsp;</div>
+<div class="divTableCell">Calle: LAMADRID N&ordm; 586 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (02983) 427880 Fax: (02983) 428413</div>
+<div class="divTableCell">corralesc@eternet.cc</div>
+<div class="divTableCell">TRES ARROYOS</div>
+<div class="divTableCell">TRES ARROYOS</div>
+<div class="divTableCell">Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">293</span></div>
+<div class="divTableCell">CROCE , VICTOR</div>
+<div class="divTableCell">LE 4891046&nbsp;</div>
+<div class="divTableCell">Calle: CORREA - Nro: 543 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 011-4290-3636</div>
+<div class="divTableCell">victorcroceyasociados@gmeil.com.</div>
+<div class="divTableCell">ESTEBAN ECHEVERRIA</div>
+<div class="divTableCell">LUIS GUILLON</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">466</span></div>
+<div class="divTableCell">Cura, Josefina</div>
+<div class="divTableCell">DNI 27418569&nbsp;</div>
+<div class="divTableCell">Calle: 11 de Setiembre - Nro: 6498 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0223-154221117</div>
+<div class="divTableCell">josefinacura@hotmail.com</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">especialista en higiene y seguridad en el trabajo,Ingeniero en Materiales</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">389</span></div>
+<div class="divTableCell">D Elmar, Daniel Enrique</div>
+<div class="divTableCell">DNI 22505128&nbsp;</div>
+<div class="divTableCell">Calle: Santiago Derqu&iacute; - Nro: 2800 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0291-4087259/ 0291-155041490</div>
+<div class="divTableCell">dedelmar@hotmail.com</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero en Construcciones</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">393</span></div>
+<div class="divTableCell">DAIMA, ALBERTO PEDRO</div>
+<div class="divTableCell">LE 6609679&nbsp;</div>
+<div class="divTableCell">Calle: DORREGO N&deg; 589 PISO 2 A - Nro: 589 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0291) 4517689</div>
+<div class="divTableCell">albertopdaima@bvconline.com.ar</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">64</span></div>
+<div class="divTableCell">DAL BELLO, GELMINO</div>
+<div class="divTableCell">DNI 93674043&nbsp;</div>
+<div class="divTableCell">Calle: AMADEO SABATINI - Nro: 3994 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 011-4759-7997</div>
+<div class="divTableCell">juan_dalbello@hotmail.com</div>
+<div class="divTableCell">TRES DE FEBRERO</div>
+<div class="divTableCell">CASEROS</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero en Seguridad e Higiene,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">367</span></div>
+<div class="divTableCell">DALMASSO, JUAN CARLOS</div>
+<div class="divTableCell">DNI 12207193&nbsp;</div>
+<div class="divTableCell">Calle: OLAZABAL N&deg; 1464 PISO 4&deg; - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4782-0825 Fax: (011) 4786-3741</div>
+<div class="divTableCell">LA_NUEVA@FIBERTEL.COM.AR</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Laboral</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">469</span></div>
+<div class="divTableCell">DAVID, Juan Jose</div>
+<div class="divTableCell">DNI 13365447&nbsp;</div>
+<div class="divTableCell">Calle: Cramer - Nro: 924 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 02320427348</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">JOSE C PAZ</div>
+<div class="divTableCell">JOSE C PAZ</div>
+<div class="divTableCell">&nbsp;</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">178</span></div>
+<div class="divTableCell">DESOCIO, HUGO OMAR</div>
+<div class="divTableCell">DNI 10433353&nbsp;</div>
+<div class="divTableCell">Calle: 42 - Nro: 5915 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0221) 470-2235</div>
+<div class="divTableCell">hod_ing@hotmail.com</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LISANDRO OLMOS</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">350</span></div>
+<div class="divTableCell">DI GIUSEPPE, MAURICIO ANTONIO</div>
+<div class="divTableCell">DNI 16494225&nbsp;</div>
+<div class="divTableCell">Calle: PRINGLES N&ordf; 680 - Nro: N&deg; 680 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4251-2394 Fax: (011) 4251-2394</div>
+<div class="divTableCell">welins@uolsinectis.com.ar</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">BERNAL</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">142</span></div>
+<div class="divTableCell">DI YORIO, CESAR</div>
+<div class="divTableCell">DNI 5328475&nbsp;</div>
+<div class="divTableCell">Calle: 68 - Nro: 686 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0221-452-6620</div>
+<div class="divTableCell">cesardiyorio43@ciudad.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">356</span></div>
+<div class="divTableCell">DIEZ, ALBERTO MANUEL</div>
+<div class="divTableCell">DNI 17607822&nbsp;</div>
+<div class="divTableCell">Calle: ITUZAINGO N&ordm; 714 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (02223) 444271</div>
+<div class="divTableCell">dyp-getsion-ambiental@speedy.com.ar</div>
+<div class="divTableCell">CORONEL BRANDSEN</div>
+<div class="divTableCell">CORONEL BRANDSEN</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">171</span></div>
+<div class="divTableCell">DOMINGUEZ ARTIA, JOSE LUIS</div>
+<div class="divTableCell">DNI 14955786&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 62 N&deg; 3641 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0262) 23465</div>
+<div class="divTableCell">jldartia@arnet.com.ar</div>
+<div class="divTableCell">NECOCHEA</div>
+<div class="divTableCell">NECOCHEA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero en Seguridad e Higiene,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">20</span></div>
+<div class="divTableCell">DOTTORI, CLAUDIO JOSE</div>
+<div class="divTableCell">DNI 11667804&nbsp;</div>
+<div class="divTableCell">Calle: Sarmiento - Nro: 793 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 01142540927 Fax: 0114 254-0927</div>
+<div class="divTableCell">cjdottori@yahoo.com.ar</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">282</span></div>
+<div class="divTableCell">DUCO , HUGO</div>
+<div class="divTableCell">DNI 4649084&nbsp;</div>
+<div class="divTableCell">Calle: 12 DE OCTUBRE - Nro: 553 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0114255-6027</div>
+<div class="divTableCell">hduco@speedy.com.ar</div>
+<div class="divTableCell">FLORENCIO VARELA</div>
+<div class="divTableCell">FLORENCIO VARELA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">124</span></div>
+<div class="divTableCell">DURSO, OSCAR ALBERTO</div>
+<div class="divTableCell">DNI 11893460&nbsp;</div>
+<div class="divTableCell">Calle: BOLIVAR - Nro: 1150 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 7292424</div>
+<div class="divTableCell">oscardurso@yahoo.com</div>
+<div class="divTableCell">GENERAL SARMIENTO</div>
+<div class="divTableCell">VILLA DE MAYO</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico,Ingeniero Mecanico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">381</span></div>
+<div class="divTableCell">ELIAS , JUAN CARLOS</div>
+<div class="divTableCell">DNI 12634289&nbsp;</div>
+<div class="divTableCell">Calle: ALGARROBO - Nro: 122 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011)4293-5107</div>
+<div class="divTableCell">jcelias@inelmaingenieria.com.ar</div>
+<div class="divTableCell">ALMIRANTE BROWN</div>
+<div class="divTableCell">ADROGUE</div>
+<div class="divTableCell">Ingeniero Electromec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">128</span></div>
+<div class="divTableCell">ESPA&Ntilde;ON, JUAN CARLOS</div>
+<div class="divTableCell">DNI 4640925&nbsp;</div>
+<div class="divTableCell">Calle: 41 - Nro: 1559 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0221) 479-0508</div>
+<div class="divTableCell">jcespanon@ciudad.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico,Ingeniero Laboral,Ingeniero en Seguridad e Higiene</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">207</span></div>
+<div class="divTableCell">ESPINEL, CARLOS ALBERTO</div>
+<div class="divTableCell">LE 4306437&nbsp;</div>
+<div class="divTableCell">Calle: hipolito yrigoyen - Nro: 2486 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 7972548</div>
+<div class="divTableCell">CINTAGOM@HOTMAIL.COM</div>
+<div class="divTableCell">VICENTE LOPEZ</div>
+<div class="divTableCell">FLORIDA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">55</span></div>
+<div class="divTableCell">ESTEVEZ , JULIO</div>
+<div class="divTableCell">DNI 11544187&nbsp;</div>
+<div class="divTableCell">Calle: TRES ARROYOS 1365 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0223)4774899</div>
+<div class="divTableCell">macroing@speedy.com.ar</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">322</span></div>
+<div class="divTableCell">fandi&ntilde;o, martin santiago</div>
+<div class="divTableCell">DNI 17203657&nbsp;</div>
+<div class="divTableCell">Calle: lugones - Nro: 4963 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 45416449</div>
+<div class="divTableCell">msfandino@gmail.com</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">VILLA PUEYRREDON</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">74</span></div>
+<div class="divTableCell">FAVARO, ROBERTO MAURICIO</div>
+<div class="divTableCell">LE 7701768&nbsp;</div>
+<div class="divTableCell">Calle: LA RIOJA N&ordm; 933 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4252-0385 Fax: (011) 4259-2295</div>
+<div class="divTableCell">ingenieria@editecssrl.com.ar</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">334</span></div>
+<div class="divTableCell">FERNANDEZ, NESTOR ALEJANDRO</div>
+<div class="divTableCell">DNI 18152254&nbsp;</div>
+<div class="divTableCell">Calle: Leandro N. Alem - Nro: 3250 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 46677305 46002813 Fax: 46677305</div>
+<div class="divTableCell">ingnaf@hotmail.com proyecto_seguro@yahoo.com.ar</div>
+<div class="divTableCell">SAN MIGUEL</div>
+<div class="divTableCell">SAN MIGUEL</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">414</span></div>
+<div class="divTableCell">Ferraris, Hernan Santiago</div>
+<div class="divTableCell">DNI 23724139&nbsp;</div>
+<div class="divTableCell">Calle: Dr Real - Nro: 785 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0111531508485</div>
+<div class="divTableCell">hernanferraris@argentina.com</div>
+<div class="divTableCell">LUJAN</div>
+<div class="divTableCell">LUJAN</div>
+<div class="divTableCell">Ingeniero Industrial,especialista en higiene y seguridad en el trabajo</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">7</span></div>
+<div class="divTableCell">FLOREZ , JUAN JOSE</div>
+<div class="divTableCell">DNI 10102285&nbsp;</div>
+<div class="divTableCell">Calle: 69 - Nro: N&ordm;108 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0221-40922 Fax: 0221-4220818</div>
+<div class="divTableCell">jflorez@fibertel.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">112</span></div>
+<div class="divTableCell">FOGLIA , GUSTAVO</div>
+<div class="divTableCell">DNI 13551474&nbsp;</div>
+<div class="divTableCell">Calle: RAWSON N&ordm; 246 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0223-451-1321</div>
+<div class="divTableCell">gfoglia@fidexsa.com.ar</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">377</span></div>
+<div class="divTableCell">FORTUNELLI, MARIO SERGIO</div>
+<div class="divTableCell">LE 6189332&nbsp;</div>
+<div class="divTableCell">Calle: AV. ANDRES BARANDA - Nro: 917 Dpto: C Piso: 1</div>
+<div class="divTableCell">Tel: CEL 011-154-149-0836</div>
+<div class="divTableCell">mario.fortunelli@gmail.com</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico,Ingeniero en Seguridad e Higiene</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">376</span></div>
+<div class="divTableCell">FRIAS, JORGE LUIS</div>
+<div class="divTableCell">LE 4745991&nbsp;</div>
+<div class="divTableCell">Calle: - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 48923942</div>
+<div class="divTableCell">jorge.frias@exxamobil.com</div>
+<div class="divTableCell">CAMPANA</div>
+<div class="divTableCell">CAMPANA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">302</span></div>
+<div class="divTableCell">FROY, ANGEL ADOLFO</div>
+<div class="divTableCell">DNI 7836292&nbsp;</div>
+<div class="divTableCell">Calle: MARMOL N&deg; 2845 PB DPT 3 B - Nro: 2845 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4416060</div>
+<div class="divTableCell">ingfroy@hotmail.com</div>
+<div class="divTableCell">LA MATANZA</div>
+<div class="divTableCell">SAN JUSTO</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">83</span></div>
+<div class="divTableCell">GARBI, HECTOR</div>
+<div class="divTableCell">CF 5738480&nbsp;</div>
+<div class="divTableCell">Calle: PJE. BALCARCE N&deg; 1438 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 7539555</div>
+<div class="divTableCell">fagarbi@ciudad.com.ar</div>
+<div class="divTableCell">MORENO</div>
+<div class="divTableCell">GENERAL SAN MARTIN</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">106</span></div>
+<div class="divTableCell">GELMETTI , MIGUEL</div>
+<div class="divTableCell">LE 8426805&nbsp;</div>
+<div class="divTableCell">Calle: ALBERDI 887 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">gelmetti@utenet.com.ar</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">113</span></div>
+<div class="divTableCell">GIL, RAUL</div>
+<div class="divTableCell">LE 8206591&nbsp;</div>
+<div class="divTableCell">Calle: CALLE COLON N&deg; 246 - Nro: 246 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 47495722</div>
+<div class="divTableCell">manqueingenieria@fibertel.com.ar</div>
+<div class="divTableCell">TIGRE</div>
+<div class="divTableCell">TIGRE</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">57</span></div>
+<div class="divTableCell">GLESSI , RIARDO</div>
+<div class="divTableCell">DNI 11426307&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 11 338 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 02266-420423</div>
+<div class="divTableCell">rglessi@telefax.com.ar</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">99</span></div>
+<div class="divTableCell">GONZALEZ, ALBERTO PEDRO</div>
+<div class="divTableCell">DNI 8383751&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 15 E/ 49 Y50 - Nro: 1636 Dpto: Piso:</div>
+<div class="divTableCell">Tel: ( 0221) 473-0272</div>
+<div class="divTableCell">alpego51@yahoo.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">VILLA ELISA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">59</span></div>
+<div class="divTableCell">GONZALEZ, JORGE ISAAC</div>
+<div class="divTableCell">DNI 5194978&nbsp;</div>
+<div class="divTableCell">Calle: MORENO N&deg; 634 4TO. A - Nro: 634 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 011 42536258</div>
+<div class="divTableCell">kiltec@speedy.com.ar</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">374</span></div>
+<div class="divTableCell">GONZALEZ , OSIRIS RODOLFO</div>
+<div class="divTableCell">DNI 23134845&nbsp;</div>
+<div class="divTableCell">Calle: 154 A - Nro: 1579 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 011-4226-7595</div>
+<div class="divTableCell">ingenieria_integral_sur@hotmail.com</div>
+<div class="divTableCell">BERAZATEGUI</div>
+<div class="divTableCell">BERAZATEGUI</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">360</span></div>
+<div class="divTableCell">GONZALEZ, PEDRO</div>
+<div class="divTableCell">DNI 14879547&nbsp;</div>
+<div class="divTableCell">Calle: ISABEL FERNANDEZ - Nro: 1506 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 47127656</div>
+<div class="divTableCell">hsmgonzalez@gmail.com</div>
+<div class="divTableCell">TRES DE FEBRERO</div>
+<div class="divTableCell">SAENZ PE&Ntilde;A</div>
+<div class="divTableCell">Ingeniero en Seguridad Ambiental</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">438</span></div>
+<div class="divTableCell">Gregoret, Carlos Angel</div>
+<div class="divTableCell">DNI 24898095&nbsp;</div>
+<div class="divTableCell">Calle: Aconcagua - Nro: 300 Dpto: Unidad Fun Piso:</div>
+<div class="divTableCell">Tel: 011-1558497896</div>
+<div class="divTableCell">cgregoret@fibertel.com.ar</div>
+<div class="divTableCell">ESCOBAR</div>
+<div class="divTableCell">ESCOBAR</div>
+<div class="divTableCell">Ingeniero Electromec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">461</span></div>
+<div class="divTableCell">GROGLOPO, ADOLFO AMERICO</div>
+<div class="divTableCell">DNI 10650900&nbsp;</div>
+<div class="divTableCell">Calle: JOSE C. PAZ - Nro: 2822 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4753-2859 Fax: (011) 4753-2859</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">GENERAL SAN MARTIN</div>
+<div class="divTableCell">SAN ANDRES</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">428</span></div>
+<div class="divTableCell">GUAGNINI, ALBERTO RICARDO</div>
+<div class="divTableCell">DNI 10981495&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 55 - Nro: 1362 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0221) 4575152</div>
+<div class="divTableCell">RASIC@RASIC.COM</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Laboral</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">463</span></div>
+<div class="divTableCell">Guagnini, Sebastian</div>
+<div class="divTableCell">DNI 28254141&nbsp;</div>
+<div class="divTableCell">Calle: 55 - Nro: 1362 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 4531370</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">&nbsp;</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">28</span></div>
+<div class="divTableCell">GUIDETTO, NESTOR DANIEL</div>
+<div class="divTableCell">DNI 12792846&nbsp;</div>
+<div class="divTableCell">Calle: SAN GUILLERMO - Nro: 5855 Dpto: Piso:</div>
+<div class="divTableCell">Tel: ( 1682) 48422531</div>
+<div class="divTableCell">danielguidetto@yahoo.com.ar</div>
+<div class="divTableCell">TRES DE FEBRERO</div>
+<div class="divTableCell">VILLA BOSCH</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">297</span></div>
+<div class="divTableCell">HENRICH, GUSTAVO JORGE</div>
+<div class="divTableCell">DNI 13587381&nbsp;</div>
+<div class="divTableCell">Calle: SARMIENTO N&deg; 25 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (03461)-425539</div>
+<div class="divTableCell">ghenrich@arnet.com.ar</div>
+<div class="divTableCell">SAN NICOLAS</div>
+<div class="divTableCell">SAN NICOLAS DE LOS ARROYOS</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">11</span></div>
+<div class="divTableCell">IGLESIAS, RAUL OSVALDO</div>
+<div class="divTableCell">LE 4387840&nbsp;</div>
+<div class="divTableCell">Calle: NEUQUEN - Nro: 815 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 657-3661</div>
+<div class="divTableCell">rauliglesias@iafh.com.ar</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico,Ingeniero Ambiental</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">449</span></div>
+<div class="divTableCell">Lamas, Lucas Ezequiel</div>
+<div class="divTableCell">DNI 28385193&nbsp;</div>
+<div class="divTableCell">Calle: B&deg; YPF - Nro: 56 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0221-156177360</div>
+<div class="divTableCell">lucas_lamas@hotmail.com</div>
+<div class="divTableCell">BERISSO</div>
+<div class="divTableCell">BERISSO</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">36</span></div>
+<div class="divTableCell">LAMELA, JORGE EDGARDO</div>
+<div class="divTableCell">DNI 11645335&nbsp;</div>
+<div class="divTableCell">Calle: JUJUY - Nro: 557 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4659-5899</div>
+<div class="divTableCell">jlamela@speedy.com.ar</div>
+<div class="divTableCell">LA MATANZA</div>
+<div class="divTableCell">LA MATANZA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">205</span></div>
+<div class="divTableCell">LANZ, CESAR ARMANDO</div>
+<div class="divTableCell">DNI 16463734&nbsp;</div>
+<div class="divTableCell">Calle: MORENO 391 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0291) 4563677</div>
+<div class="divTableCell">efimax@speedy.com.ar</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">268</span></div>
+<div class="divTableCell">LAURENT, GUILLERMO JORGE</div>
+<div class="divTableCell">DNI 18277698&nbsp;</div>
+<div class="divTableCell">Calle: YAPEYU N&deg; 4158 B PATAGONIA - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 02914861151 Fax: 02914861151</div>
+<div class="divTableCell">laurentguillermo@gmail.com</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Civil</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">272</span></div>
+<div class="divTableCell">LAURENT, RODOLFO</div>
+<div class="divTableCell">DNI 16068951&nbsp;</div>
+<div class="divTableCell">Calle: ZELARRAYAN N&deg;267 LOCAL 8 - Nro: 267 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0291-4536459</div>
+<div class="divTableCell">info@laurentbureau.com.ar</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">12</span></div>
+<div class="divTableCell">LAVI&Ecirc; , HORACIO</div>
+<div class="divTableCell">LE 5165950&nbsp;</div>
+<div class="divTableCell">Calle: 64 - Nro: 820 Dpto: Piso: 7</div>
+<div class="divTableCell">Tel: 0221-4515579</div>
+<div class="divTableCell">horacio_lavie@hotmail.com</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">227</span></div>
+<div class="divTableCell">LEGUIZAMON, MARCELO ADRIAN</div>
+<div class="divTableCell">DNI 12221385&nbsp;</div>
+<div class="divTableCell">Calle: 17 DE MAYO - Nro: 53 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0291-4884394</div>
+<div class="divTableCell">RESIDUOS@BVCONLINE,COM.AR</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico,Ingeniero Laboral</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">226</span></div>
+<div class="divTableCell">LENGE, RODOLFO OSCAR</div>
+<div class="divTableCell">DNI 7782264&nbsp;</div>
+<div class="divTableCell">Calle: ARIETA - Nro: N&deg; 2786 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 46549530</div>
+<div class="divTableCell">rodolfo@estudiolenge.com.ar</div>
+<div class="divTableCell">LA MATANZA</div>
+<div class="divTableCell">SAN JUSTO</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">56</span></div>
+<div class="divTableCell">LENZETTI, JORGE HORACIO</div>
+<div class="divTableCell">LE 8705946&nbsp;</div>
+<div class="divTableCell">Calle: - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 950297</div>
+<div class="divTableCell">macroing@speedy.com.ar</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">191</span></div>
+<div class="divTableCell">LIOTARD, CARLOS ENRIQUE</div>
+<div class="divTableCell">DNI 5221767&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 453 E/ 21a y 21c - Nro: 1445 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0221) 480-2946</div>
+<div class="divTableCell">liotard@netverk.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">454</span></div>
+<div class="divTableCell">LIOTARD, Gaston Alejandro</div>
+<div class="divTableCell">DNI 30958681&nbsp;</div>
+<div class="divTableCell">Calle: 528 e/ 14 y 15 - Nro: 221 Dpto: Piso:</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">TOLOSA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">329</span></div>
+<div class="divTableCell">LIOTARD, JUAN CARLOS</div>
+<div class="divTableCell">DNI 25690381&nbsp;</div>
+<div class="divTableCell">Calle: 420 - Nro: 3341 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0221) 474-1841 Fax: (0221) 4222201</div>
+<div class="divTableCell">JCL1976@YAHOO.COM</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">VILLA ELISA</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico,Ingeniero Laboral</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">352</span></div>
+<div class="divTableCell">LLORENTE, MARISA ADRIANA</div>
+<div class="divTableCell">DNI 14554239&nbsp;</div>
+<div class="divTableCell">Calle: Leunan - Nro: 364 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0291- 156483990</div>
+<div class="divTableCell">marisallorente@yahoo.com.ar</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico,Ingeniero Laboral</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">353</span></div>
+<div class="divTableCell">LOGLEN , VICTOR</div>
+<div class="divTableCell">DNI 16968535&nbsp;</div>
+<div class="divTableCell">Calle: MANUEL MOLINA - Nro: 565 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0291-4545644</div>
+<div class="divTableCell">victorloglen@hotmail.com</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico,Ingeniero Laboral</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">110</span></div>
+<div class="divTableCell">LOGUERCIO, JOSE</div>
+<div class="divTableCell">DNI 16181535&nbsp;</div>
+<div class="divTableCell">Calle: Neuquen - Nro: 168 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 47263853</div>
+<div class="divTableCell">joseloguercio@yahoo.com.ar</div>
+<div class="divTableCell">TIGRE</div>
+<div class="divTableCell">GENERAL PACHECO</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">87</span></div>
+<div class="divTableCell">LONGO , JOSE</div>
+<div class="divTableCell">DNI 93257754&nbsp;</div>
+<div class="divTableCell">Calle: ING. BOATTI - Nro: 1039 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011)4627-0158</div>
+<div class="divTableCell">estudiojl@gmail.com</div>
+<div class="divTableCell">MORON</div>
+<div class="divTableCell">MORON</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">238</span></div>
+<div class="divTableCell">LOSI, CARLOS ALBERTO</div>
+<div class="divTableCell">DNI 8330580&nbsp;</div>
+<div class="divTableCell">Calle: AVD. ALVAREZ CONTE - Nro: 5624 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 47526672</div>
+<div class="divTableCell">closi@consultas1.com.ar</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Metal&uacute;rgico,Ingeniero en Seguridad Ambiental</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">292</span></div>
+<div class="divTableCell">MACCAGNANI, GUSTAVO ALEJANDRO</div>
+<div class="divTableCell">DNI 18334337&nbsp;</div>
+<div class="divTableCell">Calle: EVA PERON - Nro: 1809 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (02317) 432792 Fax: (02317) 423409</div>
+<div class="divTableCell">ing.maccagnani@fibertel.com.ar</div>
+<div class="divTableCell">NUEVE DE JULIO</div>
+<div class="divTableCell">NUEVE DE JULIO</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">429</span></div>
+<div class="divTableCell">MANOLIO, Antonio Alberto</div>
+<div class="divTableCell">DNI 20047997&nbsp;</div>
+<div class="divTableCell">Calle: Pasaje Vazquez - Nro: 548 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0249-154566336</div>
+<div class="divTableCell">antoniomanolio@gmail.com</div>
+<div class="divTableCell">TANDIL</div>
+<div class="divTableCell">TANDIL</div>
+<div class="divTableCell">&nbsp;</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">62</span></div>
+<div class="divTableCell">MANTOVANI, JORGE ENRIQUE</div>
+<div class="divTableCell">DNI 8189049&nbsp;</div>
+<div class="divTableCell">Calle: Los laureles - Nro: 2365 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0336-4461254</div>
+<div class="divTableCell">jemantovani@fibertel.com.ar</div>
+<div class="divTableCell">SAN NICOLAS</div>
+<div class="divTableCell">SAN NICOLAS DE LOS ARROYOS</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">372</span></div>
+<div class="divTableCell">MANUEL, ROBERTO ENRIQUE</div>
+<div class="divTableCell">DNI 10717762&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 17 N&ordf; 515 1/2 - Nro: 515 1/2 Dpto: La Plata Piso:</div>
+<div class="divTableCell">Tel: (0221) 489-6177 Fax: (0221) 489-6177</div>
+<div class="divTableCell">rmanuel@speedy.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">76</span></div>
+<div class="divTableCell">MARCOS, MARIO ALFREDO</div>
+<div class="divTableCell">DNI 7746082&nbsp;</div>
+<div class="divTableCell">Calle: SALTA N&deg; 3040 - Nro: 3040 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 46519612 Fax: 011-41390268/9</div>
+<div class="divTableCell">ISECOM@TELECENTRO.COM.AR</div>
+<div class="divTableCell">LA MATANZA</div>
+<div class="divTableCell">SAN JUSTO</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">380</span></div>
+<div class="divTableCell">MARINO , MARTIN EDUARDO</div>
+<div class="divTableCell">DNI 24704069&nbsp;</div>
+<div class="divTableCell">Calle: 512 BIS E/ 8 Y 9 - Nro: 1365 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0221-4714673</div>
+<div class="divTableCell">martin_marino@speedy.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">RINGUELET</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">312</span></div>
+<div class="divTableCell">MARTELLI, WALTER ALBERTO</div>
+<div class="divTableCell">DNI 16147573&nbsp;</div>
+<div class="divTableCell">Calle: FRANCISCO LAPRIDA - Nro: 2192 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0223) 493-8673 Fax: (0223) 494-8707</div>
+<div class="divTableCell">waltermartelli@fibertel.com.ar</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">306</span></div>
+<div class="divTableCell">MARTINEZ, MARIANO JOSE</div>
+<div class="divTableCell">DNI 12563353&nbsp;</div>
+<div class="divTableCell">Calle: MONTEAGUDO - Nro: 961 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 48446144 Fax: (011) 15-49717653</div>
+<div class="divTableCell">coninmym@arnet.com.ar</div>
+<div class="divTableCell">TRES DE FEBRERO</div>
+<div class="divTableCell">VILLA BOSCH</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene,Ingeniero Ambiental</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">177</span></div>
+<div class="divTableCell">MARTINO, LUIS ALBERTO</div>
+<div class="divTableCell">DNI 10826906&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 14 N&ordm; 277 - Nro: 277 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (02324) 434200</div>
+<div class="divTableCell">ingenieromartino@gmail.com</div>
+<div class="divTableCell">MERCEDES</div>
+<div class="divTableCell">MERCEDES</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">314</span></div>
+<div class="divTableCell">MASA, FERNANDO CARLOS SANTIAGO</div>
+<div class="divTableCell">DNI 21159623&nbsp;</div>
+<div class="divTableCell">Calle: DEL VALLE N&deg; 954 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (02396) 474230 Fax: (02396) 474230</div>
+<div class="divTableCell">fmasa@gioia.ing.unlp.edu.ar</div>
+<div class="divTableCell">PEHUAJO</div>
+<div class="divTableCell">PEHUAJO</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">107</span></div>
+<div class="divTableCell">MAZZA, JOSE RUBEN</div>
+<div class="divTableCell">DNI 13722480&nbsp;</div>
+<div class="divTableCell">Calle: BERGAMINI N&deg; 1353 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 6509819</div>
+<div class="divTableCell">jrbconstruc@ciudad.com.ar</div>
+<div class="divTableCell">MORON</div>
+<div class="divTableCell">MORON</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">270</span></div>
+<div class="divTableCell">MEDINA , JUAN GABRIEL</div>
+<div class="divTableCell">DNI 12662752&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 116 N&ordm;2235 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 221-451-5024</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">Ingeniero en Seguridad Ambiental</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">363</span></div>
+<div class="divTableCell">MOARES, HERNAN DANIEL</div>
+<div class="divTableCell">DNI 22884292&nbsp;</div>
+<div class="divTableCell">Calle: LAVALLE N&ordm; 914 P. 1&ordm; DPT. A - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4251-5822</div>
+<div class="divTableCell">HJBISCOTTI@CIUDAD.COM.AR</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">DON BOSCO</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">276</span></div>
+<div class="divTableCell">MORENO, JORGE ALBERTO</div>
+<div class="divTableCell">LE 4446947&nbsp;</div>
+<div class="divTableCell">Calle: Av. de las industrias - Nro: 3696 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 32214000</div>
+<div class="divTableCell">jorge.moreno@ecotec.com.ar</div>
+<div class="divTableCell">TIGRE</div>
+<div class="divTableCell">RICARDO ROJAS</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">300</span></div>
+<div class="divTableCell">Mosteiro , Sergio Ariel</div>
+<div class="divTableCell">DNI 14404958&nbsp;</div>
+<div class="divTableCell">Calle: Castelli - Nro: 322 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 03489425894</div>
+<div class="divTableCell">info@smosteiro.com.ar</div>
+<div class="divTableCell">CAMPANA</div>
+<div class="divTableCell">CAMPANA</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">58</span></div>
+<div class="divTableCell">MUSSANO , J. CARLOS</div>
+<div class="divTableCell">DNI 11991370&nbsp;</div>
+<div class="divTableCell">Calle: ALVARADO 1841 - PB - FDO. - Nro: 1841 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0223-495-4930</div>
+<div class="divTableCell">mussanojc@hotmail.com</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero Laboral</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">63</span></div>
+<div class="divTableCell">MUSUMECI, EDGARDO AGUSTIN</div>
+<div class="divTableCell">DNI 12231785&nbsp;</div>
+<div class="divTableCell">Calle: LASALLE N&ordf; 1699 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0223) 4792474-cel-156804842</div>
+<div class="divTableCell">musumeci@copetel.com.ar</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">424</span></div>
+<div class="divTableCell">Najera, Daniel Oscar</div>
+<div class="divTableCell">DNI 12410671&nbsp;</div>
+<div class="divTableCell">Calle: 26 - Nro: 1512 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 4517505</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">410</span></div>
+<div class="divTableCell">NOIOSI, MIGUEL ANGEL</div>
+<div class="divTableCell">DNI 10716001&nbsp;</div>
+<div class="divTableCell">Calle: YERBAL - Nro: 4578 Dpto: DPTO. A Piso: PB.</div>
+<div class="divTableCell">Tel: (011) 4672-7438</div>
+<div class="divTableCell">manoiosi@deriplom.com.ar</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Laboral,Especialista en Ingenieria Ambiental</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">52</span></div>
+<div class="divTableCell">OTEGUI, FERNANDO CARLOS</div>
+<div class="divTableCell">DNI 12428183&nbsp;</div>
+<div class="divTableCell">Calle: MISIONES - Nro: 3924 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0223) 473-5098</div>
+<div class="divTableCell">ing.otegui@gmail.com</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">132</span></div>
+<div class="divTableCell">PALADINO, ARMANDO JORGE</div>
+<div class="divTableCell">LE 8352811&nbsp;</div>
+<div class="divTableCell">Calle: 4 - Nro: 1272 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 230344</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico,Ingeniero Electricista</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">340</span></div>
+<div class="divTableCell">PAPINESCHI, ALEJANDRO</div>
+<div class="divTableCell">DNI 13444072&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 11 N&deg; 3718 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4216-5183</div>
+<div class="divTableCell">ahsconsultores@hotmail.com</div>
+<div class="divTableCell">BERAZATEGUI</div>
+<div class="divTableCell">BERAZATEGUI</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Electricista</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">69</span></div>
+<div class="divTableCell">PARAVISI, ALFREDO ANGEL</div>
+<div class="divTableCell">DNI 11319244&nbsp;</div>
+<div class="divTableCell">Calle: Videla n&deg; 938 - Nro: 939 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 2231230</div>
+<div class="divTableCell">aaparavisi@yahoo.com.ar</div>
+<div class="divTableCell">BERAZATEGUI</div>
+<div class="divTableCell">BERAZATEGUI</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">8</span></div>
+<div class="divTableCell">PARDAL, JUAN PABLO</div>
+<div class="divTableCell">DNI 7651642&nbsp;</div>
+<div class="divTableCell">Calle: LOS RECUERDOS - Nro: 586 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4642-7330</div>
+<div class="divTableCell">juanpablopardal@yahoo.com.ar</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">464</span></div>
+<div class="divTableCell">Pascual, Alejandro Damian</div>
+<div class="divTableCell">DNI 32193750&nbsp;</div>
+<div class="divTableCell">Calle: 72 - Nro: 960 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 221155225833</div>
+<div class="divTableCell">alejandrodamianpascual@gmail.com</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">&nbsp;</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">405</span></div>
+<div class="divTableCell">Pascuet, Lucas</div>
+<div class="divTableCell">DNI 24497042&nbsp;</div>
+<div class="divTableCell">Calle: Ing. Emilio Mitre - Nro: 1323 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 011-4443-3440</div>
+<div class="divTableCell">lucas@sauberingenieria.com</div>
+<div class="divTableCell">MORON</div>
+<div class="divTableCell">HAEDO</div>
+<div class="divTableCell">Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">40</span></div>
+<div class="divTableCell">PASTOR, ALBERTO MARIO</div>
+<div class="divTableCell">LE 7848327&nbsp;</div>
+<div class="divTableCell">Calle: - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 220476597</div>
+<div class="divTableCell">pastoralberto@speeedy.com.ar</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Electricista</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">220</span></div>
+<div class="divTableCell">PEDERNERA, EDGARDO ANGEL</div>
+<div class="divTableCell">DNI 10954355&nbsp;</div>
+<div class="divTableCell">Calle: MARIANO ACOSTA - Nro: 206 Dpto: 6 Piso: B</div>
+<div class="divTableCell">Tel: (011) 42813037</div>
+<div class="divTableCell">ingpedernera@fibertel.com.ar</div>
+<div class="divTableCell">ESTEBAN ECHEVERRIA</div>
+<div class="divTableCell">MONTE GRANDE</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">444</span></div>
+<div class="divTableCell">PELUFFO, MARIANO</div>
+<div class="divTableCell">DNI 25570355&nbsp;</div>
+<div class="divTableCell">Calle: 43 bis - Nro: 80 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 054-0221-15-5573621</div>
+<div class="divTableCell">marianpelu@yahoo.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">2</span></div>
+<div class="divTableCell">PEREZ CHAVEZ, EDUARDO ANTONIO</div>
+<div class="divTableCell">DNI 7786662&nbsp;</div>
+<div class="divTableCell">Calle: L0RIA N&deg;323 8&ordm; PISO DPT. D - Nro: 323 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4245-5570/95</div>
+<div class="divTableCell">GERENCIA@Q3BUREAU.NET</div>
+<div class="divTableCell">LOMAS DE ZAMORA</div>
+<div class="divTableCell">LOMAS DE ZAMORA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">158</span></div>
+<div class="divTableCell">PETERSEN, JOS&Eacute; EMILIO</div>
+<div class="divTableCell">LE 4361165&nbsp;</div>
+<div class="divTableCell">Calle: PELLERANO N&deg; 761 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011)4 2945992</div>
+<div class="divTableCell">ingepetersen2000@yahoo.com.ar</div>
+<div class="divTableCell">ALMIRANTE BROWN</div>
+<div class="divTableCell">ALMIRANTE BROWN</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">81</span></div>
+<div class="divTableCell">PICCIONE, NUNCIO</div>
+<div class="divTableCell">DNI 13615176&nbsp;</div>
+<div class="divTableCell">Calle: GRAL. ALVAREZ - Nro: 944 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 425-13438</div>
+<div class="divTableCell">mysingenieria@speedy.com.ar</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">BERNAL</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">308</span></div>
+<div class="divTableCell">PIRIS , SEGUNDO</div>
+<div class="divTableCell">DNI 12195531&nbsp;</div>
+<div class="divTableCell">Calle: COLON 108 - Nro: 108 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 02281-433686</div>
+<div class="divTableCell">pamyher@ciudad.com.ar</div>
+<div class="divTableCell">AZUL</div>
+<div class="divTableCell">AZUL</div>
+<div class="divTableCell">Ingeniero Electromec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">247</span></div>
+<div class="divTableCell">PONTALTI, ADAM MARCELO J.</div>
+<div class="divTableCell">DNI 13424604&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 147 N&deg; 1713 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0221) 4506271</div>
+<div class="divTableCell">marcelo.pontalti@speedy.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Electricista</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">467</span></div>
+<div class="divTableCell">Pontalti, Cristian Adrian</div>
+<div class="divTableCell">DNI 33640040&nbsp;</div>
+<div class="divTableCell">Calle: 11 e/ Montevideo y 166 - Nro: 4432 Dpto: 4 Piso:</div>
+<div class="divTableCell">Tel: 221 15 5450581</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">BERISSO</div>
+<div class="divTableCell">BERISSO</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">119</span></div>
+<div class="divTableCell">PORTERIE, JUAN CARLOS</div>
+<div class="divTableCell">DNI 4649172&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 21 N&deg;1543 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0221)4522514</div>
+<div class="divTableCell">GULMEZ@ARNET.COM.AR</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">345</span></div>
+<div class="divTableCell">POZZI, VICTOR MANUEL</div>
+<div class="divTableCell">DNI 21543393&nbsp;</div>
+<div class="divTableCell">Calle: AYACUCHO - Nro: 2768 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (02284 ) 414463</div>
+<div class="divTableCell">ingpozzi@yahoo.com.ar</div>
+<div class="divTableCell">OLAVARRIA</div>
+<div class="divTableCell">OLAVARRIA</div>
+<div class="divTableCell">Ingeniero Electromec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">452</span></div>
+<div class="divTableCell">PUA, LEANDRO AGUSTIN</div>
+<div class="divTableCell">DNI 23393942&nbsp;</div>
+<div class="divTableCell">Calle: belgrano - Nro: 1575 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0223-15-8406614</div>
+<div class="divTableCell">agustinpua@yahoo.com.ar</div>
+<div class="divTableCell">GENERAL MADARIAGA</div>
+<div class="divTableCell">GENERAL MADARIAGA</div>
+<div class="divTableCell">Ingeniero Mecanico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">225</span></div>
+<div class="divTableCell">QUAINI, RICARDO MANUEL</div>
+<div class="divTableCell">DNI 8347347&nbsp;</div>
+<div class="divTableCell">Calle: LA RIOJA - Nro: N&ordm; 933 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4252-0385 Fax: (011) 4259-2295</div>
+<div class="divTableCell">ingenieria@editecsrl.com.ar</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">79</span></div>
+<div class="divTableCell">RAGO, ANTONIO FORTUNATO</div>
+<div class="divTableCell">DNI 14726160&nbsp;</div>
+<div class="divTableCell">Calle: AV. RICARDO BALBIN - Nro: 295 Dpto: 1 Piso: 1</div>
+<div class="divTableCell">Tel: (011) 4451-9014</div>
+<div class="divTableCell">info@consultorarago.com.ar</div>
+<div class="divTableCell">SAN MIGUEL</div>
+<div class="divTableCell">SAN MIGUEL</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">373</span></div>
+<div class="divTableCell">RAMIREZ, MIGUEL ANGEL</div>
+<div class="divTableCell">DNI 14748451&nbsp;</div>
+<div class="divTableCell">Calle: AVELLANEDA - Nro: 1780 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0291) 4514034 Fax: 154229250</div>
+<div class="divTableCell">marmiguel70@yahoo.com.ar</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">78</span></div>
+<div class="divTableCell">RAPISARDI, ALBERTO RAFAEL</div>
+<div class="divTableCell">DNI 11221723&nbsp;</div>
+<div class="divTableCell">Calle: C 54 MITRE N&deg; 3743 2DO.PISO B. - Nro: 3743 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 47534746</div>
+<div class="divTableCell">OFICINA@ALMASERVICIOSGRAFICOS.COM</div>
+<div class="divTableCell">MORENO</div>
+<div class="divTableCell">GENERAL SAN MARTIN</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">422</span></div>
+<div class="divTableCell">RE , DANIEL ENRIQUE</div>
+<div class="divTableCell">DNI 11424518&nbsp;</div>
+<div class="divTableCell">Calle: HUMBERTO PRIMO - Nro: 3580 Dpto: Piso: 2 A</div>
+<div class="divTableCell">Tel: 4932-6835</div>
+<div class="divTableCell">dare2002ar@yahoo.com.ar</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">125</span></div>
+<div class="divTableCell">RICCA , DANIEL</div>
+<div class="divTableCell">LE 7826902&nbsp;</div>
+<div class="divTableCell">Calle: DIRECTORIO N&ordm;1040 - Nro: 1040 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 02320-492720</div>
+<div class="divTableCell">danielricca@danielricca.com</div>
+<div class="divTableCell">MALVINAS ARGENTINAS</div>
+<div class="divTableCell">DON TORCUATO</div>
+<div class="divTableCell">Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">144</span></div>
+<div class="divTableCell">RIPOLL, CARLOS MIGUEL</div>
+<div class="divTableCell">LE 5474024&nbsp;</div>
+<div class="divTableCell">Calle: ALSINA N&ordm; 2076 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0284) 28613</div>
+<div class="divTableCell">cmripoll@speedy.com.ar</div>
+<div class="divTableCell">OLAVARRIA</div>
+<div class="divTableCell">OLAVARRIA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">425</span></div>
+<div class="divTableCell">Rodriguez de Paola, Carlos</div>
+<div class="divTableCell">LE 4552863&nbsp;</div>
+<div class="divTableCell">Calle: Rodolfo Alsina - Nro: 1339 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 479798594</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">VICENTE LOPEZ</div>
+<div class="divTableCell">VICENTE LOPEZ</div>
+<div class="divTableCell">INGENIERO ELECTROMECANICO CON OR. MECANICA</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">390</span></div>
+<div class="divTableCell">Rodriguez Mendoza, Juan Pablo</div>
+<div class="divTableCell">DNI 22507322&nbsp;</div>
+<div class="divTableCell">Calle: Saavedra Lamas - Nro: 3395 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0291-15-5766613</div>
+<div class="divTableCell">juan.pablo@ingysol.com.ar</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">284</span></div>
+<div class="divTableCell">ROSAS COSTA , TULIO CESAR</div>
+<div class="divTableCell">DNI 10923827&nbsp;</div>
+<div class="divTableCell">Calle: LA PAMPA N&deg; 5321 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 42522-9372</div>
+<div class="divTableCell">cesar_jul@hotmail.com</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico,Ingeniero Laboral,Licenciado en Higiene y Seguridad en el Trabajo</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">446</span></div>
+<div class="divTableCell">RUBIO, JUAN JOSE</div>
+<div class="divTableCell">DNI 14018898&nbsp;</div>
+<div class="divTableCell">Calle: SAN MARTIN - Nro: 1931 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 02317433186</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">NUEVE DE JULIO</div>
+<div class="divTableCell">NUEVE DE JULIO</div>
+<div class="divTableCell">Ingeniero en Construcciones,Ingeniero en Higiene y Seguridad en el Trabajo</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">38</span></div>
+<div class="divTableCell">SABIO, JUAN LORENZO</div>
+<div class="divTableCell">DNI 10881714&nbsp;</div>
+<div class="divTableCell">Calle: DE LAS CA&Ntilde;ONERAS - Nro: 369 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 44502219</div>
+<div class="divTableCell">sabio@sinectis.com.ar</div>
+<div class="divTableCell">ITUZAINGO</div>
+<div class="divTableCell">ITUZAINGO</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">413</span></div>
+<div class="divTableCell">SALVINI, PABLO GUSTAVO</div>
+<div class="divTableCell">DNI 24815159&nbsp;</div>
+<div class="divTableCell">Calle: Necochea - Nro: 4759 Dpto: B Piso: 1</div>
+<div class="divTableCell">Tel: 0223-155402705</div>
+<div class="divTableCell">psalvini@igestudio.com.ar</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero Electromec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">303</span></div>
+<div class="divTableCell">SANCHEZ, FRANCISCO</div>
+<div class="divTableCell">DNI 7695127&nbsp;</div>
+<div class="divTableCell">Calle: ITALIA - Nro: N&deg; 887 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0291) 4535930 Fax: (0291) 4535930</div>
+<div class="divTableCell">SOLROCIO@BVCONLINE.COM.AR</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">22</span></div>
+<div class="divTableCell">SANSOGNI, HECTOR OSVALDO</div>
+<div class="divTableCell">DNI 8383897&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 55 N&ordm; 1362 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0221) 4844613</div>
+<div class="divTableCell">sgasesores@fibertel.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">27</span></div>
+<div class="divTableCell">SANTIPOLO, TULIO DARIO</div>
+<div class="divTableCell">DNI 21447659&nbsp;</div>
+<div class="divTableCell">Calle: BELGRANO 3238 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 2234943129 Fax: 2234919106</div>
+<div class="divTableCell">tuliosan@hotmail.com</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">437</span></div>
+<div class="divTableCell">Santoro, Guillermo Eduardo</div>
+<div class="divTableCell">DNI 12705919&nbsp;</div>
+<div class="divTableCell">Calle: Francisco Boga - Nro: 1569 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 011-42992551</div>
+<div class="divTableCell">santoroguille@yahoo.com.ar</div>
+<div class="divTableCell">ALMIRANTE BROWN</div>
+<div class="divTableCell">BURZACO</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">286</span></div>
+<div class="divTableCell">SCAVUZZO , RICARDO</div>
+<div class="divTableCell">LE 8316833&nbsp;</div>
+<div class="divTableCell">Calle: INTE. OLIVERI - Nro: 344 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 011-4254-4103</div>
+<div class="divTableCell">rjs50@hotmail.com</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">QUILMES</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">299</span></div>
+<div class="divTableCell">Schamber, Mauricio</div>
+<div class="divTableCell">DNI 25990568&nbsp;</div>
+<div class="divTableCell">Calle: Roque Saenz Pe&ntilde;a - Nro: 244 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 02926-423697</div>
+<div class="divTableCell">mschamber78@gmail.com</div>
+<div class="divTableCell">CORONEL SUAREZ</div>
+<div class="divTableCell">CORONEL SUAREZ</div>
+<div class="divTableCell">Ingeniero Qu&iacute;mico,especialista en higiene y seguridad en el trabajo</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">239</span></div>
+<div class="divTableCell">SCHAMUN, SANTIAGO</div>
+<div class="divTableCell">DNI 22349160&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 2 - Nro: 406 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0221) 4830018</div>
+<div class="divTableCell">sschamun@hotmail.com</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">170</span></div>
+<div class="divTableCell">SEDRANI , JUAN ALBERTO</div>
+<div class="divTableCell">DNI 14425502&nbsp;</div>
+<div class="divTableCell">Calle: MISIONES - Nro: 1232 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0223-4734176</div>
+<div class="divTableCell">sedrani@sinectis.com.ar</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">9</span></div>
+<div class="divTableCell">SENDIN, ALEJANDRO MARIO</div>
+<div class="divTableCell">DNI 14269239&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 16 N&deg; 578 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0221) 4244182</div>
+<div class="divTableCell">sendin@infovia.com.ar</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">LA PLATA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico,Especialista en Ingenieria Ambiental</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">277</span></div>
+<div class="divTableCell">SERDEIRO, EDUARDO FABIAN</div>
+<div class="divTableCell">DNI 20967110&nbsp;</div>
+<div class="divTableCell">Calle: EL PROGRESO N&deg; 1507 - Nro: 1507 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (02323) 436346 Fax: (02325)-15681195</div>
+<div class="divTableCell">consultora.serdeiro@speedy.com.ar</div>
+<div class="divTableCell">LUJAN</div>
+<div class="divTableCell">LUJAN</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">21</span></div>
+<div class="divTableCell">SERRANO, SERGIO OMAR</div>
+<div class="divTableCell">DNI 18454347&nbsp;</div>
+<div class="divTableCell">Calle: - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 2234728558</div>
+<div class="divTableCell">-</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">10</span></div>
+<div class="divTableCell">SIMONINI, OSVALDO DANIEL</div>
+<div class="divTableCell">DNI 12703867&nbsp;</div>
+<div class="divTableCell">Calle: ARCE - Nro: N&iuml;&iquest;&frac12; 957 PISO Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 32214000</div>
+<div class="divTableCell">osvaldo.simonini@ecotec.com.ar</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Electromec&aacute;nico,Orientacion Mecanica</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">114</span></div>
+<div class="divTableCell">SIRIO, NORBERTO</div>
+<div class="divTableCell">DNI 7767947&nbsp;</div>
+<div class="divTableCell">Calle: AV. ALVAREZ THOMAS N&deg; 3036 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 5228340</div>
+<div class="divTableCell">norbertosirio@gmail.com</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">143</span></div>
+<div class="divTableCell">SPADAFORA, HECTOR</div>
+<div class="divTableCell">DNI 4302378&nbsp;</div>
+<div class="divTableCell">Calle: GUATAMBU N&ordf; 74 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 20823298</div>
+<div class="divTableCell">h.spadafora@yahoo.com.ar</div>
+<div class="divTableCell">MERLO</div>
+<div class="divTableCell">MERLO</div>
+<div class="divTableCell">Ingeniero Electromec&aacute;nico or Electricista</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">92</span></div>
+<div class="divTableCell">SPIES , JOSE</div>
+<div class="divTableCell">LE 5068437&nbsp;</div>
+<div class="divTableCell">Calle: M. DONNEL 1151 - Nro: 1151 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 03496-42-2077</div>
+<div class="divTableCell">sergiosimonetto@lito-gonella.com</div>
+<div class="divTableCell">MALVINAS ARGENTINAS</div>
+<div class="divTableCell">DON TORCUATO</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">254</span></div>
+<div class="divTableCell">SPINI, JUAN CARLOS</div>
+<div class="divTableCell">DNI 11338362&nbsp;</div>
+<div class="divTableCell">Calle: CARHUE - Nro: 2585 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 5776-7037</div>
+<div class="divTableCell">jcspini@ciudad.com.ar - juancarlos.spini@camuzziga.com.ar</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">96</span></div>
+<div class="divTableCell">SUCHMON, JUAN CARLOS</div>
+<div class="divTableCell">DNI 10385983&nbsp;</div>
+<div class="divTableCell">Calle: Hidalgo n&deg; 462 Piso 6&deg; Dpto. A - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 49016193</div>
+<div class="divTableCell">suchmon@fibertel.com.ar</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">49</span></div>
+<div class="divTableCell">TRAVERSO , ERNESTO</div>
+<div class="divTableCell">LE 5087333&nbsp;</div>
+<div class="divTableCell">Calle: SAN LORENZO - Nro: 276 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 02352-450898</div>
+<div class="divTableCell">INGENIERIATRAVERSO@GMAIL.COM</div>
+<div class="divTableCell">CHACABUCO</div>
+<div class="divTableCell">CHACABUCO</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">416</span></div>
+<div class="divTableCell">Traverso, Paulo Luis</div>
+<div class="divTableCell">DNI 28300471&nbsp;</div>
+<div class="divTableCell">Calle: Cervantes - Nro: 129 Dpto: 1 Piso:</div>
+<div class="divTableCell">Tel: 02352-15405399</div>
+<div class="divTableCell">pltraver2002@yahoo.com.ar</div>
+<div class="divTableCell">CHACABUCO</div>
+<div class="divTableCell">CHACABUCO</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">330</span></div>
+<div class="divTableCell">URRISTI, CESAR HECTOR</div>
+<div class="divTableCell">DNI 11364451&nbsp;</div>
+<div class="divTableCell">Calle: CORONEL SUAREZ - Nro: 1655 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0223 ) 4781972</div>
+<div class="divTableCell">churristi@speedy.com.ar</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">249</span></div>
+<div class="divTableCell">VALMALA, MARIO ALBERTO</div>
+<div class="divTableCell">DNI 7656564&nbsp;</div>
+<div class="divTableCell">Calle: MAIPU N&deg; 4169 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 46576723</div>
+<div class="divTableCell">mvtecnica@arnet.com.ar</div>
+<div class="divTableCell">TRES DE FEBRERO</div>
+<div class="divTableCell">CIUDADELA</div>
+<div class="divTableCell">Ingeniero Industrial</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">116</span></div>
+<div class="divTableCell">VELARDO , JOSE</div>
+<div class="divTableCell">DNI 93202498&nbsp;</div>
+<div class="divTableCell">Calle: GABOTO - Nro: 5328 Dpto: Piso:</div>
+<div class="divTableCell">Tel: 011-4269-8905 1544277343</div>
+<div class="divTableCell">josevelardo_ing@hotmail.com</div>
+<div class="divTableCell">ALMIRANTE BROWN</div>
+<div class="divTableCell">ADROGUE</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">4</span></div>
+<div class="divTableCell">VEZIN , GERMAN</div>
+<div class="divTableCell">CF 4597142&nbsp;</div>
+<div class="divTableCell">Calle: POTOSI 2055 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: 011-4757-4990</div>
+<div class="divTableCell">gvezin@arnet.com.ar</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell">Ingeniero Electromec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">24</span></div>
+<div class="divTableCell">VILLANUEVA , CARLOS</div>
+<div class="divTableCell">LE 4415491&nbsp;</div>
+<div class="divTableCell">Calle: LA PAMPA - Nro: 3049 7 A Dpto: Piso:</div>
+<div class="divTableCell">Tel: 0114652-9728</div>
+<div class="divTableCell">ingevill@uolsinectis.com.ar</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">CIUDAD AUTONOMA DE BUENOS AIRES</div>
+<div class="divTableCell">Ingeniero Electromec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">402</span></div>
+<div class="divTableCell">Volpe, Agustin Horacio</div>
+<div class="divTableCell">DNI 28501540&nbsp;</div>
+<div class="divTableCell">Calle: Hipolito Irigoyen - Nro: 511 Dpto: A Piso: 2</div>
+<div class="divTableCell">Tel: 02914591400 Fax: 02914591661</div>
+<div class="divTableCell">avolpe@dow.com</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">BAHIA BLANCA</div>
+<div class="divTableCell">Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">210</span></div>
+<div class="divTableCell">VOLPINI, EDGARDO ERNESTO</div>
+<div class="divTableCell">DNI 7788211&nbsp;</div>
+<div class="divTableCell">Calle: CALLE 313 N&deg; 869 - Nro: Dpto: Piso:</div>
+<div class="divTableCell">Tel: (011) 4258-0149</div>
+<div class="divTableCell">-</div>
+<div class="divTableCell">BERAZATEGUI</div>
+<div class="divTableCell">BERAZATEGUI</div>
+<div class="divTableCell">Ingeniero en Seguridad e Higiene,Ingeniero Mec&aacute;nico</div>
+</div>
+<div class="divTableRow row">
+<div class="divTableCell">Profesionales de Aparatos Sometidos A Presi&oacute;n</div>
+<div class="divTableCell"><span class="FontNormal">122</span></div>
+<div class="divTableCell">ZABALA, JORGE NORBERTO</div>
+<div class="divTableCell">DNI 5488433&nbsp;</div>
+<div class="divTableCell">Calle: FALUCHO N&deg;3525 - Nro: 3525 Dpto: Piso:</div>
+<div class="divTableCell">Tel: (0223)-6266136 Fax: 0223-6266469</div>
+<div class="divTableCell">alingzabala@yahoo.com.ar</div>
+<div class="divTableCell">GENERAL PUEYRREDON</div>
+<div class="divTableCell">MAR DEL PLATA</div>
+<div class="divTableCell">Ingeniero Laboral,Ingeniero Mec&aacute;nico</div>
+</div>-->
+</div>
+</div>
+
+</body></html>

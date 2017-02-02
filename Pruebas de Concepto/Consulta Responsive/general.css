@@ -1,0 +1,533 @@
+/* CSS Document */
+
+/*General*/
+/*body  {
+  color: #133091;
+  background-color: #ffffff;
+  margin: 0px;
+  padding: 0px;
+}
+
+tabla  {
+  background-color: #ffffff;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+body, p, td, li, ul, ol  {
+  font-family:  Verdana, Arial, sans-serif;
+}
+
+a:link {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000000;
+}
+a:visited {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000000;
+}
+a:hover, a:active {
+  font-weight: bold;
+  color:#000;
+  text-decoration: underline;
+}
+
+p {
+  margin: 0 0 1.3em 0;
+  padding: 0;
+}
+
+pre {
+  background-color: #eee;
+  padding: 0.75em 1.5em;
+  font-size: 1.2em;
+  border: 1px solid #ddd;
+}
+
+.node .content {
+  text-align: left;
+  font-size: 11px;
+  line-height: 1.3;
+	margin: .5em 0 .5em 0;
+	padding: 0px 2px 0px 0px;
+}
+
+.content h1 {
+  color: #133091;
+  font-size: 1.8em;
+}
+.content h2 {
+  color: #133091;
+  font-size: 1.6em;
+}
+.content h3 {
+  color: #133091;
+  font-size: 1.4em;
+}
+.content h4 {
+  color: #133091;
+  font-size: 1.2em;
+}
+.content h5 {
+  color: #133091;
+  font-size: 1.1em;
+}
+
+.minitext {
+	font-size: 9px;
+}
+
+.izquierda {
+	text-align: left;
+}
+
+.derecha {
+	text-align: right;
+}
+
+.block {
+  margin-bottom: .5em;
+}
+
+.block .content {
+  padding: 1px 15px 1px 15px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#666;
+	background-color:#133091;
+}
+
+.block .title h3 {
+  padding: 1px 15px 2px 15px;
+  margin-bottom: .1em;
+  background: transparent url(icon-block.gif) left top no-repeat;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-weight:900;
+	color:#fff;
+}
+
+.node {
+  margin: .5em 0 2.5em 0;
+}
+
+.links a, .links a:visited {
+  color: #FFF;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+
+img {
+  border: 0;
+}
+table {
+  border-collapse: collapse;
+}
+
+/*fin general*/
+
+
+/*Main CONTENIDO*/
+#main {
+ position: relative;
+ font-size:11px;
+
+}
+/*Menú central de las noticias*/
+#main_verde {
+ position: relative;
+ font-size:11px;
+ background-color: #ffffff;
+ color:#EEE;
+}
+
+.estilo-titulos-principales{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666666;
+}
+
+.estilo-titulos{
+	font-family: Arial, Helvetica, sans-serif;
+	/*font-size: 12px;*/
+	font-weight: bold;
+	color: #666666;
+}
+
+.FontNormal{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #666666;
+}
+.EncabezadoTabla {
+	color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	background-color:#99cc66;
+}
+
+
+
+.TablaAdvertencia {
+	color: #333333; 
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold; 
+	font-size: 12px;	
+	background-color:#395731;
+}
+
+
+
+#main .node .title {
+	border-bottom: 1px solid #ffffff;
+}
+
+#main .node{
+	margin: 0px;
+}
+
+#main .node .title a {
+	margin: 0 ;
+	font-size: 10px;
+	font-weight:normal;
+	display:block;
+	color: #133091;
+	padding: 0px 0px 0px 0px;
+}
+
+#main .node .title1 a {
+	margin: 0 ;
+	font-size: 11px;
+	text-align: right;
+	font-weight:bold;
+	display:block;
+	color: #133091;
+	padding: 0px 0px 0px 0px;
+}
+#main .node .title2 a {
+	margin: 0 ;
+	font-size: 11px;
+	text-align: left;
+	font-weight:bold;
+	display:block;
+	color: #133091;
+	padding: 0px 0px 0px 0px;
+}
+
+.todo_punteado {
+	border-top: 1px  solid #cccccc;
+	border-bottom: 1px  solid #cccccc;
+}
+
+.inferior_punteado {
+	border-bottom: 1px  solid #cccccc;
+}
+
+#main .content img{
+	padding: 2px;
+	border: 1px solid #cccccc;
+}
+
+#main .content .title{
+color:#133091;
+}
+
+#main .content .node {
+width:100%;
+}
+
+
+#main .content .node table {
+width:100%;
+border:1px #4d4d4f solid;
+}
+
+#main .content .node table th {
+background-color:#4d4d4f;
+color:#4D4D4F;
+border:1px #4d4d4f solid;
+}
+
+#main .content .node table td {
+background-color:#EEEEEE;
+color:#4D4D4F;
+border:1px #EEEEEE solid;
+padding:5px;
+
+}
+
+
+/*-------------------------------------------*/
+/* DECORADO DE LOS TITULOS CON BORDE REDONDO */
+#main .node .title .x2 {
+	background: transparent url("bot8_b.jpg") repeat-x top left;
+	margin: 0;
+	padding:0px;
+	text-align: center;
+	font-size: 11px;
+	font-weight:bold;
+	display:block;
+	color: #
+	;
+	/*min-height: 3em;*/
+}
+#main .node .title .x3  {
+	background: transparent url("bot9_b.jpg") no-repeat ;
+	background-position:100% 0%;
+	/*margin: 0;*/
+	padding: 5px 6px 0px 0px;
+	text-align: center;
+	/*min-height: 3em;*/
+	display:block;
+}
+#main .node .title .x1 {
+	background: transparent url("bot6_b.jpg") no-repeat top left;
+	padding: 0px 0px 0px 20px;
+	text-align: center;
+	border-bottom: 2 px solid #EEEEEE;
+}
+#main_verde .node .title .x2 {
+	background: transparent url("bot8.jpg") repeat-x top left;
+	margin: 0;
+	padding:0px;
+	text-align: center;
+	font-size: 2px;
+	font-weight:bold;
+	display:block;
+	color: #fff;
+	/*min-height: 3em;*/
+}
+#main_verde .node .title .x3  {
+	background-position:100% 0%;
+	/*margin: 0;*/
+	padding: 0px 0px 8px 0px;
+	text-align: left;
+	/*min-height: 3em;*/
+	display:block;
+}
+/*Subrayado del título de la noticia*/
+#main_verde .node .title .x1 {
+	padding: 0px 0px 0px 0px;
+	text-align: center;
+	border-bottom: 0px solid #4D4D4F;
+}
+/*-----------------------------------------*/
+/*-----------------------------------------*/
+
+
+/*Fin de Main CONTENIDO*/
+
+
+.tbl_left {
+	background: transparent url(HeaderBA1100.jpg) left top no-repeat;
+	height:117px;
+	
+}
+.tbl_right {
+	background: transparent url(header3.jpg) left top no-repeat;
+	height:117px;
+
+}
+
+.tbl_sec_left {
+	/*background: transparent url(bot1.jpg) left top no-repeat;*/
+	/*pedacito izquierdo del menú superior*/
+    background-color:#4D4D4F;
+	margin:0px 0px 10px 0px;
+	padding:0px 0px 10px 0px;
+}
+.tbl_sec_right {
+	/*background: transparent url(bot3.jpg) left top no-repeat;*/
+	/*pedacito derecho del menú superior*/
+    background-color:#4D4D4F;
+	margin:0px 0px 10px 0px;
+	padding:0px 0px 10px 0px;
+}
+.tbl_shad_left {
+	background: transparent url(s1.jpg) left top no-repeat;
+}
+.tbl_shad_mid {
+	background: transparent url(s2.jpg) left top repeat-x;
+}
+.tbl_shad_right {
+	background: transparent url(s3.jpg) left top no-repeat;
+}
+
+td#home a:link img, td#home a:visited img {
+  background: transparent url(logo-active.gif) no-repeat;
+  width: 70px;
+  height: 61px;
+}
+
+.centro_azul {
+  border-collapse: collapse;
+	background: transparent url(header1.jpg) left top repeat-x;
+	padding:0px;
+	margin:0px;
+	height:118px;
+	width:100%;
+}
+
+#secondary-menu {
+  border-collapse: collapse;
+	/*background: transparent url(bot2.jpg) left top repeat-x;*/
+	margin:0px;
+	padding:0px;
+	height:21px;
+	background-color:#515054;
+}
+#secondary-menu .secondary-links {
+  /*menú superior*/
+  font-size: 0.85em;
+  background-color:#4D4D4F;
+}
+.secondary-links, .secondary-links a:link, .secondary-links a:visited  {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color: #ffffff;
+}
+
+.secondary-links  {
+	/*background: transparent url(bot2.jpg) left top repeat-x;*/
+	/*este es el menú inferior*/
+
+	background-color:#4D4D4F;
+}
+.secondary-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+/**************************************************************************/
+/******************FIN DE LOS ESTILOS DEL HEADER***************************/
+/**************************************************************************/
+/*FOOTER*/
+
+#footer-message {
+  font-size: 11px;
+  font-weight:bold;
+  text-align: center;
+  color: #ffffff;
+}
+table#footer-menu {
+  border-top: 3px solid #CCC;
+  border-bottom: 3px solid #CCC;
+  background: transparent url(f-footer.gif) left top repeat-x;
+}
+  background-color: #7F7F7F;
+  color: #e4e9eb;
+}
+#footer-menu td {
+  padding: 5px;
+  font-size: 0.75em;
+}
+
+#footer-menu .primary-links, #footer-menu a:link, #footer-menu a:visited  {
+  color: #EEEEEE;
+}
+#footer-menu a:hover  {
+  color: #fff;
+  text-decoration: underline;
+}
+#footer-menu .primary-links h1, #footer-menu .primary-links h2, #footer-menu .primary-links h3 {
+  font-size: 1.3em;
+  color: #e4e9eb;
+}
+
+/*Fin de Footer*/
+
+.FontNormalBlanco {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+    font-weight:bold;
+	color: #FFFFFF;
+}
+
+.FontNormalBlancoChico {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #FFFFFF;
+}
+
+.FontNormalMarron {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #1330091;
+}
+
+div .divTableHeading{
+	font-size: 10px;
+	font-weight:bold;
+	background-color: #99cc66;
+	color:#FFFFFF;
+}
+
+div .divTableCell{
+	font-size: 10px;
+}
+
+.bottom {
+    border-bottom: 1px solid #ccc;
+}
+
+.divTableHeading {
+	background-color: #EEE;
+	font-size: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    
+    /* Force table to not be like tables anymore */
+	#no-more-tables table, 
+	#no-more-tables thead, 
+	#no-more-tables tbody, 
+	#no-more-tables th, 
+	#no-more-tables td, 
+	#no-more-tables tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#no-more-tables thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#no-more-tables tr { border: 1px solid #ccc; }
+ 
+	#no-more-tables td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+		white-space: normal;
+		text-align:left;
+	}
+ 
+	#no-more-tables td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+	}
+ 
+	/*
+	Label the data
+	*/
+	#no-more-tables td:before { content: attr(data-title); }
+}

@@ -1,0 +1,170 @@
+<!-- 
+http://techbytarun.com/export-to-excel-sheet-using-client-side-javascript/
+http://hdeleon.net/como-crear-un-div-que-bloque-la-pantalla-del-navegador-mientras-se-realiza-una-accion-javascript/
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script
+  src="https://code.jquery.com/jquery-1.4.2.min.js"
+  integrity="sha256-4joqTi18K0Hrzdj/wGed9xQOt/UuHuur+CeogYJkPFk="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="dv">
+				<table id="headerTable" style="border:1px solid black; ">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Username</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style='background-color:red;'>1</td>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td>@mdo</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Jacob</td>
+							<td>Thornton</td>
+							<td>@fat</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Larry</td>
+							<td>the Bird</td>
+							<td>@twitter</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<iframe id="txtArea1" style="display:none"></iframe>
+			<div>
+					<button id="btnExport"> EXPORT </button>
+			</div>
+        </div>
+<script type="text/javascript" >
+		
+
+		function fnExcelReport()
+		{
+			var uri = 'data:application/vnd.ms-excel;base64,';
+			var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>'; 
+			var base64 = function(s) {
+				return window.btoa(unescape(encodeURIComponent(s)))
+			};
+		
+			var format = function(s, c) {
+				return s.replace(/{(\w+)}/g, function(m, p) {
+					return c[p];
+				})
+			};
+		
+			var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
+			var textRange; var j=0;
+			tab = document.getElementById('headerTable'); // id of table
+		
+			for(j = 0 ; j < tab.rows.length ; j++) 
+			{     
+				tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+				//tab_text=tab_text+"</tr>";
+			}
+		
+			tab_text=tab_text+"</table>";
+			tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+			tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
+			tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+	
+			 if (navigator.msSaveBlob) {
+				var blobObject = new Blob([tab_text]); 
+				navigator.msSaveBlob(blobObject, 'consulta.xls');
+		        } else {
+		            //In FF link must be added to DOM to be clicked
+				var ua = window.navigator.userAgent;
+				var ff = ua.indexOf("Firefox"); 
+				var ch = ua.indexOf("Chrome"); 
+				if (ff > 0 || ch > 0){
+					sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text), 'consulta.xls');  
+					return sa;
+				}
+				else{
+					var link = document.createElement('a');
+		            link.href = window.URL.createObjectURL(tab_text);
+		            link.setAttribute('download', 'consulta.xls');
+		            document.body.appendChild(link);    
+		            link.click();
+		            document.body.removeChild(link);  	
+				}
+		        }
+	
+			/*
+			var ua = window.navigator.userAgent;
+			var msie = ua.indexOf("MSIE "); 
+		
+			if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+			{
+			
+				txtArea1.document.open("txt/html","replace");
+				txtArea1.document.write(tab_text);
+				txtArea1.document.close();
+				txtArea1.focus(); 
+				//sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xlsx");
+				var blobObject = new Blob([tab_text]); 
+    
+				window.navigator.msSaveBlob(blobObject, 'msSaveBlob_testFile.xlsx'); // The user only has the option of clicking the Save button.
+			}  
+			else                 //other browser not tested on IE 11
+				sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));  
+			return (sa);*/
+		}
+$(document).ready(function () {
+		$("#btnExport").click(fnExcelReport);
+
+		/*function fnExcelReport()
+		{
+			var uri = 'data:application/vnd.ms-excel;base64,';
+			var template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>'; 
+			var base64 = function(s) {
+				return window.btoa(unescape(encodeURIComponent(s)))
+			};
+		
+			var format = function(s, c) {
+				return s.replace(/{(\w+)}/g, function(m, p) {
+					return c[p];
+				})
+			};
+		
+			var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
+			var textRange; var j=0;
+			tab = document.getElementById('headerTable'); // id of table
+		
+			for(j = 0 ; j < tab.rows.length ; j++) 
+			{     
+				tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+				//tab_text=tab_text+"</tr>";
+			}
+		
+			tab_text=tab_text+"</table>";
+			tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+			tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
+			tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+		
+			var ctx = {
+				worksheet : 'Worksheet',
+				table : tab_text
+			}
+		
+	
+			$("body").append("<a id='descargar' href='" + uri + base64(format(template, ctx)) + "' >descargar</a>");
+			$("a").attr("download", "");
+		
+		}*/
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,3939 @@
+<html><head>
+<title>Registro de Profesionales</title>
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">-->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="general.css">
+
+
+<script>
+	function solonumeros() {
+		if ((event.keyCode < 48) || (event.keyCode > 57)) 
+		{	
+			event.returnValue = false;
+		}
+	} // end function 
+
+
+function validar(){
+	   mensaje='';
+
+    var indice = document.formMovim.sltAreas.selectedIndex;  
+    var tipoarea = document.formMovim.sltAreas.options[indice].value;
+    if (tipoarea == ''){ mensaje='Debe seleccionar el Area del cual decea Recibir los Expedientes'; } 
+	if (formMovim.numRemito.value == ''){ mensaje='Debe seleccionar un Remito'; }   
+    
+
+		  if (mensaje!=''){
+  			  alert(mensaje);
+		     return false;
+		  }else{ return true;}
+	}
+
+
+</script></head>
+
+	
+<body>
+<p>
+    <br>
+</p>
+<table width="1100" border="0" align="center" class="tabla">
+  <tbody><tr>
+    <td><img src="../../Imagenes/header_opds.jpg" width="1100" height="134"></td>
+  </tr>
+</tbody></table>
+<form name="frmBuscaProf" method="post" action="ConsultaWeb.php">
+  <table width="1100" border="0" align="center" class="tabla">
+    <tbody><tr>
+      <td width="848" class="estilo-titulos-principales">BÚSQUEDA DE PROFESIONALES</td>
+    </tr>
+  </tbody></table>
+  <br>
+  <table width="1100" border="0" align="center" class="tabla">
+  <tbody><tr>
+ <td width="15%" class="FontNormal">Registro:</td>
+ <td colspan="3" class="FontNormal"><select name="sltRegistro">
+  <option data-tokens="a" value="0">-- Seleccione Registro --</option>
+  <option data-tokens="a" value="3">Consultoras de Evaluación</option><option data-tokens="a" value="1" selected="">Profesionales de Aparatos Sometidos A Presión</option><option data-tokens="a" value="2">Profesionales de Evaluación</option><option data-tokens="a" value="13">Técnicos de Aparatos Sometidos a Presión</option></select></td>
+ </tr>
+ <tr class="FontNormal">
+  <td width="15%"> <span class="FontNormal">Nro Profesional: </span></td>
+  <td width="35%"> <input name="txtNroProf" type="text" onkeypress="solonumeros();" value="" size="8" maxlength="8"></td>
+   <td width="15%" class="FontNormal">Nro Documento:</td>	
+      <td width="35%"><input name="txtDNIBusca" type="text" onkeypress="solonumeros();" value="" size="9" maxlength="9"> 
+</td>
+		
+ </tr>
+<tr class="FontNormal">
+   <td width="15%"> <span class="FontNormal">Apellido: </span></td>
+   <td width="35%"><input name="txtApellidoBusca" type="text" value="" size="37"></td>
+   <td width="15%" class="FontNormal">Nombre:</td>
+    <td width="35%"><input name="txtNombre" type="text" value="" size="37"></td>
+</tr>
+  <tr class="FontNormal">
+	<td class="FontNormal">Título: </td>
+	<td class="FontNormal">
+	  <select name="sltTitulo" class="FontNormal">
+      <option data-tokens="a" value="nada">-- Seleccione Título --</option>
+      <option data-tokens="a" value="ABOGADA">ABOGADA</option><option data-tokens="a" value="Abogado">Abogado</option><option data-tokens="a" value="Agrimensor">Agrimensor</option><option data-tokens="a" value="Agrónomo">Agrónomo</option><option data-tokens="a" value="Analista de Sistemas">Analista de Sistemas</option><option data-tokens="a" value="ANALISTA ECOLOGICO">ANALISTA ECOLOGICO</option><option data-tokens="a" value="Analista Ecológico">Analista Ecológico</option><option data-tokens="a" value="Analista Ecológico y en  Contaminación">Analista Ecológico y en  Contaminación</option><option data-tokens="a" value="Analista en Ciencias Ambientales">Analista en Ciencias Ambientales</option><option data-tokens="a" value="Analista en Contaminación y Analista Ecológico">Analista en Contaminación y Analista Ecológico</option><option data-tokens="a" value="Antropologa">Antropologa</option><option data-tokens="a" value="Arquitecta">Arquitecta</option><option data-tokens="a" value="Arquitecto">Arquitecto</option><option data-tokens="a" value="Artillero y corredor Publico">Artillero y corredor Publico</option><option data-tokens="a" value="BIOLOGA">BIOLOGA</option><option data-tokens="a" value="Biologo">Biologo</option><option data-tokens="a" value="Bioquímico">Bioquímico</option><option data-tokens="a" value="con orientacion en botanica">con orientacion en botanica</option><option data-tokens="a" value="Contador">Contador</option><option data-tokens="a" value="Curso de Evaluacion de Impacto Ambiental y Proyect">Curso de Evaluacion de Impacto Ambiental y Proyect</option><option data-tokens="a" value="curso de psgrado en EIA">curso de psgrado en EIA</option><option data-tokens="a" value="CURSO DE PUESTA A TIERRA DE PLANTAS INDUSTRIALES">CURSO DE PUESTA A TIERRA DE PLANTAS INDUSTRIALES</option><option data-tokens="a" value="Curso EIA y Proyecto Urbano">Curso EIA y Proyecto Urbano</option><option data-tokens="a" value="Diseñador Industrial">Diseñador Industrial</option><option data-tokens="a" value="diseño en areas esteriles ">diseño en areas esteriles </option><option data-tokens="a" value="Doctor en Ciencias del Mar">Doctor en Ciencias del Mar</option><option data-tokens="a" value="Doctor en Ciencias Naturales">Doctor en Ciencias Naturales</option><option data-tokens="a" value="Doctor en Ciencias Veterinarias ">Doctor en Ciencias Veterinarias </option><option data-tokens="a" value="Doctorado en Ciencias Quimica">Doctorado en Ciencias Quimica</option><option data-tokens="a" value="DR EN QUIMICA">DR EN QUIMICA</option><option data-tokens="a" value="Ecólogo">Ecólogo</option><option data-tokens="a" value="Esp en Hig Ambiental">Esp en Hig Ambiental</option><option data-tokens="a" value="Esp. en Higiene y Seguridad en el Trabajo Agrario">Esp. en Higiene y Seguridad en el Trabajo Agrario</option><option data-tokens="a" value="ESP. HIGIENE Y SEG.LAB.INDUST. DE LA CONST.">ESP. HIGIENE Y SEG.LAB.INDUST. DE LA CONST.</option><option data-tokens="a" value="Esp. Seg. e Higiene">Esp. Seg. e Higiene</option><option data-tokens="a" value="Esp. Seg.e Higiene">Esp. Seg.e Higiene</option><option data-tokens="a" value="ESPCIALISTA EN PLANEAMIENTO P. Y AMB.">ESPCIALISTA EN PLANEAMIENTO P. Y AMB.</option><option data-tokens="a" value="Espec. en Hig y Seg en el Trab Agra">Espec. en Hig y Seg en el Trab Agra</option><option data-tokens="a" value="espec.en Gestion del Patrimonio y Turismo Sostenib">espec.en Gestion del Patrimonio y Turismo Sostenib</option><option data-tokens="a" value="Especialidad Hidraulica">Especialidad Hidraulica</option><option data-tokens="a" value="ESPECIALISTA  AMBIENTAL">ESPECIALISTA  AMBIENTAL</option><option data-tokens="a" value="especialista  en ambiente y patologia ambiental">especialista  en ambiente y patologia ambiental</option><option data-tokens="a" value="Especialista en Ciencias Químicas y Ambiente">Especialista en Ciencias Químicas y Ambiente</option><option data-tokens="a" value="Especialista en Derecho Ambiental">Especialista en Derecho Ambiental</option><option data-tokens="a" value="Especialista en Diagnostico y EvaluaciÃ³n Ambienta">Especialista en Diagnostico y EvaluaciÃ³n Ambienta</option><option data-tokens="a" value="Especialista en Explotación de Yacimientos">Especialista en Explotación de Yacimientos</option><option data-tokens="a" value="Especialista en gestion ambiental - higiene y seg.">Especialista en gestion ambiental - higiene y seg.</option><option data-tokens="a" value="Especialista en Higiene y Proteccion Ambiental">Especialista en Higiene y Proteccion Ambiental</option><option data-tokens="a" value="Especialista en Higiene y Seg. ">Especialista en Higiene y Seg. </option><option data-tokens="a" value="especialista en higiene y seguridad en el trabajo">especialista en higiene y seguridad en el trabajo</option><option data-tokens="a" value="ESPECIALISTA EN ING. INDUSTRIAL">ESPECIALISTA EN ING. INDUSTRIAL</option><option data-tokens="a" value="Especialista en Ingenieria Ambiental">Especialista en Ingenieria Ambiental</option><option data-tokens="a" value="Especialista en Ingeniería en Calidad">Especialista en Ingeniería en Calidad</option><option data-tokens="a" value="Especialista en Planificacion Urbana  ">Especialista en Planificacion Urbana  </option><option data-tokens="a" value="ESPECIALISTA EN SEGURIDAD E HIGIENE">ESPECIALISTA EN SEGURIDAD E HIGIENE</option><option data-tokens="a" value="ESPECIALISTA EN SEGURIDAD E HIGIENE DEL TRABAJO">ESPECIALISTA EN SEGURIDAD E HIGIENE DEL TRABAJO</option><option data-tokens="a" value="Especialista en seguridad en el trabajo agrario">Especialista en seguridad en el trabajo agrario</option><option data-tokens="a" value="Especialista en Seguridad, Higiene y ProtecciÃ³n A">Especialista en Seguridad, Higiene y ProtecciÃ³n A</option><option data-tokens="a" value="Especialista en Seguridad, Higiene y Protección Am">Especialista en Seguridad, Higiene y Protección Am</option><option data-tokens="a" value="Especialista en Seguridad,Higiene y Proteccion Amb">Especialista en Seguridad,Higiene y Proteccion Amb</option><option data-tokens="a" value="ESPECIALISTA HIGIENE Y SEGURIDAD EN EL TRABAJO">ESPECIALISTA HIGIENE Y SEGURIDAD EN EL TRABAJO</option><option data-tokens="a" value="Especialista medio ambiente y contaminación de eco">Especialista medio ambiente y contaminación de eco</option><option data-tokens="a" value="Especializacion en Desarrollo Sustentable">Especializacion en Desarrollo Sustentable</option><option data-tokens="a" value="ESPECIALIZACION EN EVALUACION DEL IMPACTO AMBIENTA">ESPECIALIZACION EN EVALUACION DEL IMPACTO AMBIENTA</option><option data-tokens="a" value="Especializacion en Higiene  y Seg. en el Trabajo">Especializacion en Higiene  y Seg. en el Trabajo</option><option data-tokens="a" value="ESPECIALIZACION EN HIGIENE Y SEGURIDAD EN EL TRABA">ESPECIALIZACION EN HIGIENE Y SEGURIDAD EN EL TRABA</option><option data-tokens="a" value="Farmaceutica Especialista en Esterilización">Farmaceutica Especialista en Esterilización</option><option data-tokens="a" value="Farmaceutico">Farmaceutico</option><option data-tokens="a" value="Geofísico">Geofísico</option><option data-tokens="a" value="Geólogo">Geólogo</option><option data-tokens="a" value="Geoquímico">Geoquímico</option><option data-tokens="a" value="Hidrologia Ambiental">Hidrologia Ambiental</option><option data-tokens="a" value="HIGIENE Y SEGURIDAD DEN EL TRABAJO">HIGIENE Y SEGURIDAD DEN EL TRABAJO</option><option data-tokens="a" value="Higiene y Seguridad en el Trabajo y Medio Ambiente">Higiene y Seguridad en el Trabajo y Medio Ambiente</option><option data-tokens="a" value="Iing. laboral  y especialista en hig y seg">Iing. laboral  y especialista en hig y seg</option><option data-tokens="a" value="Ing industrial y espec en ing amb">Ing industrial y espec en ing amb</option><option data-tokens="a" value="ING. INDUSTRIAL">ING. INDUSTRIAL</option><option data-tokens="a" value="Ing. metalurgico">Ing. metalurgico</option><option data-tokens="a" value="INGENIERA  CIVIL">INGENIERA  CIVIL</option><option data-tokens="a" value="INGENIERA AGROINDUSTRIAL">INGENIERA AGROINDUSTRIAL</option><option data-tokens="a" value="INGENIERA AGRONOMA">INGENIERA AGRONOMA</option><option data-tokens="a" value="INGENIERA AMB. Y SANITARIA">INGENIERA AMB. Y SANITARIA</option><option data-tokens="a" value="INGENIERA AMBIENTAL">INGENIERA AMBIENTAL</option><option data-tokens="a" value="INGENIERA CIVIL">INGENIERA CIVIL</option><option data-tokens="a" value="Ingeniera en Ecologia">Ingeniera en Ecologia</option><option data-tokens="a" value="Ingeniera en Recursos Naturales y Medio Ambiente">Ingeniera en Recursos Naturales y Medio Ambiente</option><option data-tokens="a" value="INGENIERA HIDRAULICA">INGENIERA HIDRAULICA</option><option data-tokens="a" value="INGENIERA INDUSTRIAL">INGENIERA INDUSTRIAL</option><option data-tokens="a" value="INGENIERA QUIMICA">INGENIERA QUIMICA</option><option data-tokens="a" value="INGENIERA ZOOTECNISTA ">INGENIERA ZOOTECNISTA </option><option data-tokens="a" value="Ingeniería en Seguridad Ambiental">Ingeniería en Seguridad Ambiental</option><option data-tokens="a" value="Ingeniero  en Alimentos">Ingeniero  en Alimentos</option><option data-tokens="a" value="Ingeniero Aeronáutico">Ingeniero Aeronáutico</option><option data-tokens="a" value="Ingeniero Agrónomo">Ingeniero Agrónomo</option><option data-tokens="a" value="Ingeniero Ambiental">Ingeniero Ambiental</option><option data-tokens="a" value="Ingeniero Civil">Ingeniero Civil</option><option data-tokens="a" value="Ingeniero Electricista">Ingeniero Electricista</option><option data-tokens="a" value="Ingeniero Electromecánico">Ingeniero Electromecánico</option><option data-tokens="a" value="INGENIERO ELECTROMECANICO CON OR. MECANICA">INGENIERO ELECTROMECANICO CON OR. MECANICA</option><option data-tokens="a" value="Ingeniero Electromecánico or Electricista">Ingeniero Electromecánico or Electricista</option><option data-tokens="a" value="Ingeniero Electrónico">Ingeniero Electrónico</option><option data-tokens="a" value="Ingeniero en Arsenales">Ingeniero en Arsenales</option><option data-tokens="a" value="Ingeniero en Construcciones">Ingeniero en Construcciones</option><option data-tokens="a" value="Ingeniero en Ecologia">Ingeniero en Ecologia</option><option data-tokens="a" value="Ingeniero en Electrònica">Ingeniero en Electrònica</option><option data-tokens="a" value="Ingeniero en Geodesia">Ingeniero en Geodesia</option><option data-tokens="a" value="INGENIERO EN GESTION DE SINIESTROS Y SEGURIDAD AMB">INGENIERO EN GESTION DE SINIESTROS Y SEGURIDAD AMB</option><option data-tokens="a" value="Ingeniero en Higiene y Seguridad  en el Trabajo">Ingeniero en Higiene y Seguridad  en el Trabajo</option><option data-tokens="a" value="Ingeniero en Higiene y Seguridad en el Trabajo">Ingeniero en Higiene y Seguridad en el Trabajo</option><option data-tokens="a" value="Ingeniero en Industrias de la Alimentacion">Ingeniero en Industrias de la Alimentacion</option><option data-tokens="a" value="Ingeniero en Materiales">Ingeniero en Materiales</option><option data-tokens="a" value="Ingeniero en Organizaci{on de Empresas">Ingeniero en Organizaci{on de Empresas</option><option data-tokens="a" value="Ingeniero en Organizacion de Empresas">Ingeniero en Organizacion de Empresas</option><option data-tokens="a" value="INGENIERO EN PRODUCCION AGROPECUARIA">INGENIERO EN PRODUCCION AGROPECUARIA</option><option data-tokens="a" value="Ingeniero en Recursos Hidricos">Ingeniero en Recursos Hidricos</option><option data-tokens="a" value="Ingeniero en Recursos Naturales y Medio  Ambiente">Ingeniero en Recursos Naturales y Medio  Ambiente</option><option data-tokens="a" value="Ingeniero en Seguridad Ambiental">Ingeniero en Seguridad Ambiental</option><option data-tokens="a" value="Ingeniero en Seguridad e Higiene">Ingeniero en Seguridad e Higiene</option><option data-tokens="a" value="Ingeniero en Seguridad e Higiene en el Trabajo ">Ingeniero en Seguridad e Higiene en el Trabajo </option><option data-tokens="a" value="ingeniero en sistemas de informacion">ingeniero en sistemas de informacion</option><option data-tokens="a" value="Ingeniero en Telecomunicaciones">Ingeniero en Telecomunicaciones</option><option data-tokens="a" value="Ingeniero en vias de comunicacion">Ingeniero en vias de comunicacion</option><option data-tokens="a" value="Ingeniero Especialista en Higiene y Seguridad en e">Ingeniero Especialista en Higiene y Seguridad en e</option><option data-tokens="a" value="Ingeniero Forestal">Ingeniero Forestal</option><option data-tokens="a" value="Ingeniero Geógrafo">Ingeniero Geógrafo</option><option data-tokens="a" value="Ingeniero Hidráulico">Ingeniero Hidráulico</option><option data-tokens="a" value="Ingeniero Industrail">Ingeniero Industrail</option><option data-tokens="a" value="Ingeniero Industrial">Ingeniero Industrial</option><option data-tokens="a" value="Ingeniero Laboral">Ingeniero Laboral</option><option data-tokens="a" value="Ingeniero Laboral ">Ingeniero Laboral </option><option data-tokens="a" value="Ingeniero Mecanico">Ingeniero Mecanico</option><option data-tokens="a" value="Ingeniero Mecánico">Ingeniero Mecánico</option><option data-tokens="a" value="Ingeniero Mecánico ">Ingeniero Mecánico </option><option data-tokens="a" value="Ingeniero Metalúrgico">Ingeniero Metalúrgico</option><option data-tokens="a" value="INGENIERO MILITAR">INGENIERO MILITAR</option><option data-tokens="a" value="Ingeniero Químico">Ingeniero Químico</option><option data-tokens="a" value="Ingeniero Sanitario">Ingeniero Sanitario</option><option data-tokens="a" value="Ingeniero Textil">Ingeniero Textil</option><option data-tokens="a" value="Ingeniero Zootecnista">Ingeniero Zootecnista</option><option data-tokens="a" value="INGENIRO NAVAL Y MECANICO">INGENIRO NAVAL Y MECANICO</option><option data-tokens="a" value="LIC EN BIOLOGIA OR. ECOLOGIA">LIC EN BIOLOGIA OR. ECOLOGIA</option><option data-tokens="a" value="Lic en Hig y Seg en el Trab, Esp en Protecc Ambtal">Lic en Hig y Seg en el Trab, Esp en Protecc Ambtal</option><option data-tokens="a" value="Lic. Ciencias de la Educacion">Lic. Ciencias de la Educacion</option><option data-tokens="a" value="Lic. en Aprovechamiento de Recur. Nat. Renovables">Lic. en Aprovechamiento de Recur. Nat. Renovables</option><option data-tokens="a" value="LIC. en BIOLOGIA con orientacion en  ZOOLOGIA">LIC. en BIOLOGIA con orientacion en  ZOOLOGIA</option><option data-tokens="a" value="LIC. EN BIOQUIMICA">LIC. EN BIOQUIMICA</option><option data-tokens="a" value="LIC. EN CIENCIAS QUIMICAS O. ANALISIS BIOLOGICOS">LIC. EN CIENCIAS QUIMICAS O. ANALISIS BIOLOGICOS</option><option data-tokens="a" value="LIC. EN GEOLOGIA">LIC. EN GEOLOGIA</option><option data-tokens="a" value="LIC. EN HIGIENE Y  SEG EN EL TRABAJO">LIC. EN HIGIENE Y  SEG EN EL TRABAJO</option><option data-tokens="a" value="LIC. EN RELACIONES COM. INTERNACIONALES">LIC. EN RELACIONES COM. INTERNACIONALES</option><option data-tokens="a" value="LIC. EN RELACIONES INDUSTRIALES CON ESPEC. EN UCA,">LIC. EN RELACIONES INDUSTRIALES CON ESPEC. EN UCA,</option><option data-tokens="a" value="Lic. en Saneamiento y proteccion ambiental">Lic. en Saneamiento y proteccion ambiental</option><option data-tokens="a" value="Lic. en Seguridad Ambiental">Lic. en Seguridad Ambiental</option><option data-tokens="a" value="LIC. EN SEGURIDAD E HIGIENE ">LIC. EN SEGURIDAD E HIGIENE </option><option data-tokens="a" value="Lic. en Seguridad, Higiene y Control Ambiental Lab">Lic. en Seguridad, Higiene y Control Ambiental Lab</option><option data-tokens="a" value="LIC. EN SISTEMAS ">LIC. EN SISTEMAS </option><option data-tokens="a" value="Lic.en Biologia OR Zoologia">Lic.en Biologia OR Zoologia</option><option data-tokens="a" value="Lic.en Seg e Hig y Control Amb Laboral">Lic.en Seg e Hig y Control Amb Laboral</option><option data-tokens="a" value="Licenciad en Seguridad y salud ocupacional">Licenciad en Seguridad y salud ocupacional</option><option data-tokens="a" value="LICENCIADA  EN CIENCIAS DEL AMBIENTE">LICENCIADA  EN CIENCIAS DEL AMBIENTE</option><option data-tokens="a" value="Licenciada en Análisis Ambiental">Licenciada en Análisis Ambiental</option><option data-tokens="a" value="LICENCIADA EN BROMATOLOGIA">LICENCIADA EN BROMATOLOGIA</option><option data-tokens="a" value="Licenciada en Ciencia y Tecnología de Alimentos">Licenciada en Ciencia y Tecnología de Alimentos</option><option data-tokens="a" value="LICENCIADA EN CIENCIAS AMBIENTALES">LICENCIADA EN CIENCIAS AMBIENTALES</option><option data-tokens="a" value="Licenciada en Ciencias Geologicas">Licenciada en Ciencias Geologicas</option><option data-tokens="a" value="Licenciada en Ciencias Politicas">Licenciada en Ciencias Politicas</option><option data-tokens="a" value="LICENCIADA EN CIENCIAS QUIMICAS O. ANALISIS QUIM.">LICENCIADA EN CIENCIAS QUIMICAS O. ANALISIS QUIM.</option><option data-tokens="a" value="Licenciada en Diagnóstico y Gestión Ambiental">Licenciada en Diagnóstico y Gestión Ambiental</option><option data-tokens="a" value="Licenciada en Ecología Urbana">Licenciada en Ecología Urbana</option><option data-tokens="a" value="LICENCIADA EN GEOLOGIA">LICENCIADA EN GEOLOGIA</option><option data-tokens="a" value="LICENCIADA EN GERENCIAMIENTO  AMB.">LICENCIADA EN GERENCIAMIENTO  AMB.</option><option data-tokens="a" value="LICENCIADA EN GESTION AMBIENTAL">LICENCIADA EN GESTION AMBIENTAL</option><option data-tokens="a" value="LICENCIADA EN INFORMACION AMBIENTAL">LICENCIADA EN INFORMACION AMBIENTAL</option><option data-tokens="a" value="Licenciada en Oceanografia">Licenciada en Oceanografia</option><option data-tokens="a" value="Licenciada en Oceanografía Orientación Química Mar">Licenciada en Oceanografía Orientación Química Mar</option><option data-tokens="a" value="Licenciada en Quimica Industrial">Licenciada en Quimica Industrial</option><option data-tokens="a" value="Licenciada en Relaciones Industriales">Licenciada en Relaciones Industriales</option><option data-tokens="a" value="LICENCIADA EN SEGURIDAD Y SALUD OCUPACIONAL">LICENCIADA EN SEGURIDAD Y SALUD OCUPACIONAL</option><option data-tokens="a" value="Licenciada en Tecnología de los alimentos">Licenciada en Tecnología de los alimentos</option><option data-tokens="a" value="Licenciada en Tecnología Industrial de los Aliment">Licenciada en Tecnología Industrial de los Aliment</option><option data-tokens="a" value="licenciada en turismo">licenciada en turismo</option><option data-tokens="a" value="Licenciada Oceanografía Orientación Química Marina">Licenciada Oceanografía Orientación Química Marina</option><option data-tokens="a" value="Licenciado en Administración Agraria">Licenciado en Administración Agraria</option><option data-tokens="a" value="LICENCIADO EN ADMINISTRACION DE EMPRESAS.">LICENCIADO EN ADMINISTRACION DE EMPRESAS.</option><option data-tokens="a" value="Licenciado en Analisis de Sistemas">Licenciado en Analisis de Sistemas</option><option data-tokens="a" value="Licenciado en Antropologia">Licenciado en Antropologia</option><option data-tokens="a" value="Licenciado en Aprovechamiento de Recursos Naturale">Licenciado en Aprovechamiento de Recursos Naturale</option><option data-tokens="a" value="Licenciado en Biologia">Licenciado en Biologia</option><option data-tokens="a" value="LICENCIADO EN BIOLOGIA or zoologia">LICENCIADO EN BIOLOGIA or zoologia</option><option data-tokens="a" value="Licenciado en Biología or. Zoologia ">Licenciado en Biología or. Zoologia </option><option data-tokens="a" value="Licenciado en Bioquímica">Licenciado en Bioquímica</option><option data-tokens="a" value="LICENCIADO EN BIOTECNOLOGIA">LICENCIADO EN BIOTECNOLOGIA</option><option data-tokens="a" value="Licenciado en Ciencias Agrarias">Licenciado en Ciencias Agrarias</option><option data-tokens="a" value="Licenciado en Ciencias Ambientales">Licenciado en Ciencias Ambientales</option><option data-tokens="a" value="Licenciado en Ciencias Antropológicas">Licenciado en Ciencias Antropológicas</option><option data-tokens="a" value="Licenciado en Ciencias Biologicas">Licenciado en Ciencias Biologicas</option><option data-tokens="a" value="LICENCIADO EN CIENCIAS DEL AMBIENTE">LICENCIADO EN CIENCIAS DEL AMBIENTE</option><option data-tokens="a" value="Licenciado en Ciencias Fisicas">Licenciado en Ciencias Fisicas</option><option data-tokens="a" value="LICENCIADO EN CIENCIAS GEOLOGICAS">LICENCIADO EN CIENCIAS GEOLOGICAS</option><option data-tokens="a" value="LICENCIADO EN COMUNICACION SOCIAL ">LICENCIADO EN COMUNICACION SOCIAL </option><option data-tokens="a" value="Licenciado en Comunicación Social">Licenciado en Comunicación Social</option><option data-tokens="a" value="LICENCIADO EN CRIMINALISTA">LICENCIADO EN CRIMINALISTA</option><option data-tokens="a" value="Licenciado en Cs.Quimicas">Licenciado en Cs.Quimicas</option><option data-tokens="a" value="LICENCIADO EN DIAG. Y GESTION AMBIENTAL">LICENCIADO EN DIAG. Y GESTION AMBIENTAL</option><option data-tokens="a" value="Licenciado en Diagnostico y Gestion Ambiental">Licenciado en Diagnostico y Gestion Ambiental</option><option data-tokens="a" value="Licenciado en Diagnóstico y Gestión Ambiental">Licenciado en Diagnóstico y Gestión Ambiental</option><option data-tokens="a" value="Licenciado en Ecología">Licenciado en Ecología</option><option data-tokens="a" value="Licenciado en Ecologia Urbana">Licenciado en Ecologia Urbana</option><option data-tokens="a" value="Licenciado en Economía">Licenciado en Economía</option><option data-tokens="a" value="Licenciado en Economia Agropecuaria">Licenciado en Economia Agropecuaria</option><option data-tokens="a" value="Licenciado en Edafología">Licenciado en Edafología</option><option data-tokens="a" value="Licenciado en Enseñanza de ciencias del ambiente">Licenciado en Enseñanza de ciencias del ambiente</option><option data-tokens="a" value="Licenciado en Gelogía">Licenciado en Gelogía</option><option data-tokens="a" value="LICENCIADO EN GEOGRAFIA">LICENCIADO EN GEOGRAFIA</option><option data-tokens="a" value="Licenciado en Geografía">Licenciado en Geografía</option><option data-tokens="a" value="Licenciado en Geología">Licenciado en Geología</option><option data-tokens="a" value="Licenciado en Gerenciamiento Ambiental">Licenciado en Gerenciamiento Ambiental</option><option data-tokens="a" value="Licenciado en Gestiòn Ambiental">Licenciado en Gestiòn Ambiental</option><option data-tokens="a" value="Licenciado en Gestion Ambiental Urbano">Licenciado en Gestion Ambiental Urbano</option><option data-tokens="a" value="LICENCIADO EN H. Y SEG. EN EL TRAB. ESP. EN P. AMB">LICENCIADO EN H. Y SEG. EN EL TRAB. ESP. EN P. AMB</option><option data-tokens="a" value="Licenciado en Higiene y Seguridad  en el Trabajo">Licenciado en Higiene y Seguridad  en el Trabajo</option><option data-tokens="a" value="LICENCIADO EN HIGIENE Y SEGURIDAD LABORAL">LICENCIADO EN HIGIENE Y SEGURIDAD LABORAL</option><option data-tokens="a" value="LICENCIADO EN INFORMACION AMBIENTAL">LICENCIADO EN INFORMACION AMBIENTAL</option><option data-tokens="a" value="Licenciado en Informatica Ambiental">Licenciado en Informatica Ambiental</option><option data-tokens="a" value="LICENCIADO EN ORGANIZACION INDUSTRIAL">LICENCIADO EN ORGANIZACION INDUSTRIAL</option><option data-tokens="a" value="Licenciado en Organizaciòn Industrial">Licenciado en Organizaciòn Industrial</option><option data-tokens="a" value="Licenciado en Química">Licenciado en Química</option><option data-tokens="a" value="LICENCIADO EN QUIMICA INDUSTRIAL">LICENCIADO EN QUIMICA INDUSTRIAL</option><option data-tokens="a" value="LICENCIADO EN RELACIONES DEL TRABAJO">LICENCIADO EN RELACIONES DEL TRABAJO</option><option data-tokens="a" value="LICENCIADO EN SANEAMIENTO AMBIENTAL ">LICENCIADO EN SANEAMIENTO AMBIENTAL </option><option data-tokens="a" value="LICENCIADO EN SANEAMIENTO Y PROTECCION AMBIENTAL">LICENCIADO EN SANEAMIENTO Y PROTECCION AMBIENTAL</option><option data-tokens="a" value="Licenciado en Seguridad e Higiene en el Trabajo">Licenciado en Seguridad e Higiene en el Trabajo</option><option data-tokens="a" value="Licenciado en Seguridad, Higiene y Control Ambient">Licenciado en Seguridad, Higiene y Control Ambient</option><option data-tokens="a" value="Licenciado en Sistemas de Protección Contra Sinies">Licenciado en Sistemas de Protección Contra Sinies</option><option data-tokens="a" value="Licenciado en Sociología">Licenciado en Sociología</option><option data-tokens="a" value="Licenciado en Tecnologia Ambiental">Licenciado en Tecnologia Ambiental</option><option data-tokens="a" value="Licenciado en Trabajo Social">Licenciado en Trabajo Social</option><option data-tokens="a" value="Licenciado en Transporte y Logística Operativa">Licenciado en Transporte y Logística Operativa</option><option data-tokens="a" value="Licenciado en Zoología">Licenciado en Zoología</option><option data-tokens="a" value="Licenciado Eugenista Humanologo">Licenciado Eugenista Humanologo</option><option data-tokens="a" value="Licenciano de Seguridad">Licenciano de Seguridad</option><option data-tokens="a" value="LICENCIATURA DE SEGURIDAD">LICENCIATURA DE SEGURIDAD</option><option data-tokens="a" value="Licenciatura en AnÃ¡lisis ClÃ&shy;nicos y BioquÃ&shy;mica">Licenciatura en AnÃ¡lisis ClÃ&shy;nicos y BioquÃ&shy;mica</option><option data-tokens="a" value="LICENCIATURA EN GERENCIAMIENTO AMBIENTAL">LICENCIATURA EN GERENCIAMIENTO AMBIENTAL</option><option data-tokens="a" value="Licencioado en Geoquimica">Licencioado en Geoquimica</option><option data-tokens="a" value="Liicenciatura en Información Ambiental">Liicenciatura en Información Ambiental</option><option data-tokens="a" value="MAESTRIA EN ADMINISTRACION DE EMPRESAS">MAESTRIA EN ADMINISTRACION DE EMPRESAS</option><option data-tokens="a" value="Maestría en Ciencias Ambientales">Maestría en Ciencias Ambientales</option><option data-tokens="a" value="MAESTRIA EN GESTION AMBIENTAL">MAESTRIA EN GESTION AMBIENTAL</option><option data-tokens="a" value="MAESTRIA EN HIGIENE Y SEGURIDAD EN EL TRABAJO">MAESTRIA EN HIGIENE Y SEGURIDAD EN EL TRABAJO</option><option data-tokens="a" value="MAESTRIA EN MANEJO AMBIENTAL DE SISTEMAS HIDRICOS">MAESTRIA EN MANEJO AMBIENTAL DE SISTEMAS HIDRICOS</option><option data-tokens="a" value="Maestro  Mayor de Obras">Maestro  Mayor de Obras</option><option data-tokens="a" value="MAGISTER EN ESTUDIOS AMBIENTALES ">MAGISTER EN ESTUDIOS AMBIENTALES </option><option data-tokens="a" value="MAGISTER EN GESTION AMBIENTAL DEL DESARROLLO URBAN">MAGISTER EN GESTION AMBIENTAL DEL DESARROLLO URBAN</option><option data-tokens="a" value="Magister en Ingenieria Ambiental">Magister en Ingenieria Ambiental</option><option data-tokens="a" value="Martillero y Corredor Publico">Martillero y Corredor Publico</option><option data-tokens="a" value="MASTER EN INGENIERIA AMBIENTAL DE LA EMPRESA">MASTER EN INGENIERIA AMBIENTAL DE LA EMPRESA</option><option data-tokens="a" value="Master en Seguridad Industrial">Master en Seguridad Industrial</option><option data-tokens="a" value="Master Lic. en Amb. del Desarrolo Urbano   ">Master Lic. en Amb. del Desarrolo Urbano   </option><option data-tokens="a" value="Master Universitario en Gestion y Auditoria Ambie ">Master Universitario en Gestion y Auditoria Ambie </option><option data-tokens="a" value="Médico">Médico</option><option data-tokens="a" value="Meteorólogo">Meteorólogo</option><option data-tokens="a" value="Muestreador (Curso RENATOM)">Muestreador (Curso RENATOM)</option><option data-tokens="a" value="Muestreador (Curso RETOMA)">Muestreador (Curso RETOMA)</option><option data-tokens="a" value="No posee colegio">No posee colegio</option><option data-tokens="a" value="Oceanografo">Oceanografo</option><option data-tokens="a" value="ODONTOLOGA">ODONTOLOGA</option><option data-tokens="a" value="Orientacion Mecanica">Orientacion Mecanica</option><option data-tokens="a" value="Posgrado - INGENIERIA AMBIENTAL">Posgrado - INGENIERIA AMBIENTAL</option><option data-tokens="a" value="Posgrado en Hig. y Seg. en el Trab">Posgrado en Hig. y Seg. en el Trab</option><option data-tokens="a" value="post grado en gestión ambiental">post grado en gestión ambiental</option><option data-tokens="a" value="PROCURADORA">PROCURADORA</option><option data-tokens="a" value="Profesora en Geografía">Profesora en Geografía</option><option data-tokens="a" value="Programa de Gestión Ambiental">Programa de Gestión Ambiental</option><option data-tokens="a" value="Programa de Gestiòn Ambiental">Programa de Gestiòn Ambiental</option><option data-tokens="a" value="proyecto de instalaciones hospitalarias">proyecto de instalaciones hospitalarias</option><option data-tokens="a" value="QUIMICA (Carrera Bioquimica)">QUIMICA (Carrera Bioquimica)</option><option data-tokens="a" value="QUIMICO">QUIMICO</option><option data-tokens="a" value="saneamiento proteccion ambiental">saneamiento proteccion ambiental</option><option data-tokens="a" value="tec sup en seg e higiene en el trabajo . ">tec sup en seg e higiene en el trabajo . </option><option data-tokens="a" value="Tec. Superior en Manejo Ambiental">Tec. Superior en Manejo Ambiental</option><option data-tokens="a" value="TECNICA MAESTRO MAYOR DE OBRAS">TECNICA MAESTRO MAYOR DE OBRAS</option><option data-tokens="a" value="Tecnica Superior en Gestiòn Ambiental">Tecnica Superior en Gestiòn Ambiental</option><option data-tokens="a" value="Tecnica Univ. en Informacion Ambiental">Tecnica Univ. en Informacion Ambiental</option><option data-tokens="a" value="TECNICATURA SUPERIOR EN GESTION AMBIENTAL Y SALUD">TECNICATURA SUPERIOR EN GESTION AMBIENTAL Y SALUD</option><option data-tokens="a" value="Tecnico  Mecanico">Tecnico  Mecanico</option><option data-tokens="a" value="Tecnico  Saneamiento Ambiental">Tecnico  Saneamiento Ambiental</option><option data-tokens="a" value="Tecnico Analista Ambiental">Tecnico Analista Ambiental</option><option data-tokens="a" value="tecnico constructor">tecnico constructor</option><option data-tokens="a" value="Técnico Electrónico">Técnico Electrónico</option><option data-tokens="a" value="TECNICO EN E. Y INST. ELECTROMECANICAS">TECNICO EN E. Y INST. ELECTROMECANICAS</option><option data-tokens="a" value="Técnico en Electromecanica">Técnico en Electromecanica</option><option data-tokens="a" value="TECNICO EN EQUIPOS E INST. ELECTROMECANICAS">TECNICO EN EQUIPOS E INST. ELECTROMECANICAS</option><option data-tokens="a" value="Tecnico en Gerenciamiento Ambiental">Tecnico en Gerenciamiento Ambiental</option><option data-tokens="a" value="TECNICO EN INDUSTRIAS DE LA ALIMENTACION ORI.PESCA">TECNICO EN INDUSTRIAS DE LA ALIMENTACION ORI.PESCA</option><option data-tokens="a" value="TECNICO EN INDUSTRIAS DE PROCESOS">TECNICO EN INDUSTRIAS DE PROCESOS</option><option data-tokens="a" value="Técnico en la Cadena de Carnes">Técnico en la Cadena de Carnes</option><option data-tokens="a" value="Técnico en Meteorología Sinóptica">Técnico en Meteorología Sinóptica</option><option data-tokens="a" value="Tecnico en Seguridad e Higiene">Tecnico en Seguridad e Higiene</option><option data-tokens="a" value="Tecnico en Seguridad Industrial ">Tecnico en Seguridad Industrial </option><option data-tokens="a" value="TECNICO EN SONIDO ESP EN DISEÑO DE INST. ACUSTICAS">TECNICO EN SONIDO ESP EN DISEÑO DE INST. ACUSTICAS</option><option data-tokens="a" value="TECNICO FORESTAL">TECNICO FORESTAL</option><option data-tokens="a" value="Técnico Mecánico ">Técnico Mecánico </option><option data-tokens="a" value="Tecnico Mecanico Electricista">Tecnico Mecanico Electricista</option><option data-tokens="a" value="Tècnico Mecanico Electricista">Tècnico Mecanico Electricista</option><option data-tokens="a" value="Técnico Químico">Técnico Químico</option><option data-tokens="a" value="Técnico sup. en gestion Ambiental">Técnico sup. en gestion Ambiental</option><option data-tokens="a" value="TECNICO SUPERIOR AGRARIO EN SUELOS Y AGUAS">TECNICO SUPERIOR AGRARIO EN SUELOS Y AGUAS</option><option data-tokens="a" value="TECNICO SUPERIOR EN BROMATOLOGIA">TECNICO SUPERIOR EN BROMATOLOGIA</option><option data-tokens="a" value="Tecnico Superior en Ecologia">Tecnico Superior en Ecologia</option><option data-tokens="a" value="TECNICO SUPERIOR EN MANEJO AMBIENTAL">TECNICO SUPERIOR EN MANEJO AMBIENTAL</option><option data-tokens="a" value="Técnico Superior en Seg. Higiene y Control Amb.">Técnico Superior en Seg. Higiene y Control Amb.</option><option data-tokens="a" value="Tecnico Superior en Seguridad e Higiene en el Trab">Tecnico Superior en Seguridad e Higiene en el Trab</option><option data-tokens="a" value="Técnico Superior en Seguridad e Higiene Industrial">Técnico Superior en Seguridad e Higiene Industrial</option><option data-tokens="a" value="Técnico Superior en Seguridad, Higiene y Control A">Técnico Superior en Seguridad, Higiene y Control A</option><option data-tokens="a" value="Tecnico Superior en Seguridad, Higiene y ControlAm">Tecnico Superior en Seguridad, Higiene y ControlAm</option><option data-tokens="a" value="tecnico superior en turismo">tecnico superior en turismo</option><option data-tokens="a" value="TECNICO UNIVERSITARIO EN GERENCIAMIENTO AMBIENTAL">TECNICO UNIVERSITARIO EN GERENCIAMIENTO AMBIENTAL</option><option data-tokens="a" value="TECNICO UNIVERSITARIO EN GESTION AMBIENTAL">TECNICO UNIVERSITARIO EN GESTION AMBIENTAL</option><option data-tokens="a" value="Técnico Universitario en Gestión Ambiental">Técnico Universitario en Gestión Ambiental</option><option data-tokens="a" value="TECNICO UNIVERSITARIO EN INFORMACION AMBIENTAL">TECNICO UNIVERSITARIO EN INFORMACION AMBIENTAL</option><option data-tokens="a" value="TECNICO UNIVERSITARIO EN MEDIO AMBIENTE">TECNICO UNIVERSITARIO EN MEDIO AMBIENTE</option><option data-tokens="a" value="Veterinario">Veterinario</option><option data-tokens="a" value="Zoólogo">Zoólogo</option>      </select>
+	  </td>
+	<td class="FontNormal">Provincia: </td>
+    <td><span class="FontNormal">
+      <select name="sltProvincia" class="FontNormal" onchange="submit();">
+       <option data-tokens="a" value="0">-- Seleccione --</option>
+       <option data-tokens="a" value="1">BUENOS AIRES</option><option data-tokens="a" value="22">CATAMARCA</option><option data-tokens="a" value="5">CHACO</option><option data-tokens="a" value="17">CHUBUT</option><option data-tokens="a" value="14">CORDOBA</option><option data-tokens="a" value="4">CORRIENTES</option><option data-tokens="a" value="2">ENTRE RIOS</option><option data-tokens="a" value="6">FORMOSA</option><option data-tokens="a" value="8">JUJUY</option><option data-tokens="a" value="13">LA PAMPA</option><option data-tokens="a" value="23">LA RIOJA</option><option data-tokens="a" value="11">MENDOZA</option><option data-tokens="a" value="7">MISIONES</option><option data-tokens="a" value="15">NEUQUÉN</option><option data-tokens="a" value="16">RÍO NEGRO</option><option data-tokens="a" value="9">SALTA</option><option data-tokens="a" value="10">SAN JUAN</option><option data-tokens="a" value="12">SAN LUIS</option><option data-tokens="a" value="18">SANTA CRUZ</option><option data-tokens="a" value="3">SANTA FE</option><option data-tokens="a" value="21">SANTIAGO DEL ESTERO</option><option data-tokens="a" value="19">TIERRA DEL FUEGO</option><option data-tokens="a" value="20">TUCUMÁN</option>      </select>
+    </span> </td>
+  </tr>	
+
+<tr class="FontNormal">
+    <td class="FontNormal">Partido:</td>
+	<td><span class="FontNormal">
+	  <select name="sltPartidoR" class="FontNormal" onchange="submit();">
+        <option data-tokens="a" value="0">-- Seleccione Partido --</option>
+              </select>
+	  </span> </td>
+	<td class="FontNormal">Localidad:</td>
+	 <td class="FontNormal">
+	   <select name="sltLocalidadR" class="FontNormal">
+         <option data-tokens="a" value="0">-- Seleccione Localidad --</option>
+                </select>
+      </td>
+</tr>
+
+<tr>
+
+
+</tr>
+
+ 
+</tbody></table>
+
+<p align="center"><input type="submit" name="btnBuscaDNI" value="Buscar" onmouseout="javascript:this.className=&quot;botones&quot;;" onmouseover="javascript:this.className=&quot;botonesSeleccionados&quot;;" class="botones"></p>
+
+
+<p></p>
+
+<p><span class="FontNormal">
+  SE HAN ENCONTRADO 188 REGISTROS<br><a href="imprime_profesionalesWeb.php" target="_blank"><img src="../Imagenes/WinXPSetV4 Icon 28.ico" width="35" height="30" border="0"></a><br>  <input name="txtAux" type="hidden" value=" idregistro = 1">
+</span></p>
+</form>
+<table width="1100" align="center" class="tabla">
+  <tbody><tr>
+    <td width="97%" height="44" valign="baseline"><p align="center">Para visualizar y poder imprimir el resultado de su búsqueda, deberá tener instalado&nbsp;  <a href="http://www.adobe.com/la/products/acrobat/readstep2.html" target="_blank"><img src="adoberojo.jpg" width="117" height="39" border="0" align="middle"></a></p>    </td>
+  </tr>
+</tbody></table>
+<br>
+<div class="container-fluid">
+<div id="no-more-tables">
+<table class="col-md-12 table-bordered table-striped table-condensed cf" align="center">
+  <thead class="cf">
+    <tr>
+    <th>REGISTRO</td>
+    <th>NRO PROFESIONAL</td>
+    <th>APELLIDO Y NOMBRE </td>
+    <th>DOCUMENTO</td>
+    <th>DOMICILIO</td>
+    <th>TELÉFONO</td>
+    <th>E-MAIL</td>
+    <th>PARTIDO</td>
+    <th>LOCALIDAD</td>
+    <th>TÍTULO</td>
+    </tr>
+    </thead>
+  <tbody>
+  <!--<tr class="EncabezadoTabla">
+    <td width="9%">REGISTRO</td>
+    <td width="7%">NRO PROFESIONAL</td>
+    <td width="12%">APELLIDO Y NOMBRE </td>
+    <td width="10%">DOCUMENTO</td>
+	<td width="15%">DOMICILIO</td>
+    <td width="10%">TELÉFONO</td>
+	<td width="9%">E-MAIL</td>
+	 <td width="9%">PARTIDO</td>
+	<td width="9%">LOCALIDAD</td>
+	<td width="10%">TÍTULO</td>
+  </tr>-->
+ 			
+<tr class="FontNormal">
+  					<td data-title="REGISTRO">Profesionales de Aparatos Sometidos A Presión</td>
+					 <td data-title="NRO PROFESIONAL">
+				       <span class="FontNormal">184</span></td>
+					 <td data-title="APELLIDO Y NOMBRE" class="FontNormal">
+				     ABDO, LUIS ALBERTO					 </td>
+					 <td data-title="DOCUMENTO" class="FontNormal">LE 8337301&nbsp;</td>
+					 <td data-title="DOMICILIO" class="FontNormal">Calle: MOZOTEGUI    - Nro: 560 Dpto:  Piso: </td>
+					<td data-title="TELÉFONO" class="FontNormal">
+				    Tel: ( 0222)-6421494					</td>
+					<td data-title="E-MAIL" class="FontNormal">ingabdo2004@yahoo.com.ar</td>
+					 <td data-title="PARTIDO" class="FontNormal">
+				     CAÑUELAS					 </td>
+					  <td data-title="LOCALIDAD" class="FontNormal">
+				      CAÑUELAS					  </td>
+					  <td data-title="TÍTULO" class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">455</span></td>
+					 <td class="FontNormal">
+				     AHARGO, Edgardo Bautista					 </td>
+					 <td class="FontNormal">DNI 7687644&nbsp;</td>
+					 <td class="FontNormal">Calle: Avda. aAem - Nro: 783 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    					</td>
+					<td class="FontNormal">edgardo@arrietafiotto.com.ar</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">316</span></td>
+					 <td class="FontNormal">
+				     ALVAREZ, ADALBERTO RAÚL					 </td>
+					 <td class="FontNormal">DNI 5224751&nbsp;</td>
+					 <td class="FontNormal">Calle: COMODORO  RIVADAVIA Nª     - Nro: 5094 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 42068838					</td>
+					<td class="FontNormal">-</td>
+					 <td class="FontNormal">
+				     AVELLANEDA					 </td>
+					  <td class="FontNormal">
+				      AVELLANEDA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">281</span></td>
+					 <td class="FontNormal">
+				     ALVAREZ, CARLOS  RAUL					 </td>
+					 <td class="FontNormal">DNI 10286837&nbsp;</td>
+					 <td class="FontNormal">Calle: 70  - Nro: 490 Dpto: 2 Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0221)  4235538 Fax: celular  (0221) 15-5895378					</td>
+					<td class="FontNormal">ingenierosconsultoresasoc@gmail.com</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico,Ingeniero Laboral					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">175</span></td>
+					 <td class="FontNormal">
+				     ANDRADE, ALBERTO FRANCISCO					 </td>
+					 <td class="FontNormal">LE 7638052&nbsp;</td>
+					 <td class="FontNormal">Calle: GAUCHO CRUZ N°   5144 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)   7506636					</td>
+					<td class="FontNormal">albertoandrade@arnet.com.ar</td>
+					 <td class="FontNormal">
+				     TRES DE FEBRERO					 </td>
+					  <td class="FontNormal">
+				      CASEROS					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">152</span></td>
+					 <td class="FontNormal">
+				     ARRIEN, LUIS  MARIA					 </td>
+					 <td class="FontNormal">DNI 16303997&nbsp;</td>
+					 <td class="FontNormal">Calle: HORNOS Nº  - Nro: 1941 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (02284)-443835					</td>
+					<td class="FontNormal">LMARRIEN@SPEEDY.COM.AR</td>
+					 <td class="FontNormal">
+				     OLAVARRIA					 </td>
+					  <td class="FontNormal">
+				      OLAVARRIA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">335</span></td>
+					 <td class="FontNormal">
+				     ARTUCIO ,  RUBEN JUAN CARLOS					 </td>
+					 <td class="FontNormal">DNI 6613101&nbsp;</td>
+					 <td class="FontNormal">Calle: 25 DE MAYO Nº864 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 03489-437745					</td>
+					<td class="FontNormal">raasi@fibertel.com.ar</td>
+					 <td class="FontNormal">
+				     					 </td>
+					  <td class="FontNormal">
+				      					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">280</span></td>
+					 <td class="FontNormal">
+				     AVETTA, HAROLDO  TOMAS					 </td>
+					 <td class="FontNormal">DNI 10959671&nbsp;</td>
+					 <td class="FontNormal">Calle: AVD. CENTRAL  N°  3070 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 46162788					</td>
+					<td class="FontNormal">jcg@jmnspecialties.com</td>
+					 <td class="FontNormal">
+				     SAN NICOLAS					 </td>
+					  <td class="FontNormal">
+				      SAN NICOLAS DE LOS ARROYOS					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">324</span></td>
+					 <td class="FontNormal">
+				     BALTAZAR, JOSE  LUIS					 </td>
+					 <td class="FontNormal">DNI 22630108&nbsp;</td>
+					 <td class="FontNormal">Calle: 33 - Nro: 813 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0221)  4222150					</td>
+					<td class="FontNormal">joseluis@cdkot.com</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">462</span></td>
+					 <td class="FontNormal">
+				     Baratelli, Gerardo Fabian 					 </td>
+					 <td class="FontNormal">DNI 30536496&nbsp;</td>
+					 <td class="FontNormal">Calle: Ayacucho - Nro: 732 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico 					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">459</span></td>
+					 <td class="FontNormal">
+				     Barbero, Jorge Luis					 </td>
+					 <td class="FontNormal">DNI 32515368&nbsp;</td>
+					 <td class="FontNormal">Calle: Lavalle  - Nro: 2046 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 02284-427313 Fax: 2284372193					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     OLAVARRIA					 </td>
+					  <td class="FontNormal">
+				      OLAVARRIA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">430</span></td>
+					 <td class="FontNormal">
+				     Barbetta, Ruben Guillermo					 </td>
+					 <td class="FontNormal">DNI 10767234&nbsp;</td>
+					 <td class="FontNormal">Calle: Potosi - Nro: 2143 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011-47971450					</td>
+					<td class="FontNormal">ruben.barbeta@ecotec.com.ar</td>
+					 <td class="FontNormal">
+				     VICENTE LOPEZ					 </td>
+					  <td class="FontNormal">
+				      OLIVOS					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">208</span></td>
+					 <td class="FontNormal">
+				     BARBIERI, CAYETANO					 </td>
+					 <td class="FontNormal">DNI 93793247&nbsp;</td>
+					 <td class="FontNormal">Calle: BOULEVARD FINCA  - Nro: 272 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 4751-7623 Fax: (011)  4751- 7623					</td>
+					<td class="FontNormal">inge.bar@arnet.com.ar</td>
+					 <td class="FontNormal">
+				     TRES DE FEBRERO					 </td>
+					  <td class="FontNormal">
+				      EL PALOMAR					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero en Seguridad e Higiene,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">443</span></td>
+					 <td class="FontNormal">
+				     BECERRA, JORGE RAFAEL					 </td>
+					 <td class="FontNormal">DNI 5063332&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 119   E/ 39 Y 40 - Nro: Nº 366  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0221) 4822483					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">43</span></td>
+					 <td class="FontNormal">
+				     BEN, ALEJANDRO  SERGIO					 </td>
+					 <td class="FontNormal">DNI 17226090&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 73 - Nro: N°  1289 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 4517611					</td>
+					<td class="FontNormal">asb_ing@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">331</span></td>
+					 <td class="FontNormal">
+				     BENENTE, RICARDO					 </td>
+					 <td class="FontNormal">DNI 13856096&nbsp;</td>
+					 <td class="FontNormal">Calle: CIUDAELA  N°  1883 - Nro: 1883 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)  42590018					</td>
+					<td class="FontNormal">ricardo.benente@consultorabenente.com.ar</td>
+					 <td class="FontNormal">
+				     QUILMES					 </td>
+					  <td class="FontNormal">
+				      DON BOSCO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico,Ingeniero Laboral					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">129</span></td>
+					 <td class="FontNormal">
+				     BEOVIDE, ENRIQUE HORACIO					 </td>
+					 <td class="FontNormal">DNI 4981418&nbsp;</td>
+					 <td class="FontNormal">Calle: HIPOLITO  YRIGOYEN   N°2731 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)   44419788					</td>
+					<td class="FontNormal">consultora@beovide.com.ar</td>
+					 <td class="FontNormal">
+				     LA MATANZA					 </td>
+					  <td class="FontNormal">
+				      SAN JUSTO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">432</span></td>
+					 <td class="FontNormal">
+				     BERGALLO, BRUNO OMAR					 </td>
+					 <td class="FontNormal">DNI 26704476&nbsp;</td>
+					 <td class="FontNormal">Calle: CANE  - Nro: 725 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0291-154025077 Fax: 0291-4305284					</td>
+					<td class="FontNormal">estudiodeingenieria@live.com</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico,Ingeniero Industrail					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">159</span></td>
+					 <td class="FontNormal">
+				     BERNACHI, MARIO  RODOLFO					 </td>
+					 <td class="FontNormal">DNI 13551622&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE BOLIVAR Nª 4047 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 2234941029/(0223)  472-4373 Fax: (0223)  4724373					</td>
+					<td class="FontNormal">bybing@arnet.com.ar</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">439</span></td>
+					 <td class="FontNormal">
+				     BERNADSKY, RODOLFO 					 </td>
+					 <td class="FontNormal">DNI 4405240&nbsp;</td>
+					 <td class="FontNormal">Calle: Coronel Apolinario Figeroa  - Nro: 165 Dpto:  Piso: 1 E</td>
+					<td class="FontNormal">
+				    Tel:       011- 1556995611					</td>
+					<td class="FontNormal">INGBERNADSKY@HOTMAIL.COM</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Metalúrgico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">458</span></td>
+					 <td class="FontNormal">
+				     BERNARDINO, ALEJANDRO CARLOS					 </td>
+					 <td class="FontNormal">DNI 32104966&nbsp;</td>
+					 <td class="FontNormal">Calle: GALICIA - Nro: 185 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0223-155134073					</td>
+					<td class="FontNormal">alejandrobernardino@gmail.com</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">1</span></td>
+					 <td class="FontNormal">
+				     BERTINO, MARIO ADOLFO					 </td>
+					 <td class="FontNormal">DNI 16462256&nbsp;</td>
+					 <td class="FontNormal">Calle: 13  n° 723      - Nro: 723 Dpto: 16462256 Piso: P. 07</td>
+					<td class="FontNormal">
+				    Tel: 421-4772					</td>
+					<td class="FontNormal">m.bertino@claysi.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">406</span></td>
+					 <td class="FontNormal">
+				     BIRMAN, BENJAMIN					 </td>
+					 <td class="FontNormal">LE 8462146&nbsp;</td>
+					 <td class="FontNormal">Calle: VIAMONTEN - Nro: 1419 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 4931-2322					</td>
+					<td class="FontNormal">birben@fibertel.com.ar</td>
+					 <td class="FontNormal">
+				     LOMAS DE ZAMORA					 </td>
+					  <td class="FontNormal">
+				      LOMAS DE ZAMORA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Electricista					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">371</span></td>
+					 <td class="FontNormal">
+				     BLANCO, JUAN  RICARDO					 </td>
+					 <td class="FontNormal">DNI 12498875&nbsp;</td>
+					 <td class="FontNormal">Calle: PAREJA  2450 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)   4505114					</td>
+					<td class="FontNormal">jblancog1@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">162</span></td>
+					 <td class="FontNormal">
+				     BOC, RICARDO MILAN					 </td>
+					 <td class="FontNormal">DNI 12258461&nbsp;</td>
+					 <td class="FontNormal">Calle: BONIFACINI - Nro: 1982 Dpto: 1 Piso: 1</td>
+					<td class="FontNormal">
+				    Tel: (011) 4713-1685					</td>
+					<td class="FontNormal">ambiental@bocyasoc.com.ar</td>
+					 <td class="FontNormal">
+				     GENERAL SAN MARTIN					 </td>
+					  <td class="FontNormal">
+				      SAN MARTIN					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">196</span></td>
+					 <td class="FontNormal">
+				     BREDICE ,  ANTONIO					 </td>
+					 <td class="FontNormal">DNI 12476173&nbsp;</td>
+					 <td class="FontNormal">Calle: 62              - Nro: 2328 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    					</td>
+					<td class="FontNormal">COMPRESORESENTHALPOS@INFOVIA.COM.AR</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">433</span></td>
+					 <td class="FontNormal">
+				     BRUNO , MARIANO					 </td>
+					 <td class="FontNormal">DNI 21904120&nbsp;</td>
+					 <td class="FontNormal">Calle: SAN LORENZO - Nro: - Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0223-154-175238					</td>
+					<td class="FontNormal">INGENIEROBRUNO@GMAIL.COM</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      especialista en higiene y seguridad en el trabajo,Ingeniero Mecánico 					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">304</span></td>
+					 <td class="FontNormal">
+				     Brusotti, Walter Daniel					 </td>
+					 <td class="FontNormal">DNI 16737227&nbsp;</td>
+					 <td class="FontNormal">Calle: Alsina - Nro: 239 Dpto: B Piso: PB</td>
+					<td class="FontNormal">
+				    Tel: 011-46542653					</td>
+					<td class="FontNormal">wdbrusotti@hotmail.com</td>
+					 <td class="FontNormal">
+				     LA MATANZA					 </td>
+					  <td class="FontNormal">
+				      RAMOS MEJIA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">174</span></td>
+					 <td class="FontNormal">
+				     BURGOS ,  HUGO					 </td>
+					 <td class="FontNormal">DNI 13340691&nbsp;</td>
+					 <td class="FontNormal">Calle: FRAY M. ESQUIU  5251 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0114750-7883					</td>
+					<td class="FontNormal">direcciontecnica@laboratoriodicofar.com.ar</td>
+					 <td class="FontNormal">
+				     TRES DE FEBRERO					 </td>
+					  <td class="FontNormal">
+				      VILLA BOSCH					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">450</span></td>
+					 <td class="FontNormal">
+				     bustamante , jorge horacio					 </td>
+					 <td class="FontNormal">DNI 11489991&nbsp;</td>
+					 <td class="FontNormal">Calle: 3 DE FEBRERO - Nro: 1256 Dpto: C Piso: 1</td>
+					<td class="FontNormal">
+				    Tel: 0111556628106					</td>
+					<td class="FontNormal">jhbustamante.com.ar</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      INGENIERO MILITAR					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">245</span></td>
+					 <td class="FontNormal">
+				     CACERES, ROBERTO MARTIN					 </td>
+					 <td class="FontNormal">DNI 14355036&nbsp;</td>
+					 <td class="FontNormal">Calle: H. YRIGOYEN N° 684 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)  42965456					</td>
+					<td class="FontNormal">caceresr@infovia.com.ar</td>
+					 <td class="FontNormal">
+				     ESTEBAN ECHEVERRIA					 </td>
+					  <td class="FontNormal">
+				      MONTE GRANDE					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene,Licenciado en Higiene y Seguridad  en el Trabajo					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">39</span></td>
+					 <td class="FontNormal">
+				     CAETANO, JOSE ALBERTO					 </td>
+					 <td class="FontNormal">DNI 11373550&nbsp;</td>
+					 <td class="FontNormal">Calle:  IGUAZU   - Nro: N°  8905 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)   48402330 Fax: 48423521					</td>
+					<td class="FontNormal">jacaetano@ametbiz.com.ar</td>
+					 <td class="FontNormal">
+				     TRES DE FEBRERO					 </td>
+					  <td class="FontNormal">
+				      LOMA HERMOSA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">348</span></td>
+					 <td class="FontNormal">
+				     CAMINOS, CARLOS EDUARDO					 </td>
+					 <td class="FontNormal">DNI 17815705&nbsp;</td>
+					 <td class="FontNormal">Calle: camino Gral Belgrano e/ 489 y 490 - Nro: 4259 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0221-154639862-4711605					</td>
+					<td class="FontNormal">caminoscarlose@hotmail.com</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      GONNET					  </td>
+					  <td class="FontNormal">
+				      Licenciado en Higiene y Seguridad  en el Trabajo,Ingeniero en Seguridad Ambiental					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">15</span></td>
+					 <td class="FontNormal">
+				     CANULLO, SERGIO DANIEL					 </td>
+					 <td class="FontNormal">DNI 10103182&nbsp;</td>
+					 <td class="FontNormal">Calle: PANAMA N°  1053 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0291)-4530833					</td>
+					<td class="FontNormal">scanullo@bvconline.com.ar</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Electricista					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">307</span></td>
+					 <td class="FontNormal">
+				     CAPURRO ,  TOMAS					 </td>
+					 <td class="FontNormal">DNI 5191042&nbsp;</td>
+					 <td class="FontNormal">Calle: 9 - Nro: 2010 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0221-451-4988					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">172</span></td>
+					 <td class="FontNormal">
+				     CARAVELLI ,  VICENTE					 </td>
+					 <td class="FontNormal">DNI 5487216&nbsp;</td>
+					 <td class="FontNormal">Calle: 70              1128 - Nro: 1128 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 452-2310					</td>
+					<td class="FontNormal">caravelli@netverk.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">359</span></td>
+					 <td class="FontNormal">
+				     CARDINALI, CARLOS SANTOS					 </td>
+					 <td class="FontNormal">DNI 13433044&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 53 N° 2370 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 7553549					</td>
+					<td class="FontNormal">carlos@cuidadosdelambiente.com.ar</td>
+					 <td class="FontNormal">
+				     MORENO					 </td>
+					  <td class="FontNormal">
+				      GENERAL SAN MARTIN					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad Ambiental					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">157</span></td>
+					 <td class="FontNormal">
+				     CARELLI ,  JUAN CARLOS					 </td>
+					 <td class="FontNormal">DNI 13139940&nbsp;</td>
+					 <td class="FontNormal">Calle: BONIFACINI       - Nro: 5561 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011-4751-7038					</td>
+					<td class="FontNormal">jccarelli@exertsrl.com.ar</td>
+					 <td class="FontNormal">
+				     					 </td>
+					  <td class="FontNormal">
+				      					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">465</span></td>
+					 <td class="FontNormal">
+				     Carluccio, Ariel Ignacio					 </td>
+					 <td class="FontNormal">DNI 30994646&nbsp;</td>
+					 <td class="FontNormal">Calle: Guamini  - Nro: 5015 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 1162866864					</td>
+					<td class="FontNormal">arielcarluccio@hotmail.com</td>
+					 <td class="FontNormal">
+				     TRES DE FEBRERO					 </td>
+					  <td class="FontNormal">
+				      CASEROS					  </td>
+					  <td class="FontNormal">
+				      					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">262</span></td>
+					 <td class="FontNormal">
+				     CARREIRA, NORBERTO					 </td>
+					 <td class="FontNormal">DNI 18211787&nbsp;</td>
+					 <td class="FontNormal">Calle: Humberto Primo - Nro: 2021 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)  4262-7913 Fax: (011)   4262-7913					</td>
+					<td class="FontNormal">SIPE@CIUDAD.COM.AR</td>
+					 <td class="FontNormal">
+				     LANUS					 </td>
+					  <td class="FontNormal">
+				      LANUS					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">14</span></td>
+					 <td class="FontNormal">
+				     CARRIQUIRIBORDE, PABLO  GUSTAVO					 </td>
+					 <td class="FontNormal">DNI 13942796&nbsp;</td>
+					 <td class="FontNormal">Calle: 116 - Nro: 1365 Dpto:  Piso: PB</td>
+					<td class="FontNormal">
+				    Tel: (0221)  422-7869					</td>
+					<td class="FontNormal">icys@live.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">199</span></td>
+					 <td class="FontNormal">
+				     CARRO, ROBERTO					 </td>
+					 <td class="FontNormal">DNI 10506316&nbsp;</td>
+					 <td class="FontNormal">Calle: Marconi  - Nro: 733 Dpto: 3 Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0223)  4740871 Fax: (0223)  4740871					</td>
+					<td class="FontNormal">rcarro@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero en Seguridad e Higiene,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">411</span></td>
+					 <td class="FontNormal">
+				     Casco, Juan Francisco					 </td>
+					 <td class="FontNormal">DNI 12852508&nbsp;</td>
+					 <td class="FontNormal">Calle: Alvarez Thomas - Nro: 221 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011-35337776					</td>
+					<td class="FontNormal">juanfcasco@gmail.com</td>
+					 <td class="FontNormal">
+				     LOMAS DE ZAMORA					 </td>
+					  <td class="FontNormal">
+				      LOMAS DE ZAMORA					  </td>
+					  <td class="FontNormal">
+				      Especializacion en Higiene  y Seg. en el Trabajo,Ingeniero Mecánico 					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">382</span></td>
+					 <td class="FontNormal">
+				     CATTANEO ,  JOSE MARIA					 </td>
+					 <td class="FontNormal">DNI 22120876&nbsp;</td>
+					 <td class="FontNormal">Calle: ALTE.BROWN   - Nro: 467 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011-1532064116					</td>
+					<td class="FontNormal">rheing.cattaneo@gmail.com</td>
+					 <td class="FontNormal">
+				     GENERAL RODRIGUEZ					 </td>
+					  <td class="FontNormal">
+				      GENERAL RODRIGUEZ					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">420</span></td>
+					 <td class="FontNormal">
+				     CERDA, HECTOR CEFERINO					 </td>
+					 <td class="FontNormal">DNI 27747757&nbsp;</td>
+					 <td class="FontNormal">Calle: 84 - Nro: 389 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    					</td>
+					<td class="FontNormal">cerda_hector@hotmail.com</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">251</span></td>
+					 <td class="FontNormal">
+				     CERVONE, GUSTAVO  ANDRES					 </td>
+					 <td class="FontNormal">DNI 21604744&nbsp;</td>
+					 <td class="FontNormal">Calle: MORENO PISO - Nro: 3644 Dpto: A Piso: 3</td>
+					<td class="FontNormal">
+				    Tel: (0223)492-1246					</td>
+					<td class="FontNormal">galaingenieria@speedy.com</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">401</span></td>
+					 <td class="FontNormal">
+				     CESKIAVIKUS, JORGE  ROBERTO					 </td>
+					 <td class="FontNormal">DNI 17993082&nbsp;</td>
+					 <td class="FontNormal">Calle: gonet - Nro: 2135 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 2214843677					</td>
+					<td class="FontNormal">ceskiavikus@ciudad.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Electricista					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">396</span></td>
+					 <td class="FontNormal">
+				     Corbacho, Ricardo Hector					 </td>
+					 <td class="FontNormal">DNI 17610691&nbsp;</td>
+					 <td class="FontNormal">Calle: 498 - Nro: 1757 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 4846426					</td>
+					<td class="FontNormal">rhcorbacho@hotmail.com</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      GONNET					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad Ambiental					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">179</span></td>
+					 <td class="FontNormal">
+				     CORBATO ,  JOSE MANUEL					 </td>
+					 <td class="FontNormal">DNI 11005922&nbsp;</td>
+					 <td class="FontNormal">Calle: EMILIO ZOLA  1587 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)4254-2298					</td>
+					<td class="FontNormal">ventas@riccompresores.com.ar</td>
+					 <td class="FontNormal">
+				     					 </td>
+					  <td class="FontNormal">
+				      					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">365</span></td>
+					 <td class="FontNormal">
+				     CORRALES MARTINEZ, VICENTE					 </td>
+					 <td class="FontNormal">DNI 18776340&nbsp;</td>
+					 <td class="FontNormal">Calle: LAMADRID Nº 586 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (02983) 427880 Fax: (02983)  428413					</td>
+					<td class="FontNormal">corralesc@eternet.cc</td>
+					 <td class="FontNormal">
+				     TRES ARROYOS					 </td>
+					  <td class="FontNormal">
+				      TRES ARROYOS					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">293</span></td>
+					 <td class="FontNormal">
+				     CROCE ,  VICTOR					 </td>
+					 <td class="FontNormal">LE 4891046&nbsp;</td>
+					 <td class="FontNormal">Calle: CORREA  - Nro: 543 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011-4290-3636					</td>
+					<td class="FontNormal">victorcroceyasociados@gmeil.com.</td>
+					 <td class="FontNormal">
+				     ESTEBAN ECHEVERRIA					 </td>
+					  <td class="FontNormal">
+				      LUIS GUILLON					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">466</span></td>
+					 <td class="FontNormal">
+				     Cura, Josefina					 </td>
+					 <td class="FontNormal">DNI 27418569&nbsp;</td>
+					 <td class="FontNormal">Calle: 11 de Setiembre - Nro: 6498 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0223-154221117					</td>
+					<td class="FontNormal">josefinacura@hotmail.com</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      especialista en higiene y seguridad en el trabajo,Ingeniero en Materiales					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">389</span></td>
+					 <td class="FontNormal">
+				     D Elmar, Daniel Enrique					 </td>
+					 <td class="FontNormal">DNI 22505128&nbsp;</td>
+					 <td class="FontNormal">Calle: Santiago Derquí - Nro: 2800 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0291-4087259/ 0291-155041490					</td>
+					<td class="FontNormal">dedelmar@hotmail.com</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero en Construcciones					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">393</span></td>
+					 <td class="FontNormal">
+				     DAIMA, ALBERTO PEDRO					 </td>
+					 <td class="FontNormal">LE 6609679&nbsp;</td>
+					 <td class="FontNormal">Calle: DORREGO N° 589  PISO 2 A - Nro: 589 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0291) 4517689					</td>
+					<td class="FontNormal">albertopdaima@bvconline.com.ar</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">64</span></td>
+					 <td class="FontNormal">
+				     DAL  BELLO,  GELMINO					 </td>
+					 <td class="FontNormal">DNI 93674043&nbsp;</td>
+					 <td class="FontNormal">Calle: AMADEO SABATINI  - Nro:  3994 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011-4759-7997					</td>
+					<td class="FontNormal">juan_dalbello@hotmail.com</td>
+					 <td class="FontNormal">
+				     TRES DE FEBRERO					 </td>
+					  <td class="FontNormal">
+				      CASEROS					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero en Seguridad e Higiene,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">367</span></td>
+					 <td class="FontNormal">
+				     DALMASSO, JUAN CARLOS					 </td>
+					 <td class="FontNormal">DNI 12207193&nbsp;</td>
+					 <td class="FontNormal">Calle: OLAZABAL N° 1464 PISO 4° - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 4782-0825 Fax: (011)  4786-3741					</td>
+					<td class="FontNormal">LA_NUEVA@FIBERTEL.COM.AR</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">469</span></td>
+					 <td class="FontNormal">
+				     DAVID, Juan Jose					 </td>
+					 <td class="FontNormal">DNI 13365447&nbsp;</td>
+					 <td class="FontNormal">Calle: Cramer - Nro: 924 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 02320427348					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     JOSE C PAZ					 </td>
+					  <td class="FontNormal">
+				      JOSE C PAZ					  </td>
+					  <td class="FontNormal">
+				      					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">178</span></td>
+					 <td class="FontNormal">
+				     DESOCIO, HUGO OMAR					 </td>
+					 <td class="FontNormal">DNI 10433353&nbsp;</td>
+					 <td class="FontNormal">Calle: 42 - Nro: 5915 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0221)  470-2235					</td>
+					<td class="FontNormal">hod_ing@hotmail.com</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LISANDRO OLMOS					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">350</span></td>
+					 <td class="FontNormal">
+				     DI GIUSEPPE, MAURICIO ANTONIO					 </td>
+					 <td class="FontNormal">DNI 16494225&nbsp;</td>
+					 <td class="FontNormal">Calle: PRINGLES Nª 680 - Nro: N° 680 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)  4251-2394 Fax: (011) 4251-2394					</td>
+					<td class="FontNormal">welins@uolsinectis.com.ar</td>
+					 <td class="FontNormal">
+				     QUILMES					 </td>
+					  <td class="FontNormal">
+				      BERNAL					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">142</span></td>
+					 <td class="FontNormal">
+				     DI YORIO, CESAR					 </td>
+					 <td class="FontNormal">DNI 5328475&nbsp;</td>
+					 <td class="FontNormal">Calle: 68   - Nro: 686 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0221-452-6620					</td>
+					<td class="FontNormal">cesardiyorio43@ciudad.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">356</span></td>
+					 <td class="FontNormal">
+				     DIEZ, ALBERTO MANUEL					 </td>
+					 <td class="FontNormal">DNI 17607822&nbsp;</td>
+					 <td class="FontNormal">Calle: ITUZAINGO Nº 714 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (02223)  444271					</td>
+					<td class="FontNormal">dyp-getsion-ambiental@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     CORONEL BRANDSEN					 </td>
+					  <td class="FontNormal">
+				      CORONEL BRANDSEN					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">171</span></td>
+					 <td class="FontNormal">
+				     DOMINGUEZ  ARTIA, JOSE  LUIS					 </td>
+					 <td class="FontNormal">DNI 14955786&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE  62   N° 3641 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0262) 23465					</td>
+					<td class="FontNormal">jldartia@arnet.com.ar</td>
+					 <td class="FontNormal">
+				     NECOCHEA					 </td>
+					  <td class="FontNormal">
+				      NECOCHEA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero en Seguridad e Higiene,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">20</span></td>
+					 <td class="FontNormal">
+				     DOTTORI, CLAUDIO JOSE					 </td>
+					 <td class="FontNormal">DNI 11667804&nbsp;</td>
+					 <td class="FontNormal">Calle: Sarmiento - Nro: 793 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 01142540927 Fax: 0114 254-0927					</td>
+					<td class="FontNormal">cjdottori@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     QUILMES					 </td>
+					  <td class="FontNormal">
+				      QUILMES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">282</span></td>
+					 <td class="FontNormal">
+				     DUCO ,  HUGO					 </td>
+					 <td class="FontNormal">DNI 4649084&nbsp;</td>
+					 <td class="FontNormal">Calle: 12 DE OCTUBRE       - Nro: 553 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0114255-6027					</td>
+					<td class="FontNormal">hduco@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     FLORENCIO VARELA					 </td>
+					  <td class="FontNormal">
+				      FLORENCIO VARELA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">124</span></td>
+					 <td class="FontNormal">
+				     DURSO, OSCAR ALBERTO					 </td>
+					 <td class="FontNormal">DNI 11893460&nbsp;</td>
+					 <td class="FontNormal">Calle: BOLIVAR - Nro: 1150 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 7292424					</td>
+					<td class="FontNormal">oscardurso@yahoo.com</td>
+					 <td class="FontNormal">
+				     GENERAL SARMIENTO					 </td>
+					  <td class="FontNormal">
+				      VILLA DE MAYO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico,Ingeniero Mecanico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">381</span></td>
+					 <td class="FontNormal">
+				     ELIAS ,  JUAN CARLOS					 </td>
+					 <td class="FontNormal">DNI 12634289&nbsp;</td>
+					 <td class="FontNormal">Calle: ALGARROBO         - Nro: 122 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)4293-5107					</td>
+					<td class="FontNormal">jcelias@inelmaingenieria.com.ar</td>
+					 <td class="FontNormal">
+				     ALMIRANTE BROWN					 </td>
+					  <td class="FontNormal">
+				      ADROGUE					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Electromecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">128</span></td>
+					 <td class="FontNormal">
+				     ESPAÑON, JUAN CARLOS					 </td>
+					 <td class="FontNormal">DNI 4640925&nbsp;</td>
+					 <td class="FontNormal">Calle: 41 - Nro: 1559 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0221)  479-0508					</td>
+					<td class="FontNormal">jcespanon@ciudad.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico,Ingeniero Laboral,Ingeniero en Seguridad e Higiene					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">207</span></td>
+					 <td class="FontNormal">
+				     ESPINEL, CARLOS ALBERTO					 </td>
+					 <td class="FontNormal">LE 4306437&nbsp;</td>
+					 <td class="FontNormal">Calle: hipolito yrigoyen - Nro: 2486 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 7972548					</td>
+					<td class="FontNormal">CINTAGOM@HOTMAIL.COM</td>
+					 <td class="FontNormal">
+				     VICENTE LOPEZ					 </td>
+					  <td class="FontNormal">
+				      FLORIDA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">55</span></td>
+					 <td class="FontNormal">
+				     ESTEVEZ ,  JULIO					 </td>
+					 <td class="FontNormal">DNI 11544187&nbsp;</td>
+					 <td class="FontNormal">Calle: TRES ARROYOS    1365 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0223)4774899					</td>
+					<td class="FontNormal">macroing@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     					 </td>
+					  <td class="FontNormal">
+				      					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">322</span></td>
+					 <td class="FontNormal">
+				     fandiño, martin santiago					 </td>
+					 <td class="FontNormal">DNI 17203657&nbsp;</td>
+					 <td class="FontNormal">Calle: lugones  - Nro: 4963 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 45416449					</td>
+					<td class="FontNormal">msfandino@gmail.com</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      VILLA PUEYRREDON					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">74</span></td>
+					 <td class="FontNormal">
+				     FAVARO, ROBERTO  MAURICIO					 </td>
+					 <td class="FontNormal">LE 7701768&nbsp;</td>
+					 <td class="FontNormal">Calle: LA RIOJA Nº  933 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 4252-0385 Fax: (011)  4259-2295					</td>
+					<td class="FontNormal">ingenieria@editecssrl.com.ar</td>
+					 <td class="FontNormal">
+				     QUILMES					 </td>
+					  <td class="FontNormal">
+				      QUILMES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">334</span></td>
+					 <td class="FontNormal">
+				     FERNANDEZ, NESTOR ALEJANDRO					 </td>
+					 <td class="FontNormal">DNI 18152254&nbsp;</td>
+					 <td class="FontNormal">Calle: Leandro N. Alem - Nro: 3250 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 46677305  46002813 Fax: 46677305					</td>
+					<td class="FontNormal">ingnaf@hotmail.com    proyecto_seguro@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     SAN MIGUEL					 </td>
+					  <td class="FontNormal">
+				      SAN MIGUEL					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">414</span></td>
+					 <td class="FontNormal">
+				     Ferraris, Hernan Santiago					 </td>
+					 <td class="FontNormal">DNI 23724139&nbsp;</td>
+					 <td class="FontNormal">Calle: Dr Real  - Nro: 785 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0111531508485					</td>
+					<td class="FontNormal">hernanferraris@argentina.com</td>
+					 <td class="FontNormal">
+				     LUJAN					 </td>
+					  <td class="FontNormal">
+				      LUJAN					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial,especialista en higiene y seguridad en el trabajo					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">7</span></td>
+					 <td class="FontNormal">
+				     FLOREZ ,  JUAN JOSE					 </td>
+					 <td class="FontNormal">DNI 10102285&nbsp;</td>
+					 <td class="FontNormal">Calle: 69        - Nro:  Nº108 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0221-40922 Fax: 0221-4220818					</td>
+					<td class="FontNormal">jflorez@fibertel.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">112</span></td>
+					 <td class="FontNormal">
+				     FOGLIA ,  GUSTAVO					 </td>
+					 <td class="FontNormal">DNI 13551474&nbsp;</td>
+					 <td class="FontNormal">Calle: RAWSON Nº 246 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0223-451-1321					</td>
+					<td class="FontNormal">gfoglia@fidexsa.com.ar</td>
+					 <td class="FontNormal">
+				     					 </td>
+					  <td class="FontNormal">
+				      					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">377</span></td>
+					 <td class="FontNormal">
+				     FORTUNELLI, MARIO  SERGIO					 </td>
+					 <td class="FontNormal">LE 6189332&nbsp;</td>
+					 <td class="FontNormal">Calle: AV. ANDRES BARANDA - Nro: 917 Dpto: C Piso: 1</td>
+					<td class="FontNormal">
+				    Tel: CEL 011-154-149-0836					</td>
+					<td class="FontNormal">mario.fortunelli@gmail.com</td>
+					 <td class="FontNormal">
+				     QUILMES					 </td>
+					  <td class="FontNormal">
+				      QUILMES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico,Ingeniero en Seguridad e Higiene					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">376</span></td>
+					 <td class="FontNormal">
+				     FRIAS, JORGE LUIS					 </td>
+					 <td class="FontNormal">LE 4745991&nbsp;</td>
+					 <td class="FontNormal">Calle:  - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 48923942					</td>
+					<td class="FontNormal">jorge.frias@exxamobil.com</td>
+					 <td class="FontNormal">
+				     CAMPANA					 </td>
+					  <td class="FontNormal">
+				      CAMPANA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">302</span></td>
+					 <td class="FontNormal">
+				     FROY, ANGEL ADOLFO					 </td>
+					 <td class="FontNormal">DNI 7836292&nbsp;</td>
+					 <td class="FontNormal">Calle: MARMOL   N°  2845  PB DPT 3 B - Nro: 2845 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 4416060					</td>
+					<td class="FontNormal">ingfroy@hotmail.com</td>
+					 <td class="FontNormal">
+				     LA MATANZA					 </td>
+					  <td class="FontNormal">
+				      SAN JUSTO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">83</span></td>
+					 <td class="FontNormal">
+				     GARBI, HECTOR					 </td>
+					 <td class="FontNormal">CF 5738480&nbsp;</td>
+					 <td class="FontNormal">Calle: PJE. BALCARCE  N° 1438 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel:  (011)   7539555					</td>
+					<td class="FontNormal">fagarbi@ciudad.com.ar</td>
+					 <td class="FontNormal">
+				     MORENO					 </td>
+					  <td class="FontNormal">
+				      GENERAL SAN MARTIN					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">106</span></td>
+					 <td class="FontNormal">
+				     GELMETTI ,  MIGUEL					 </td>
+					 <td class="FontNormal">LE 8426805&nbsp;</td>
+					 <td class="FontNormal">Calle: ALBERDI          887 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    					</td>
+					<td class="FontNormal">gelmetti@utenet.com.ar</td>
+					 <td class="FontNormal">
+				     					 </td>
+					  <td class="FontNormal">
+				      					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">113</span></td>
+					 <td class="FontNormal">
+				     GIL, RAUL					 </td>
+					 <td class="FontNormal">LE 8206591&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE COLON N° 246 - Nro: 246 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 47495722					</td>
+					<td class="FontNormal">manqueingenieria@fibertel.com.ar</td>
+					 <td class="FontNormal">
+				     TIGRE					 </td>
+					  <td class="FontNormal">
+				      TIGRE					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">57</span></td>
+					 <td class="FontNormal">
+				     GLESSI ,  RIARDO					 </td>
+					 <td class="FontNormal">DNI 11426307&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE  11    338 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 02266-420423					</td>
+					<td class="FontNormal">rglessi@telefax.com.ar</td>
+					 <td class="FontNormal">
+				     					 </td>
+					  <td class="FontNormal">
+				      					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">99</span></td>
+					 <td class="FontNormal">
+				     GONZALEZ, ALBERTO  PEDRO					 </td>
+					 <td class="FontNormal">DNI 8383751&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 15 E/ 49 Y50 - Nro: 1636 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: ( 0221) 473-0272					</td>
+					<td class="FontNormal">alpego51@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      VILLA ELISA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">59</span></td>
+					 <td class="FontNormal">
+				     GONZALEZ, JORGE ISAAC					 </td>
+					 <td class="FontNormal">DNI 5194978&nbsp;</td>
+					 <td class="FontNormal">Calle: MORENO N° 634 4TO. A - Nro: 634 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011 42536258					</td>
+					<td class="FontNormal">kiltec@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     QUILMES					 </td>
+					  <td class="FontNormal">
+				      QUILMES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">374</span></td>
+					 <td class="FontNormal">
+				     GONZALEZ , OSIRIS RODOLFO					 </td>
+					 <td class="FontNormal">DNI 23134845&nbsp;</td>
+					 <td class="FontNormal">Calle: 154 A  - Nro: 1579 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011-4226-7595					</td>
+					<td class="FontNormal">ingenieria_integral_sur@hotmail.com</td>
+					 <td class="FontNormal">
+				     BERAZATEGUI					 </td>
+					  <td class="FontNormal">
+				      BERAZATEGUI					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">360</span></td>
+					 <td class="FontNormal">
+				     GONZALEZ, PEDRO					 </td>
+					 <td class="FontNormal">DNI 14879547&nbsp;</td>
+					 <td class="FontNormal">Calle: ISABEL FERNANDEZ  - Nro: 1506 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 47127656					</td>
+					<td class="FontNormal">hsmgonzalez@gmail.com</td>
+					 <td class="FontNormal">
+				     TRES DE FEBRERO					 </td>
+					  <td class="FontNormal">
+				      SAENZ PEÑA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad Ambiental					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">438</span></td>
+					 <td class="FontNormal">
+				     Gregoret, Carlos Angel					 </td>
+					 <td class="FontNormal">DNI 24898095&nbsp;</td>
+					 <td class="FontNormal">Calle: Aconcagua - Nro: 300 Dpto: Unidad Fun Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011-1558497896					</td>
+					<td class="FontNormal">cgregoret@fibertel.com.ar</td>
+					 <td class="FontNormal">
+				     ESCOBAR					 </td>
+					  <td class="FontNormal">
+				      ESCOBAR					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Electromecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">461</span></td>
+					 <td class="FontNormal">
+				     GROGLOPO, ADOLFO AMERICO					 </td>
+					 <td class="FontNormal">DNI 10650900&nbsp;</td>
+					 <td class="FontNormal">Calle: JOSE C. PAZ  - Nro: 2822 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 4753-2859 Fax: (011)  4753-2859					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     GENERAL SAN MARTIN					 </td>
+					  <td class="FontNormal">
+				      SAN ANDRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">428</span></td>
+					 <td class="FontNormal">
+				     GUAGNINI, ALBERTO RICARDO					 </td>
+					 <td class="FontNormal">DNI 10981495&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 55  - Nro: 1362 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0221) 4575152					</td>
+					<td class="FontNormal">RASIC@RASIC.COM</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">463</span></td>
+					 <td class="FontNormal">
+				     Guagnini, Sebastian					 </td>
+					 <td class="FontNormal">DNI 28254141&nbsp;</td>
+					 <td class="FontNormal">Calle: 55 - Nro: 1362 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 4531370					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">28</span></td>
+					 <td class="FontNormal">
+				     GUIDETTO, NESTOR  DANIEL					 </td>
+					 <td class="FontNormal">DNI 12792846&nbsp;</td>
+					 <td class="FontNormal">Calle: SAN   GUILLERMO   - Nro: 5855 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel:        ( 1682)      48422531					</td>
+					<td class="FontNormal">danielguidetto@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     TRES DE FEBRERO					 </td>
+					  <td class="FontNormal">
+				      VILLA BOSCH					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">297</span></td>
+					 <td class="FontNormal">
+				     HENRICH, GUSTAVO  JORGE					 </td>
+					 <td class="FontNormal">DNI 13587381&nbsp;</td>
+					 <td class="FontNormal">Calle: SARMIENTO N°  25 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (03461)-425539					</td>
+					<td class="FontNormal">ghenrich@arnet.com.ar</td>
+					 <td class="FontNormal">
+				     SAN NICOLAS					 </td>
+					  <td class="FontNormal">
+				      SAN NICOLAS DE LOS ARROYOS					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">11</span></td>
+					 <td class="FontNormal">
+				     IGLESIAS, RAUL OSVALDO					 </td>
+					 <td class="FontNormal">LE 4387840&nbsp;</td>
+					 <td class="FontNormal">Calle: NEUQUEN      - Nro: 815 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)    657-3661					</td>
+					<td class="FontNormal">rauliglesias@iafh.com.ar</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico,Ingeniero Ambiental					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">449</span></td>
+					 <td class="FontNormal">
+				     Lamas, Lucas Ezequiel					 </td>
+					 <td class="FontNormal">DNI 28385193&nbsp;</td>
+					 <td class="FontNormal">Calle: B° YPF  - Nro: 56 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0221-156177360					</td>
+					<td class="FontNormal">lucas_lamas@hotmail.com</td>
+					 <td class="FontNormal">
+				     BERISSO					 </td>
+					  <td class="FontNormal">
+				      BERISSO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">36</span></td>
+					 <td class="FontNormal">
+				     LAMELA, JORGE  EDGARDO					 </td>
+					 <td class="FontNormal">DNI 11645335&nbsp;</td>
+					 <td class="FontNormal">Calle: JUJUY  - Nro: 557 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 4659-5899					</td>
+					<td class="FontNormal">jlamela@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     LA MATANZA					 </td>
+					  <td class="FontNormal">
+				      LA MATANZA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">205</span></td>
+					 <td class="FontNormal">
+				     LANZ, CESAR ARMANDO					 </td>
+					 <td class="FontNormal">DNI 16463734&nbsp;</td>
+					 <td class="FontNormal">Calle: MORENO 391 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0291)  4563677					</td>
+					<td class="FontNormal">efimax@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">268</span></td>
+					 <td class="FontNormal">
+				     LAURENT, GUILLERMO JORGE					 </td>
+					 <td class="FontNormal">DNI 18277698&nbsp;</td>
+					 <td class="FontNormal">Calle: YAPEYU N°  4158   B PATAGONIA - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 02914861151
+ Fax: 02914861151					</td>
+					<td class="FontNormal">laurentguillermo@gmail.com</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Civil					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">272</span></td>
+					 <td class="FontNormal">
+				     LAURENT, RODOLFO					 </td>
+					 <td class="FontNormal">DNI 16068951&nbsp;</td>
+					 <td class="FontNormal">Calle: ZELARRAYAN  N°267 LOCAL 8 - Nro: 267 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0291-4536459					</td>
+					<td class="FontNormal">info@laurentbureau.com.ar</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">12</span></td>
+					 <td class="FontNormal">
+				     LAVIÊ ,  HORACIO					 </td>
+					 <td class="FontNormal">LE 5165950&nbsp;</td>
+					 <td class="FontNormal">Calle: 64                - Nro: 820  Dpto:  Piso: 7 </td>
+					<td class="FontNormal">
+				    Tel: 0221-4515579					</td>
+					<td class="FontNormal">horacio_lavie@hotmail.com</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">227</span></td>
+					 <td class="FontNormal">
+				     LEGUIZAMON, MARCELO ADRIAN					 </td>
+					 <td class="FontNormal">DNI 12221385&nbsp;</td>
+					 <td class="FontNormal">Calle: 17 DE MAYO  - Nro: 53 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0291-4884394					</td>
+					<td class="FontNormal">RESIDUOS@BVCONLINE,COM.AR</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico,Ingeniero Laboral					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">226</span></td>
+					 <td class="FontNormal">
+				     LENGE, RODOLFO  OSCAR					 </td>
+					 <td class="FontNormal">DNI 7782264&nbsp;</td>
+					 <td class="FontNormal">Calle: ARIETA   - Nro: N° 2786 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 46549530					</td>
+					<td class="FontNormal">rodolfo@estudiolenge.com.ar</td>
+					 <td class="FontNormal">
+				     LA MATANZA					 </td>
+					  <td class="FontNormal">
+				      SAN JUSTO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">56</span></td>
+					 <td class="FontNormal">
+				     LENZETTI, JORGE HORACIO					 </td>
+					 <td class="FontNormal">LE 8705946&nbsp;</td>
+					 <td class="FontNormal">Calle:  - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 950297					</td>
+					<td class="FontNormal">macroing@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">191</span></td>
+					 <td class="FontNormal">
+				     LIOTARD, CARLOS ENRIQUE					 </td>
+					 <td class="FontNormal">DNI 5221767&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 453 E/ 21a y 21c - Nro: 1445 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0221)  480-2946					</td>
+					<td class="FontNormal">liotard@netverk.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">454</span></td>
+					 <td class="FontNormal">
+				     LIOTARD, Gaston Alejandro					 </td>
+					 <td class="FontNormal">DNI 30958681&nbsp;</td>
+					 <td class="FontNormal">Calle: 528 e/ 14 y 15 - Nro: 221 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      TOLOSA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">329</span></td>
+					 <td class="FontNormal">
+				     LIOTARD, JUAN CARLOS					 </td>
+					 <td class="FontNormal">DNI 25690381&nbsp;</td>
+					 <td class="FontNormal">Calle: 420 - Nro: 3341 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0221)  474-1841 Fax: (0221)  4222201					</td>
+					<td class="FontNormal">JCL1976@YAHOO.COM</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      VILLA ELISA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico,Ingeniero Laboral					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">352</span></td>
+					 <td class="FontNormal">
+				     LLORENTE, MARISA  ADRIANA					 </td>
+					 <td class="FontNormal">DNI 14554239&nbsp;</td>
+					 <td class="FontNormal">Calle: Leunan  - Nro: 364 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0291- 156483990					</td>
+					<td class="FontNormal">marisallorente@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico,Ingeniero Laboral					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">353</span></td>
+					 <td class="FontNormal">
+				     LOGLEN ,  VICTOR					 </td>
+					 <td class="FontNormal">DNI 16968535&nbsp;</td>
+					 <td class="FontNormal">Calle: MANUEL MOLINA   - Nro: 565 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0291-4545644					</td>
+					<td class="FontNormal">victorloglen@hotmail.com</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico,Ingeniero Laboral					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">110</span></td>
+					 <td class="FontNormal">
+				     LOGUERCIO, JOSE					 </td>
+					 <td class="FontNormal">DNI 16181535&nbsp;</td>
+					 <td class="FontNormal">Calle: Neuquen  - Nro: 168 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)  47263853					</td>
+					<td class="FontNormal">joseloguercio@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     TIGRE					 </td>
+					  <td class="FontNormal">
+				      GENERAL PACHECO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">87</span></td>
+					 <td class="FontNormal">
+				     LONGO ,  JOSE					 </td>
+					 <td class="FontNormal">DNI 93257754&nbsp;</td>
+					 <td class="FontNormal">Calle: ING. BOATTI  - Nro: 1039 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)4627-0158					</td>
+					<td class="FontNormal">estudiojl@gmail.com</td>
+					 <td class="FontNormal">
+				     MORON					 </td>
+					  <td class="FontNormal">
+				      MORON					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">238</span></td>
+					 <td class="FontNormal">
+				     LOSI, CARLOS  ALBERTO					 </td>
+					 <td class="FontNormal">DNI 8330580&nbsp;</td>
+					 <td class="FontNormal">Calle: AVD. ALVAREZ  CONTE  - Nro: 5624 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)  47526672					</td>
+					<td class="FontNormal">closi@consultas1.com.ar</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Metalúrgico,Ingeniero en Seguridad Ambiental					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">292</span></td>
+					 <td class="FontNormal">
+				     MACCAGNANI, GUSTAVO ALEJANDRO					 </td>
+					 <td class="FontNormal">DNI 18334337&nbsp;</td>
+					 <td class="FontNormal">Calle: EVA PERON  - Nro: 1809 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (02317) 432792 Fax: (02317)  423409					</td>
+					<td class="FontNormal">ing.maccagnani@fibertel.com.ar </td>
+					 <td class="FontNormal">
+				     NUEVE DE JULIO					 </td>
+					  <td class="FontNormal">
+				      NUEVE DE JULIO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">429</span></td>
+					 <td class="FontNormal">
+				     MANOLIO, Antonio Alberto					 </td>
+					 <td class="FontNormal">DNI 20047997&nbsp;</td>
+					 <td class="FontNormal">Calle: Pasaje Vazquez - Nro: 548 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0249-154566336					</td>
+					<td class="FontNormal">antoniomanolio@gmail.com</td>
+					 <td class="FontNormal">
+				     TANDIL					 </td>
+					  <td class="FontNormal">
+				      TANDIL					  </td>
+					  <td class="FontNormal">
+				      					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">62</span></td>
+					 <td class="FontNormal">
+				     MANTOVANI, JORGE ENRIQUE					 </td>
+					 <td class="FontNormal">DNI 8189049&nbsp;</td>
+					 <td class="FontNormal">Calle: Los laureles  - Nro: 2365 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0336-4461254					</td>
+					<td class="FontNormal">jemantovani@fibertel.com.ar</td>
+					 <td class="FontNormal">
+				     SAN NICOLAS					 </td>
+					  <td class="FontNormal">
+				      SAN NICOLAS DE LOS ARROYOS					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico 					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">372</span></td>
+					 <td class="FontNormal">
+				     MANUEL, ROBERTO ENRIQUE					 </td>
+					 <td class="FontNormal">DNI 10717762&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 17 Nª  515  1/2 - Nro: 515 1/2 Dpto: La Plata Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0221) 489-6177 Fax: (0221) 489-6177					</td>
+					<td class="FontNormal">rmanuel@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">76</span></td>
+					 <td class="FontNormal">
+				     MARCOS, MARIO ALFREDO					 </td>
+					 <td class="FontNormal">DNI 7746082&nbsp;</td>
+					 <td class="FontNormal">Calle: SALTA N° 3040 - Nro: 3040 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel:  (011)  46519612 Fax: 011-41390268/9					</td>
+					<td class="FontNormal">ISECOM@TELECENTRO.COM.AR</td>
+					 <td class="FontNormal">
+				     LA MATANZA					 </td>
+					  <td class="FontNormal">
+				      SAN JUSTO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">380</span></td>
+					 <td class="FontNormal">
+				     MARINO ,  MARTIN  EDUARDO					 </td>
+					 <td class="FontNormal">DNI 24704069&nbsp;</td>
+					 <td class="FontNormal">Calle: 512 BIS  E/ 8 Y 9 - Nro: 1365 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0221-4714673					</td>
+					<td class="FontNormal">martin_marino@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      RINGUELET					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">312</span></td>
+					 <td class="FontNormal">
+				     MARTELLI, WALTER ALBERTO					 </td>
+					 <td class="FontNormal">DNI 16147573&nbsp;</td>
+					 <td class="FontNormal">Calle:  FRANCISCO LAPRIDA  - Nro: 2192 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0223) 493-8673 Fax: (0223)  494-8707					</td>
+					<td class="FontNormal">waltermartelli@fibertel.com.ar</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">306</span></td>
+					 <td class="FontNormal">
+				     MARTINEZ, MARIANO  JOSE					 </td>
+					 <td class="FontNormal">DNI 12563353&nbsp;</td>
+					 <td class="FontNormal">Calle: MONTEAGUDO   - Nro: 961 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 48446144 Fax: (011) 15-49717653					</td>
+					<td class="FontNormal">coninmym@arnet.com.ar</td>
+					 <td class="FontNormal">
+				     TRES DE FEBRERO					 </td>
+					  <td class="FontNormal">
+				      VILLA BOSCH					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene,Ingeniero Ambiental					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">177</span></td>
+					 <td class="FontNormal">
+				     MARTINO, LUIS  ALBERTO					 </td>
+					 <td class="FontNormal">DNI 10826906&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 14 Nº 277 - Nro: 277 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (02324)  434200					</td>
+					<td class="FontNormal">ingenieromartino@gmail.com</td>
+					 <td class="FontNormal">
+				     MERCEDES					 </td>
+					  <td class="FontNormal">
+				      MERCEDES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">314</span></td>
+					 <td class="FontNormal">
+				     MASA, FERNANDO  CARLOS  SANTIAGO					 </td>
+					 <td class="FontNormal">DNI 21159623&nbsp;</td>
+					 <td class="FontNormal">Calle: DEL VALLE N° 954 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (02396)   474230 Fax: (02396)   474230					</td>
+					<td class="FontNormal">fmasa@gioia.ing.unlp.edu.ar</td>
+					 <td class="FontNormal">
+				     PEHUAJO					 </td>
+					  <td class="FontNormal">
+				      PEHUAJO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">107</span></td>
+					 <td class="FontNormal">
+				     MAZZA, JOSE RUBEN					 </td>
+					 <td class="FontNormal">DNI 13722480&nbsp;</td>
+					 <td class="FontNormal">Calle: BERGAMINI N°  1353 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)   6509819					</td>
+					<td class="FontNormal">jrbconstruc@ciudad.com.ar</td>
+					 <td class="FontNormal">
+				     MORON					 </td>
+					  <td class="FontNormal">
+				      MORON					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">270</span></td>
+					 <td class="FontNormal">
+				     MEDINA ,  JUAN GABRIEL					 </td>
+					 <td class="FontNormal">DNI 12662752&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 116  Nº2235 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 221-451-5024					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     					 </td>
+					  <td class="FontNormal">
+				      					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad Ambiental					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">363</span></td>
+					 <td class="FontNormal">
+				     MOARES, HERNAN DANIEL					 </td>
+					 <td class="FontNormal">DNI 22884292&nbsp;</td>
+					 <td class="FontNormal">Calle: LAVALLE Nº 914  P. 1º DPT. A - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)  4251-5822					</td>
+					<td class="FontNormal">HJBISCOTTI@CIUDAD.COM.AR</td>
+					 <td class="FontNormal">
+				     QUILMES					 </td>
+					  <td class="FontNormal">
+				      DON BOSCO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">276</span></td>
+					 <td class="FontNormal">
+				     MORENO, JORGE  ALBERTO					 </td>
+					 <td class="FontNormal">LE 4446947&nbsp;</td>
+					 <td class="FontNormal">Calle: Av. de las industrias - Nro: 3696 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 32214000					</td>
+					<td class="FontNormal">jorge.moreno@ecotec.com.ar</td>
+					 <td class="FontNormal">
+				     TIGRE					 </td>
+					  <td class="FontNormal">
+				      RICARDO ROJAS					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">300</span></td>
+					 <td class="FontNormal">
+				     Mosteiro , Sergio Ariel 					 </td>
+					 <td class="FontNormal">DNI 14404958&nbsp;</td>
+					 <td class="FontNormal">Calle: Castelli  - Nro: 322 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 03489425894					</td>
+					<td class="FontNormal">info@smosteiro.com.ar</td>
+					 <td class="FontNormal">
+				     CAMPANA					 </td>
+					  <td class="FontNormal">
+				      CAMPANA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">58</span></td>
+					 <td class="FontNormal">
+				     MUSSANO ,  J. CARLOS					 </td>
+					 <td class="FontNormal">DNI 11991370&nbsp;</td>
+					 <td class="FontNormal">Calle: ALVARADO  1841 - PB - FDO. - Nro: 1841 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0223-495-4930					</td>
+					<td class="FontNormal">mussanojc@hotmail.com</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">63</span></td>
+					 <td class="FontNormal">
+				     MUSUMECI, EDGARDO AGUSTIN					 </td>
+					 <td class="FontNormal">DNI 12231785&nbsp;</td>
+					 <td class="FontNormal">Calle: LASALLE Nª 1699 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0223) 4792474-cel-156804842					</td>
+					<td class="FontNormal">musumeci@copetel.com.ar</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">424</span></td>
+					 <td class="FontNormal">
+				     Najera,  Daniel Oscar					 </td>
+					 <td class="FontNormal">DNI 12410671&nbsp;</td>
+					 <td class="FontNormal">Calle: 26  - Nro: 1512 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 4517505					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">410</span></td>
+					 <td class="FontNormal">
+				     NOIOSI, MIGUEL ANGEL					 </td>
+					 <td class="FontNormal">DNI 10716001&nbsp;</td>
+					 <td class="FontNormal">Calle: YERBAL   - Nro: 4578 Dpto: DPTO. A Piso: PB. </td>
+					<td class="FontNormal">
+				    Tel: (011)  4672-7438					</td>
+					<td class="FontNormal">manoiosi@deriplom.com.ar</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Especialista en Ingenieria Ambiental					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">52</span></td>
+					 <td class="FontNormal">
+				     OTEGUI, FERNANDO  CARLOS					 </td>
+					 <td class="FontNormal">DNI 12428183&nbsp;</td>
+					 <td class="FontNormal">Calle: MISIONES - Nro: 3924 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0223)   473-5098					</td>
+					<td class="FontNormal">ing.otegui@gmail.com</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">132</span></td>
+					 <td class="FontNormal">
+				     PALADINO, ARMANDO  JORGE					 </td>
+					 <td class="FontNormal">LE 8352811&nbsp;</td>
+					 <td class="FontNormal">Calle: 4 - Nro: 1272 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 230344					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico,Ingeniero Electricista					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">340</span></td>
+					 <td class="FontNormal">
+				     PAPINESCHI, ALEJANDRO					 </td>
+					 <td class="FontNormal">DNI 13444072&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 11 N° 3718 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 4216-5183					</td>
+					<td class="FontNormal">ahsconsultores@hotmail.com</td>
+					 <td class="FontNormal">
+				     BERAZATEGUI					 </td>
+					  <td class="FontNormal">
+				      BERAZATEGUI					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Electricista					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">69</span></td>
+					 <td class="FontNormal">
+				     PARAVISI, ALFREDO  ANGEL					 </td>
+					 <td class="FontNormal">DNI 11319244&nbsp;</td>
+					 <td class="FontNormal">Calle: Videla  n° 938 - Nro: 939 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 2231230					</td>
+					<td class="FontNormal">aaparavisi@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     BERAZATEGUI					 </td>
+					  <td class="FontNormal">
+				      BERAZATEGUI					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">8</span></td>
+					 <td class="FontNormal">
+				     PARDAL, JUAN PABLO					 </td>
+					 <td class="FontNormal">DNI 7651642&nbsp;</td>
+					 <td class="FontNormal">Calle: LOS RECUERDOS   - Nro: 586 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)   4642-7330					</td>
+					<td class="FontNormal">juanpablopardal@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">464</span></td>
+					 <td class="FontNormal">
+				     Pascual, Alejandro Damian					 </td>
+					 <td class="FontNormal">DNI 32193750&nbsp;</td>
+					 <td class="FontNormal">Calle: 72 - Nro: 960 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 221155225833					</td>
+					<td class="FontNormal">alejandrodamianpascual@gmail.com</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">405</span></td>
+					 <td class="FontNormal">
+				     Pascuet, Lucas					 </td>
+					 <td class="FontNormal">DNI 24497042&nbsp;</td>
+					 <td class="FontNormal">Calle: Ing. Emilio Mitre - Nro: 1323 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011-4443-3440					</td>
+					<td class="FontNormal">lucas@sauberingenieria.com</td>
+					 <td class="FontNormal">
+				     MORON					 </td>
+					  <td class="FontNormal">
+				      HAEDO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">40</span></td>
+					 <td class="FontNormal">
+				     PASTOR, ALBERTO  MARIO					 </td>
+					 <td class="FontNormal">LE 7848327&nbsp;</td>
+					 <td class="FontNormal">Calle:  - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 220476597					</td>
+					<td class="FontNormal">pastoralberto@speeedy.com.ar</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Electricista					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">220</span></td>
+					 <td class="FontNormal">
+				     PEDERNERA, EDGARDO  ANGEL					 </td>
+					 <td class="FontNormal">DNI 10954355&nbsp;</td>
+					 <td class="FontNormal">Calle: MARIANO ACOSTA - Nro: 206 Dpto: 6 Piso: B</td>
+					<td class="FontNormal">
+				    Tel: (011)  42813037					</td>
+					<td class="FontNormal">ingpedernera@fibertel.com.ar</td>
+					 <td class="FontNormal">
+				     ESTEBAN ECHEVERRIA					 </td>
+					  <td class="FontNormal">
+				      MONTE GRANDE					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">444</span></td>
+					 <td class="FontNormal">
+				     PELUFFO, MARIANO					 </td>
+					 <td class="FontNormal">DNI 25570355&nbsp;</td>
+					 <td class="FontNormal">Calle: 43 bis - Nro: 80 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 054-0221-15-5573621					</td>
+					<td class="FontNormal">marianpelu@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">2</span></td>
+					 <td class="FontNormal">
+				     PEREZ CHAVEZ, EDUARDO ANTONIO					 </td>
+					 <td class="FontNormal">DNI 7786662&nbsp;</td>
+					 <td class="FontNormal">Calle: L0RIA N°323  8º PISO DPT. D - Nro: 323 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 4245-5570/95					</td>
+					<td class="FontNormal">GERENCIA@Q3BUREAU.NET</td>
+					 <td class="FontNormal">
+				     LOMAS DE ZAMORA					 </td>
+					  <td class="FontNormal">
+				      LOMAS DE ZAMORA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">158</span></td>
+					 <td class="FontNormal">
+				     PETERSEN, JOSÉ  EMILIO					 </td>
+					 <td class="FontNormal">LE 4361165&nbsp;</td>
+					 <td class="FontNormal">Calle: PELLERANO  N° 761 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)4 2945992					</td>
+					<td class="FontNormal">ingepetersen2000@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     ALMIRANTE BROWN					 </td>
+					  <td class="FontNormal">
+				      ALMIRANTE BROWN					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">81</span></td>
+					 <td class="FontNormal">
+				     PICCIONE, NUNCIO					 </td>
+					 <td class="FontNormal">DNI 13615176&nbsp;</td>
+					 <td class="FontNormal">Calle: GRAL. ALVAREZ  - Nro: 944 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 425-13438					</td>
+					<td class="FontNormal">mysingenieria@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     QUILMES					 </td>
+					  <td class="FontNormal">
+				      BERNAL					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">308</span></td>
+					 <td class="FontNormal">
+				     PIRIS ,  SEGUNDO					 </td>
+					 <td class="FontNormal">DNI 12195531&nbsp;</td>
+					 <td class="FontNormal">Calle: COLON            108 - Nro: 108 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 02281-433686					</td>
+					<td class="FontNormal">pamyher@ciudad.com.ar</td>
+					 <td class="FontNormal">
+				     AZUL					 </td>
+					  <td class="FontNormal">
+				      AZUL					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Electromecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">247</span></td>
+					 <td class="FontNormal">
+				     PONTALTI, ADAM MARCELO J.					 </td>
+					 <td class="FontNormal">DNI 13424604&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 147  N° 1713 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0221)   4506271					</td>
+					<td class="FontNormal">marcelo.pontalti@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Electricista					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">467</span></td>
+					 <td class="FontNormal">
+				     Pontalti, Cristian Adrian					 </td>
+					 <td class="FontNormal">DNI 33640040&nbsp;</td>
+					 <td class="FontNormal">Calle: 11 e/ Montevideo y 166 - Nro: 4432 Dpto: 4 Piso: </td>
+					<td class="FontNormal">
+				    Tel: 221 15 5450581					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     BERISSO					 </td>
+					  <td class="FontNormal">
+				      BERISSO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">119</span></td>
+					 <td class="FontNormal">
+				     PORTERIE, JUAN CARLOS					 </td>
+					 <td class="FontNormal">DNI 4649172&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 21  N°1543 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0221)4522514					</td>
+					<td class="FontNormal">GULMEZ@ARNET.COM.AR</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">345</span></td>
+					 <td class="FontNormal">
+				     POZZI, VICTOR MANUEL					 </td>
+					 <td class="FontNormal">DNI 21543393&nbsp;</td>
+					 <td class="FontNormal">Calle: AYACUCHO  - Nro: 2768 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (02284 ) 414463					</td>
+					<td class="FontNormal">ingpozzi@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     OLAVARRIA					 </td>
+					  <td class="FontNormal">
+				      OLAVARRIA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Electromecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">452</span></td>
+					 <td class="FontNormal">
+				     PUA, LEANDRO AGUSTIN					 </td>
+					 <td class="FontNormal">DNI 23393942&nbsp;</td>
+					 <td class="FontNormal">Calle: belgrano - Nro: 1575 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0223-15-8406614					</td>
+					<td class="FontNormal">agustinpua@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     GENERAL MADARIAGA					 </td>
+					  <td class="FontNormal">
+				      GENERAL MADARIAGA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecanico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">225</span></td>
+					 <td class="FontNormal">
+				     QUAINI, RICARDO  MANUEL					 </td>
+					 <td class="FontNormal">DNI 8347347&nbsp;</td>
+					 <td class="FontNormal">Calle: LA RIOJA  - Nro: Nº 933 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 4252-0385 Fax: (011)  4259-2295					</td>
+					<td class="FontNormal">ingenieria@editecsrl.com.ar</td>
+					 <td class="FontNormal">
+				     QUILMES					 </td>
+					  <td class="FontNormal">
+				      QUILMES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">79</span></td>
+					 <td class="FontNormal">
+				     RAGO, ANTONIO FORTUNATO					 </td>
+					 <td class="FontNormal">DNI 14726160&nbsp;</td>
+					 <td class="FontNormal">Calle: AV. RICARDO BALBIN - Nro: 295 Dpto: 1 Piso: 1</td>
+					<td class="FontNormal">
+				    Tel: (011)  4451-9014					</td>
+					<td class="FontNormal">info@consultorarago.com.ar</td>
+					 <td class="FontNormal">
+				     SAN MIGUEL					 </td>
+					  <td class="FontNormal">
+				      SAN MIGUEL					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">373</span></td>
+					 <td class="FontNormal">
+				     RAMIREZ, MIGUEL ANGEL					 </td>
+					 <td class="FontNormal">DNI 14748451&nbsp;</td>
+					 <td class="FontNormal">Calle: AVELLANEDA  - Nro: 1780 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0291) 4514034 Fax: 154229250					</td>
+					<td class="FontNormal">marmiguel70@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">78</span></td>
+					 <td class="FontNormal">
+				     RAPISARDI, ALBERTO RAFAEL					 </td>
+					 <td class="FontNormal">DNI 11221723&nbsp;</td>
+					 <td class="FontNormal">Calle: C 54 MITRE N° 3743   2DO.PISO  B. - Nro: 3743 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011) 47534746					</td>
+					<td class="FontNormal">OFICINA@ALMASERVICIOSGRAFICOS.COM</td>
+					 <td class="FontNormal">
+				     MORENO					 </td>
+					  <td class="FontNormal">
+				      GENERAL SAN MARTIN					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">422</span></td>
+					 <td class="FontNormal">
+				     RE , DANIEL ENRIQUE					 </td>
+					 <td class="FontNormal">DNI 11424518&nbsp;</td>
+					 <td class="FontNormal">Calle: HUMBERTO PRIMO - Nro: 3580 Dpto:  Piso: 2 A</td>
+					<td class="FontNormal">
+				    Tel: 4932-6835					</td>
+					<td class="FontNormal">dare2002ar@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">125</span></td>
+					 <td class="FontNormal">
+				     RICCA ,  DANIEL					 </td>
+					 <td class="FontNormal">LE 7826902&nbsp;</td>
+					 <td class="FontNormal">Calle: DIRECTORIO     Nº1040 - Nro: 1040 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 02320-492720					</td>
+					<td class="FontNormal">danielricca@danielricca.com</td>
+					 <td class="FontNormal">
+				     MALVINAS ARGENTINAS					 </td>
+					  <td class="FontNormal">
+				      DON TORCUATO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">144</span></td>
+					 <td class="FontNormal">
+				     RIPOLL, CARLOS MIGUEL					 </td>
+					 <td class="FontNormal">LE 5474024&nbsp;</td>
+					 <td class="FontNormal">Calle: ALSINA Nº 2076 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0284) 28613					</td>
+					<td class="FontNormal">cmripoll@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     OLAVARRIA					 </td>
+					  <td class="FontNormal">
+				      OLAVARRIA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">425</span></td>
+					 <td class="FontNormal">
+				     Rodriguez de Paola,  Carlos					 </td>
+					 <td class="FontNormal">LE 4552863&nbsp;</td>
+					 <td class="FontNormal">Calle: Rodolfo Alsina - Nro: 1339 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 479798594					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     VICENTE LOPEZ					 </td>
+					  <td class="FontNormal">
+				      VICENTE LOPEZ					  </td>
+					  <td class="FontNormal">
+				      INGENIERO ELECTROMECANICO CON OR. MECANICA					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">390</span></td>
+					 <td class="FontNormal">
+				     Rodriguez Mendoza, Juan Pablo					 </td>
+					 <td class="FontNormal">DNI 22507322&nbsp;</td>
+					 <td class="FontNormal">Calle: Saavedra Lamas - Nro: 3395 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0291-15-5766613					</td>
+					<td class="FontNormal">juan.pablo@ingysol.com.ar</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">284</span></td>
+					 <td class="FontNormal">
+				     ROSAS COSTA , TULIO CESAR					 </td>
+					 <td class="FontNormal">DNI 10923827&nbsp;</td>
+					 <td class="FontNormal">Calle: LA PAMPA N° 5321 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)  42522-9372					</td>
+					<td class="FontNormal">cesar_jul@hotmail.com</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico,Ingeniero Laboral,Licenciado en Higiene y Seguridad  en el Trabajo					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">446</span></td>
+					 <td class="FontNormal">
+				     RUBIO, JUAN JOSE					 </td>
+					 <td class="FontNormal">DNI 14018898&nbsp;</td>
+					 <td class="FontNormal">Calle: SAN MARTIN - Nro: 1931 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 02317433186					</td>
+					<td class="FontNormal"></td>
+					 <td class="FontNormal">
+				     NUEVE DE JULIO					 </td>
+					  <td class="FontNormal">
+				      NUEVE DE JULIO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Construcciones,Ingeniero en Higiene y Seguridad  en el Trabajo					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">38</span></td>
+					 <td class="FontNormal">
+				     SABIO, JUAN LORENZO					 </td>
+					 <td class="FontNormal">DNI 10881714&nbsp;</td>
+					 <td class="FontNormal">Calle: DE LAS CAÑONERAS - Nro: 369 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)  44502219					</td>
+					<td class="FontNormal">sabio@sinectis.com.ar</td>
+					 <td class="FontNormal">
+				     ITUZAINGO					 </td>
+					  <td class="FontNormal">
+				      ITUZAINGO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">413</span></td>
+					 <td class="FontNormal">
+				     SALVINI, PABLO GUSTAVO					 </td>
+					 <td class="FontNormal">DNI 24815159&nbsp;</td>
+					 <td class="FontNormal">Calle: Necochea  - Nro: 4759 Dpto: B Piso: 1</td>
+					<td class="FontNormal">
+				    Tel: 0223-155402705					</td>
+					<td class="FontNormal">psalvini@igestudio.com.ar</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Electromecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">303</span></td>
+					 <td class="FontNormal">
+				     SANCHEZ, FRANCISCO					 </td>
+					 <td class="FontNormal">DNI 7695127&nbsp;</td>
+					 <td class="FontNormal">Calle: ITALIA  - Nro: N°  887 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0291) 4535930 Fax: (0291)  4535930					</td>
+					<td class="FontNormal">SOLROCIO@BVCONLINE.COM.AR</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">22</span></td>
+					 <td class="FontNormal">
+				     SANSOGNI, HECTOR OSVALDO					 </td>
+					 <td class="FontNormal">DNI 8383897&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 55 Nº 1362 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel:   (0221) 4844613					</td>
+					<td class="FontNormal">sgasesores@fibertel.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">27</span></td>
+					 <td class="FontNormal">
+				     SANTIPOLO, TULIO DARIO					 </td>
+					 <td class="FontNormal">DNI 21447659&nbsp;</td>
+					 <td class="FontNormal">Calle: BELGRANO 3238 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 2234943129 Fax: 2234919106					</td>
+					<td class="FontNormal">tuliosan@hotmail.com</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">437</span></td>
+					 <td class="FontNormal">
+				     Santoro, Guillermo Eduardo					 </td>
+					 <td class="FontNormal">DNI 12705919&nbsp;</td>
+					 <td class="FontNormal">Calle: Francisco Boga - Nro: 1569 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011-42992551					</td>
+					<td class="FontNormal">santoroguille@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     ALMIRANTE BROWN					 </td>
+					  <td class="FontNormal">
+				      BURZACO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">286</span></td>
+					 <td class="FontNormal">
+				     SCAVUZZO ,  RICARDO					 </td>
+					 <td class="FontNormal">LE 8316833&nbsp;</td>
+					 <td class="FontNormal">Calle: INTE. OLIVERI     - Nro: 344 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011-4254-4103					</td>
+					<td class="FontNormal">rjs50@hotmail.com</td>
+					 <td class="FontNormal">
+				     QUILMES					 </td>
+					  <td class="FontNormal">
+				      QUILMES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">299</span></td>
+					 <td class="FontNormal">
+				     Schamber, Mauricio					 </td>
+					 <td class="FontNormal">DNI 25990568&nbsp;</td>
+					 <td class="FontNormal">Calle: Roque Saenz Peña - Nro: 244 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 02926-423697					</td>
+					<td class="FontNormal">mschamber78@gmail.com</td>
+					 <td class="FontNormal">
+				     CORONEL SUAREZ					 </td>
+					  <td class="FontNormal">
+				      CORONEL SUAREZ					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Químico,especialista en higiene y seguridad en el trabajo					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">239</span></td>
+					 <td class="FontNormal">
+				     SCHAMUN, SANTIAGO					 </td>
+					 <td class="FontNormal">DNI 22349160&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE  2 - Nro: 406 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0221)  4830018					</td>
+					<td class="FontNormal">sschamun@hotmail.com</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">170</span></td>
+					 <td class="FontNormal">
+				     SEDRANI ,  JUAN ALBERTO					 </td>
+					 <td class="FontNormal">DNI 14425502&nbsp;</td>
+					 <td class="FontNormal">Calle: MISIONES         - Nro: 1232 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0223-4734176					</td>
+					<td class="FontNormal">sedrani@sinectis.com.ar</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">9</span></td>
+					 <td class="FontNormal">
+				     SENDIN, ALEJANDRO MARIO					 </td>
+					 <td class="FontNormal">DNI 14269239&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 16 N° 578 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0221) 4244182					</td>
+					<td class="FontNormal">sendin@infovia.com.ar</td>
+					 <td class="FontNormal">
+				     LA PLATA					 </td>
+					  <td class="FontNormal">
+				      LA PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico,Especialista en Ingenieria Ambiental					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">277</span></td>
+					 <td class="FontNormal">
+				     SERDEIRO, EDUARDO FABIAN					 </td>
+					 <td class="FontNormal">DNI 20967110&nbsp;</td>
+					 <td class="FontNormal">Calle: EL PROGRESO N° 1507 - Nro: 1507 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (02323) 436346 Fax: (02325)-15681195					</td>
+					<td class="FontNormal">consultora.serdeiro@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     LUJAN					 </td>
+					  <td class="FontNormal">
+				      LUJAN					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">21</span></td>
+					 <td class="FontNormal">
+				     SERRANO, SERGIO  OMAR					 </td>
+					 <td class="FontNormal">DNI 18454347&nbsp;</td>
+					 <td class="FontNormal">Calle:  - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 2234728558					</td>
+					<td class="FontNormal">-</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">10</span></td>
+					 <td class="FontNormal">
+				     SIMONINI, OSVALDO DANIEL					 </td>
+					 <td class="FontNormal">DNI 12703867&nbsp;</td>
+					 <td class="FontNormal">Calle: ARCE  - Nro:  Nï¿½ 957 PISO  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)   32214000					</td>
+					<td class="FontNormal">osvaldo.simonini@ecotec.com.ar</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Electromecánico,Orientacion Mecanica					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">114</span></td>
+					 <td class="FontNormal">
+				     SIRIO, NORBERTO					 </td>
+					 <td class="FontNormal">DNI 7767947&nbsp;</td>
+					 <td class="FontNormal">Calle: AV. ALVAREZ THOMAS N° 3036 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 5228340					</td>
+					<td class="FontNormal">norbertosirio@gmail.com</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">143</span></td>
+					 <td class="FontNormal">
+				     SPADAFORA, HECTOR					 </td>
+					 <td class="FontNormal">DNI 4302378&nbsp;</td>
+					 <td class="FontNormal">Calle: GUATAMBU Nª 74 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 20823298					</td>
+					<td class="FontNormal">h.spadafora@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     MERLO					 </td>
+					  <td class="FontNormal">
+				      MERLO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Electromecánico or Electricista					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">92</span></td>
+					 <td class="FontNormal">
+				     SPIES ,  JOSE					 </td>
+					 <td class="FontNormal">LE 5068437&nbsp;</td>
+					 <td class="FontNormal">Calle: M. DONNEL       1151 - Nro: 1151 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 03496-42-2077					</td>
+					<td class="FontNormal">sergiosimonetto@lito-gonella.com</td>
+					 <td class="FontNormal">
+				     MALVINAS ARGENTINAS					 </td>
+					  <td class="FontNormal">
+				      DON TORCUATO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">254</span></td>
+					 <td class="FontNormal">
+				     SPINI, JUAN CARLOS					 </td>
+					 <td class="FontNormal">DNI 11338362&nbsp;</td>
+					 <td class="FontNormal">Calle: CARHUE      - Nro: 2585 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)  5776-7037					</td>
+					<td class="FontNormal">jcspini@ciudad.com.ar - juancarlos.spini@camuzziga.com.ar</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">96</span></td>
+					 <td class="FontNormal">
+				     SUCHMON, JUAN CARLOS					 </td>
+					 <td class="FontNormal">DNI 10385983&nbsp;</td>
+					 <td class="FontNormal">Calle: Hidalgo n° 462 Piso 6° Dpto. A - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)  49016193					</td>
+					<td class="FontNormal">suchmon@fibertel.com.ar</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">49</span></td>
+					 <td class="FontNormal">
+				     TRAVERSO ,  ERNESTO					 </td>
+					 <td class="FontNormal">LE 5087333&nbsp;</td>
+					 <td class="FontNormal">Calle: SAN LORENZO   - Nro: 276 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 02352-450898					</td>
+					<td class="FontNormal">INGENIERIATRAVERSO@GMAIL.COM</td>
+					 <td class="FontNormal">
+				     CHACABUCO					 </td>
+					  <td class="FontNormal">
+				      CHACABUCO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">416</span></td>
+					 <td class="FontNormal">
+				     Traverso, Paulo Luis					 </td>
+					 <td class="FontNormal">DNI 28300471&nbsp;</td>
+					 <td class="FontNormal">Calle: Cervantes - Nro: 129 Dpto: 1 Piso: </td>
+					<td class="FontNormal">
+				    Tel: 02352-15405399					</td>
+					<td class="FontNormal">pltraver2002@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     CHACABUCO					 </td>
+					  <td class="FontNormal">
+				      CHACABUCO					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">330</span></td>
+					 <td class="FontNormal">
+				     URRISTI, CESAR  HECTOR					 </td>
+					 <td class="FontNormal">DNI 11364451&nbsp;</td>
+					 <td class="FontNormal">Calle: CORONEL   SUAREZ - Nro: 1655 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0223 ) 4781972					</td>
+					<td class="FontNormal">churristi@speedy.com.ar</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">249</span></td>
+					 <td class="FontNormal">
+				     VALMALA, MARIO ALBERTO					 </td>
+					 <td class="FontNormal">DNI 7656564&nbsp;</td>
+					 <td class="FontNormal">Calle: MAIPU N° 4169 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)  46576723					</td>
+					<td class="FontNormal">mvtecnica@arnet.com.ar</td>
+					 <td class="FontNormal">
+				     TRES DE FEBRERO					 </td>
+					  <td class="FontNormal">
+				      CIUDADELA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Industrial					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">116</span></td>
+					 <td class="FontNormal">
+				     VELARDO ,  JOSE					 </td>
+					 <td class="FontNormal">DNI 93202498&nbsp;</td>
+					 <td class="FontNormal">Calle: GABOTO    - Nro: 5328 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011-4269-8905 1544277343					</td>
+					<td class="FontNormal">josevelardo_ing@hotmail.com</td>
+					 <td class="FontNormal">
+				     ALMIRANTE BROWN					 </td>
+					  <td class="FontNormal">
+				      ADROGUE					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">4</span></td>
+					 <td class="FontNormal">
+				     VEZIN ,  GERMAN					 </td>
+					 <td class="FontNormal">CF 4597142&nbsp;</td>
+					 <td class="FontNormal">Calle: POTOSI             2055 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 011-4757-4990					</td>
+					<td class="FontNormal">gvezin@arnet.com.ar</td>
+					 <td class="FontNormal">
+				     					 </td>
+					  <td class="FontNormal">
+				      					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Electromecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">24</span></td>
+					 <td class="FontNormal">
+				     VILLANUEVA ,  CARLOS					 </td>
+					 <td class="FontNormal">LE 4415491&nbsp;</td>
+					 <td class="FontNormal">Calle: LA PAMPA         - Nro: 3049 7 A Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: 0114652-9728					</td>
+					<td class="FontNormal">ingevill@uolsinectis.com.ar</td>
+					 <td class="FontNormal">
+				     CIUDAD AUTONOMA DE BUENOS AIRES					 </td>
+					  <td class="FontNormal">
+				      CIUDAD AUTONOMA DE BUENOS AIRES					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Electromecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">402</span></td>
+					 <td class="FontNormal">
+				     Volpe, Agustin Horacio					 </td>
+					 <td class="FontNormal">DNI 28501540&nbsp;</td>
+					 <td class="FontNormal">Calle: Hipolito Irigoyen - Nro: 511 Dpto: A Piso: 2</td>
+					<td class="FontNormal">
+				    Tel: 02914591400 Fax: 02914591661					</td>
+					<td class="FontNormal">avolpe@dow.com</td>
+					 <td class="FontNormal">
+				     BAHIA BLANCA					 </td>
+					  <td class="FontNormal">
+				      BAHIA BLANCA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">210</span></td>
+					 <td class="FontNormal">
+				     VOLPINI, EDGARDO  ERNESTO					 </td>
+					 <td class="FontNormal">DNI 7788211&nbsp;</td>
+					 <td class="FontNormal">Calle: CALLE 313 N° 869 - Nro:  Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (011)  4258-0149					</td>
+					<td class="FontNormal">-</td>
+					 <td class="FontNormal">
+				     BERAZATEGUI					 </td>
+					  <td class="FontNormal">
+				      BERAZATEGUI					  </td>
+					  <td class="FontNormal">
+				      Ingeniero en Seguridad e Higiene,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						<tr class="FontNormal">
+  					<td>Profesionales de Aparatos Sometidos A Presión</td>
+					 <td>
+				       <span class="FontNormal">122</span></td>
+					 <td class="FontNormal">
+				     ZABALA, JORGE  NORBERTO					 </td>
+					 <td class="FontNormal">DNI 5488433&nbsp;</td>
+					 <td class="FontNormal">Calle: FALUCHO  N°3525 - Nro: 3525 Dpto:  Piso: </td>
+					<td class="FontNormal">
+				    Tel: (0223)-6266136 Fax: 0223-6266469					</td>
+					<td class="FontNormal">alingzabala@yahoo.com.ar</td>
+					 <td class="FontNormal">
+				     GENERAL PUEYRREDON					 </td>
+					  <td class="FontNormal">
+				      MAR DEL PLATA					  </td>
+					  <td class="FontNormal">
+				      Ingeniero Laboral,Ingeniero Mecánico					  </td>
+
+  </tr>
+
+						</tbody></table>
+ 
+</div>
+</div>
+<!--<script type="text/javascript">
+  $(document).ready(function () {
+    $(".nmt").each(function() {
+    var nmtTable = $(this);
+    var nmtHeadRow = nmtTable.find("thead tr");
+    nmtTable.find("tbody tr").each(function () {
+    var curRow = $(this);
+    for (var i = 0; i < curRow.find("td").length; i++) {
+    var rowSelector = "td:eq(" + i + ")";
+    var headSelector = "th:eq(" + i + ")";
+    curRow.find(rowSelector).attr('data-title', nmtHeadRow.find(headSelector).html());
+    }
+    });
+
+    });
+});
+</script>-->
+</body></html>

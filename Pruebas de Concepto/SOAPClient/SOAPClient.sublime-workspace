@@ -1,0 +1,383 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"eva",
+				"Evaluacion"
+			],
+			[
+				"evalua",
+				"Evaluación"
+			],
+			[
+				"col",
+				"col-md-6"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"Registro",
+				"REGISTRO"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"col-md",
+				"col-md-6"
+			],
+			[
+				"php",
+				"phpversion"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "TestPage.php",
+			"settings":
+			{
+				"buffer_size": 1403,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "SOAPClient.sublime-project",
+			"settings":
+			{
+				"buffer_size": 169,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 104.0,
+		"last_filter": "install ",
+		"selected_items":
+		[
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Apache24/htdocs/SOAPClient",
+		"/C/Apache24/htdocs/SOAPClient/.settings"
+	],
+	"file_history":
+	[
+		"/C/Apache24/htdocs/SOAPClient/SOAPClient.sublime-project",
+		"/C/Apache24/conf/httpd.conf",
+		"/C/Apache24/htdocs/SOAPClient/PhpUtils.php",
+		"/C/Users/cipollonel/AppData/Roaming/Sublime Text 3/Packages/Xdebug Client/Xdebug.sublime-settings",
+		"/C/Users/cipollonel/AppData/Roaming/Sublime Text 3/Packages/User/Xdebug.sublime-settings",
+		"/C/Users/cipollonel/Desktop/Consulta responsive.html",
+		"/C/Users/cipollonel/Downloads/ConsultaCertificados.php",
+		"/C/Users/cipollonel/Desktop/Original.html",
+		"/C/Users/cipollonel/Desktop/general.css",
+		"/C/Users/cipollonel/Desktop/style.css",
+		"/C/Users/cipollonel/Desktop/Divs.html",
+		"/C/Users/cipollonel/Desktop/base.css",
+		"/C/Users/cipollonel/Desktop/Live Search.html",
+		"/C/Users/cipollonel/AppData/Roaming/Sublime Text 3/Packages/User/PHP Companion.sublime-settings",
+		"/C/Users/cipollonel/AppData/Roaming/Sublime Text 3/Packages/Browser Refresh/Default (Windows).sublime-keymap",
+		"/C/Users/cipollonel/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Apache24/htdocs/info.php",
+		"/C/php/php.ini",
+		"/U/SOAPClient",
+		"/C/Desarrollo/Projects/FirmaDigital/Esignature_src/iTextSharpSign/PDFSigner.cs",
+		"/C/Desarrollo/Projects/FirmaDigital/Esignature_src/iTextSharpSign/Form1.cs",
+		"/C/Users/cipollonel/Sublime.bat",
+		"/U/xDebug - To do list"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"debug",
+			"Firefox",
+			"<option value=\"",
+			"subti",
+			"submi",
+			"nmt",
+			"font-size",
+			"\"divTableCell col-md-1\"",
+			"\"divTableCell\"",
+			"\"divTableRow\"",
+			"enviaform(",
+			"restablecer",
+			"enviaform1(",
+			"enviaform(",
+			"\"hidden\"",
+			"REQUEST_METHOD",
+			"\"hidden\"",
+			"open",
+			"openssl",
+			"soap",
+			"extension_dir",
+			"xdebug",
+			"xdebub",
+			"php_",
+			"[DEBUG]"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"<option data-tokens=\"a\" value=\"",
+			"\"divTableCell\"",
+			"\"divTableCell col-md-1\"",
+			"\"divTableRow row\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "TestPage.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1403,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								95,
+								109
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "SOAPClient.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 169,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "SOAPClient.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false,
+			"restore_index":
+			{
+				"17":
+				{
+					"group": 0,
+					"index": 0
+				},
+				"22":
+				{
+					"group": 0,
+					"index": 1
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 455.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
