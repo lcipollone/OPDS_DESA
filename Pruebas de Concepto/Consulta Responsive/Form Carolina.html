@@ -1,0 +1,72 @@
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid">
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="col-md-2 control-label">Generador: </label>
+        <div class="col-md-10">
+                <input id="txtGenerador" class="col-md-6 form-control" maxlength="50" name="txtGenerador" size="20" type="text" value=""/>
+            <div class="row">
+                <div class="col-offset-2 col-md-10">
+                    <label class="">Otra Jurisdicción?</label>
+                    <input class="" id="ck_otra" checked="checked" name="ck_otra" type="checkbox" value="Otra" />
+                    <input id="hGenerador" class="form-control" name="hGenerador" type="hidden" value=""/> &nbsp;&nbsp;
+                    <input name="BuscarGenerador" type="submit" value="Buscar Generador" class="btn btn-default btn-xs" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <select class="form-control" name="Generador" onchange="">
+                        <option value="0">Todos</option>
+                        <?
+                        $_
+                        ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Operador:</label>
+        <div class="col-md-10">
+        <select id="Operador" class="form-control" name="Operador" onchange="">
+                <option value="0">Todos</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Tipo de Manifiesto:</label>
+        <div class="col-md-10">
+            <select id="EstadosR" class="form-control" name="EstadosR" onchange="submit();">
+                    <option value="0">Todos</option>
+                    <option selected="selected" value="E">Especiales</option>
+                    <option selected="selected" value="N">No Especiales</option>
+                    <option selected="selected" value="P">Patogenicos</option>
+                </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Residuos: </label>
+        <div class="col-md-10">
+            <select id="Residuos" class="form-control selectpicker" multiple="multiple" name="Residuos">
+                    <option value="0">Todos</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Tipo Tratamiento: </label>
+        <div class="col-md-10">
+            <select id="Tratamiento" class="form-control" name="Tratamiento" onchange="">
+                <option value="0">--</option>
+            </select>
+        </div>
+    </div>
+    </form>
+</div>
+</body>
+</html>
