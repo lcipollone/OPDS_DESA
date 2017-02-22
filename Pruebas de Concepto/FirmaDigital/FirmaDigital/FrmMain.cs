@@ -18,6 +18,10 @@ namespace FirmaDigital
 {
     public partial class FrmMain : Form
     {
+        X509Store store;
+        X509Certificate2 cert;
+        X509Certificate2Collection fcollection;
+
         public FrmMain()
         {
             InitializeComponent();
@@ -84,12 +88,16 @@ namespace FirmaDigital
             debug("Iniciando ...");
             try
             {
+                /*
                 X509Store store = new X509Store("MY", StoreLocation.CurrentUser);
                 store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
                 X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
                 X509Certificate2Collection fcollection = (X509Certificate2Collection)collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
                 X509Certificate2Collection scollection = X509Certificate2UI.SelectFromCollection(fcollection, "Test Certificate Select", "Select a certificate from the following list to get information on that certificate", X509SelectionFlag.MultiSelection);
                 X509Certificate2 cert = scollection[0];
+                 */
+                X509Certificate2Collection scollection = X509Certificate2UI.SelectFromCollection(fcollection, "Test Certificate Select", "Select a certificate from the following list to get information on that certificate", X509SelectionFlag.MultiSelection);
+                cert = scollection[0];
                 
                 debug("Certificado OK");
            
@@ -152,5 +160,78 @@ namespace FirmaDigital
             return ms.ToArray();
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAbrirArchivo_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog openFile;
+            openFile = new System.Windows.Forms.OpenFileDialog();
+            openFile.Filter = "PDF files *.pdf|*.pdf";
+            openFile.Title = "Select a file";
+            if (openFile.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            this.btnLimpiar_Click(sender, e);
+
+            inputBox.Text = openFile.FileName;
+
+            PdfReader reader = new PdfReader(inputBox.Text);
+            string xmlValue;
+
+            authorBox.Text = reader.Info.ContainsKey("Author") ? reader.Info["Author"] : "";
+            titleBox.Text = reader.Info.ContainsKey("Title") ? reader.Info["Title"] : "";
+            subjectBox.Text = reader.Info.ContainsKey("Subject") ? reader.Info["Subject"] : "";
+            if (reader.Info.TryGetValue("Keywords", out xmlValue))
+            {
+                kwBox.Text = xmlValue;
+            }
+            creatorBox.Text = reader.Info.ContainsKey("Creator") ? reader.Info["Creator"] : "";
+            prodBox.Text = reader.Info.ContainsKey("Producer") ? reader.Info["Producer"] : "";
+
+            this.HabilitarControles();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.inputBox.Text = "";
+            this.outputBox.Text = "";
+            this.authorBox.Text = "";
+            this.titleBox.Text = "";
+            this.subjectBox.Text = "";
+            this.kwBox.Text = "";
+            this.creatorBox.Text = "";
+            this.prodBox.Text = "";
+
+            //Read Only los campos
+            this.authorBox.ReadOnly = true;
+            this.titleBox.ReadOnly = true;
+            this.subjectBox.ReadOnly = true;
+            this.kwBox.ReadOnly = true;
+            this.creatorBox.ReadOnly = true;
+            this.prodBox.ReadOnly = true;
+        }
+
+        private void HabilitarControles() 
+        {
+            this.authorBox.ReadOnly = false;
+            this.titleBox.ReadOnly = false;
+            this.subjectBox.ReadOnly = false;
+            this.kwBox.ReadOnly = false;
+            this.creatorBox.ReadOnly = false;
+            this.prodBox.ReadOnly = false;
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            store = new X509Store("MY", StoreLocation.CurrentUser);
+            store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
+            X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
+            fcollection = (X509Certificate2Collection)collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
+        }
     }
 }
