@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -71,20 +72,10 @@ namespace FirmaDigital
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            System.Windows.Forms.OpenFileDialog openFile;
-            openFile = new System.Windows.Forms.OpenFileDialog();
-            openFile.Filter = "Certificate files *.cer|*.cer"; //"Certificate files *.pfx|*.pfx";
-            openFile.Title = "Select a file";
-            if (openFile.ShowDialog() != DialogResult.OK)
-                return;
-
-            certTextBox.Text = openFile.FileName;
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
+            // CHEQUEAR CONFIGURACION
+            // CHEQUEAR LOS CAMPOS CARGADOS
             debug("Iniciando ...");
             try
             {
@@ -104,7 +95,7 @@ namespace FirmaDigital
                 PdfReader reader = new PdfReader(this.inputBox.Text);
 
                 string SourcePdfFileName = this.inputBox.Text;
-                string DestPdfFileName = this.outputBox.Text;
+                string DestPdfFileName = ConfiguracionRutaDestino.Text + "\\" + Path.GetFileName(this.inputBox.Text);  //this.outputBox.Text;
                 Org.BouncyCastle.X509.X509CertificateParser cp = new Org.BouncyCastle.X509.X509CertificateParser();
                 Org.BouncyCastle.X509.X509Certificate[] chain = new Org.BouncyCastle.X509.X509Certificate[] { cp.ReadCertificate(cert.RawData) };
 
@@ -160,40 +151,43 @@ namespace FirmaDigital
             return ms.ToArray();
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAbrirArchivo_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.OpenFileDialog openFile;
-            openFile = new System.Windows.Forms.OpenFileDialog();
-            openFile.Filter = "PDF files *.pdf|*.pdf";
-            openFile.Title = "Select a file";
-            if (openFile.ShowDialog() != DialogResult.OK)
+            try
             {
-                return;
+                System.Windows.Forms.OpenFileDialog openFile;
+                openFile = new System.Windows.Forms.OpenFileDialog();
+                openFile.Filter = "PDF files *.pdf|*.pdf";
+                openFile.Title = "Seleccione un archivo";
+                if (openFile.ShowDialog() != DialogResult.OK)
+                {
+                    return;
+                }
+
+                this.btnLimpiar_Click(sender, e);
+
+                inputBox.Text = openFile.FileName;
+
+                PdfReader reader = new PdfReader(inputBox.Text);
+                string xmlValue;
+
+                authorBox.Text = reader.Info.ContainsKey("Author") ? reader.Info["Author"] : "";
+                titleBox.Text = reader.Info.ContainsKey("Title") ? reader.Info["Title"] : "";
+                subjectBox.Text = reader.Info.ContainsKey("Subject") ? reader.Info["Subject"] : "";
+                if (reader.Info.TryGetValue("Keywords", out xmlValue))
+                {
+                    kwBox.Text = xmlValue;
+                }
+                creatorBox.Text = reader.Info.ContainsKey("Creator") ? reader.Info["Creator"] : "";
+                prodBox.Text = reader.Info.ContainsKey("Producer") ? reader.Info["Producer"] : "";
+
+                this.HabilitarControles();
             }
-
-            this.btnLimpiar_Click(sender, e);
-
-            inputBox.Text = openFile.FileName;
-
-            PdfReader reader = new PdfReader(inputBox.Text);
-            string xmlValue;
-
-            authorBox.Text = reader.Info.ContainsKey("Author") ? reader.Info["Author"] : "";
-            titleBox.Text = reader.Info.ContainsKey("Title") ? reader.Info["Title"] : "";
-            subjectBox.Text = reader.Info.ContainsKey("Subject") ? reader.Info["Subject"] : "";
-            if (reader.Info.TryGetValue("Keywords", out xmlValue))
+            catch (Exception ex)
             {
-                kwBox.Text = xmlValue;
+                MessageBox.Show("Ocurrió el siguiente error: " + ex, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
             }
-            creatorBox.Text = reader.Info.ContainsKey("Creator") ? reader.Info["Creator"] : "";
-            prodBox.Text = reader.Info.ContainsKey("Producer") ? reader.Info["Producer"] : "";
-
-            this.HabilitarControles();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -211,9 +205,6 @@ namespace FirmaDigital
             this.authorBox.ReadOnly = true;
             this.titleBox.ReadOnly = true;
             this.subjectBox.ReadOnly = true;
-            this.kwBox.ReadOnly = true;
-            this.creatorBox.ReadOnly = true;
-            this.prodBox.ReadOnly = true;
         }
 
         private void HabilitarControles() 
@@ -221,17 +212,69 @@ namespace FirmaDigital
             this.authorBox.ReadOnly = false;
             this.titleBox.ReadOnly = false;
             this.subjectBox.ReadOnly = false;
-            this.kwBox.ReadOnly = false;
-            this.creatorBox.ReadOnly = false;
-            this.prodBox.ReadOnly = false;
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            store = new X509Store("MY", StoreLocation.CurrentUser);
-            store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
-            X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
-            fcollection = (X509Certificate2Collection)collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
+            try
+            {
+                store = new X509Store("MY", StoreLocation.CurrentUser);
+                store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
+                X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
+                fcollection = (X509Certificate2Collection)collection.Find(X509FindType.FindByTimeValid, DateTime.Now, false);
+
+                this.SetDefaultSettings();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió el siguiente error: " + ex, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+        }
+
+        private void SetDefaultSettings()
+        {
+            //Levanta las configuraciones del archivo .config
+            string targetPath = ConfigurationManager.AppSettings["TargetPath"];
+            this.ConfiguracionRutaDestino.Text = targetPath;
+            this.SigVisible.Checked = Convert.ToBoolean(ConfigurationManager.AppSettings["VisibleSign"].ToString());
+            this.filePrefix.Text = ConfigurationManager.AppSettings["FilePrefix"]; 
+            this.fileSufix.Text = ConfigurationManager.AppSettings["FileSufix"]; 
+        }
+
+        private void btnAbrirRutaDestino_Click(object sender, EventArgs e)
+        {
+            DialogResult result = folderBrowserDlg.ShowDialog();
+            if( result == DialogResult.OK )
+            {
+                string folderName = folderBrowserDlg.SelectedPath;
+                this.ConfiguracionRutaDestino.Text = folderName;
+            }
+        }
+
+        private void btnGuardarCambios_Click(object sender, EventArgs e)
+        {
+            string targetPath = this.ConfiguracionRutaDestino.Text;
+            string sigVisible = this.SigVisible.Checked.ToString();
+            
+            Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
+            config.AppSettings.Settings["TargetPath"].Value = targetPath;
+            config.AppSettings.Settings["VisibleSign"].Value = sigVisible;
+            config.Save(ConfigurationSaveMode.Minimal);
+
+        }
+
+        private void btnDescartarCambios_Click(object sender, EventArgs e)
+        {
+            this.SetDefaultSettings();
+        }
+
+        private void btnLimpiarFirmar_Click(object sender, EventArgs e)
+        {
+            this.Reasontext.Text = "";
+            this.Contacttext.Text = "";
+            this.Locationtext.Text = "";
+            this.DebugBox.Text = "";
         }
     }
 }
