@@ -79,6 +79,8 @@ namespace FirmaDigital
             debug("Iniciando ...");
             try
             {
+                // Antes de firmar, hay que actualizar el trámite en un estado "firmando".
+                // Si la acción de firmar se lleva a cabo sin problemas, se actualiza 
                 /*
                 X509Store store = new X509Store("MY", StoreLocation.CurrentUser);
                 store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);

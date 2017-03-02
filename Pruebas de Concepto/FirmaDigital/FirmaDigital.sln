@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirmaDigital", "FirmaDigita
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetCert", "GetCert\GetCert.csproj", "{FA90DB91-CE68-4BF0-97A0-CD75FBB7FEB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBLayer", "DatabaseConnection\DBLayer.csproj", "{D2DD4782-D8E6-41D0-983F-BE083D754CDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FA90DB91-CE68-4BF0-97A0-CD75FBB7FEB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA90DB91-CE68-4BF0-97A0-CD75FBB7FEB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA90DB91-CE68-4BF0-97A0-CD75FBB7FEB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2DD4782-D8E6-41D0-983F-BE083D754CDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2DD4782-D8E6-41D0-983F-BE083D754CDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2DD4782-D8E6-41D0-983F-BE083D754CDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2DD4782-D8E6-41D0-983F-BE083D754CDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
